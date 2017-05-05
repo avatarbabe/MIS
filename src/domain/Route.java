@@ -8,7 +8,16 @@ public class Route {
 	private double emission;
 	private double fuelConsumption;
 	
-	public Route(){
-		//räknar ut hur stort utsläppet blir för en viss körd sträcka med ett visst fordon
+	private Calculator calculator;
+	
+	
+	public Route(double distance, String from, String to, double fuelConsumption){
+		this.distance = distance;
+		this.from = from;
+		this.to = to;
+		this.fuelConsumption =fuelConsumption;
+		
+		calculator = new Calculator();
+		emission = calculator.calculateRoute(distance, fuelConsumption);
 	}
 }

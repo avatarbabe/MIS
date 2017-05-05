@@ -3,8 +3,15 @@ package domain;
 public class Fuel {
 	private double volume;
 	private double emissionRate;
+	private double emission;
 	
-	public Fuel(){
-		//räknar ut hur stort utsläppet blir för en viss mängd av en viss typ av bränsle
+	private Calculator calculator;
+	
+	public Fuel(double volume, double emissionRate){
+		this.volume = volume;
+		this.emissionRate = emissionRate;
+		
+		calculator = new Calculator();
+		emission = calculator.calculateFuel(volume, emissionRate);
 	}
 }
