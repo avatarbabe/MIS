@@ -42,6 +42,7 @@ public class Login extends JPanel{
 		password.setText("Password");
 		password.setAlignmentX(CENTER_ALIGNMENT);
 		password.setMaximumSize(new Dimension(150, 20));
+		//Rensa fältet när man klickar på det
 		password.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
