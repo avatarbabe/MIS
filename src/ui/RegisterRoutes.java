@@ -9,9 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class Register extends JPanel{
+public class RegisterRoutes extends JPanel{
 	
-	public Register(){
+	public RegisterRoutes(){
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
 		

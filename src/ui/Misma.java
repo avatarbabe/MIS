@@ -16,15 +16,27 @@ public class Misma extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	private void loadLogin() {
+	public void loadLogin() {
 		getContentPane().removeAll();
-		JPanel login = new Login();
+		JPanel login = new Login(getWindow());
 		add(login);
 
 	}
 
 	public static void main(String[] args) {
 		Misma mis = new Misma();
+	}
+	
+	public Misma getWindow(){
+		return this;
+	}
+
+	public void loadRegisterRoutes() {
+		getContentPane().removeAll();
+		JPanel registerRoutes = new RegisterRoutes();
+		add(registerRoutes);
+		pack();
+		
 	}
 
 }

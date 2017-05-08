@@ -18,7 +18,7 @@ import domain.User;
 
 public class Login extends JPanel{
 	
-	public Login(){
+	public Login(Misma misma){
 		
 		setFocusable(true);
 		
@@ -50,6 +50,7 @@ public class Login extends JPanel{
 					System.out.println("Nope");
 				}else{
 					System.out.println(user.getUsername());
+					misma.loadRegisterRoutes();
 				}
 			}
 		});
