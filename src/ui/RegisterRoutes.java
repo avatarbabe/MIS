@@ -6,11 +6,12 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class RegisterRoutes extends JPanel{
+public class Register extends JPanel{
 	
-	public RegisterRoutes(){
+	public Register(){
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
 		
@@ -19,7 +20,7 @@ public class RegisterRoutes extends JPanel{
 		JTextField from = new JTextField();
 		JTextField to = new JTextField();
 		JTextField distance = new JTextField();
-		JButton register = new JButton();
+		JButton register = new JButton("Register");
 		
 		from.setText("From");
 		from.setAlignmentX(CENTER_ALIGNMENT);
@@ -30,9 +31,7 @@ public class RegisterRoutes extends JPanel{
 		distance.setText("Distance");
 		distance.setAlignmentX(CENTER_ALIGNMENT);
 		distance.setMaximumSize(new Dimension(150, 20));
-		register.setText("Register");
-		register.setAlignmentX(CENTER_ALIGNMENT);
-		
+
 		add(Box.createRigidArea(new Dimension(200, 100)));
 		add(from);
 		add(to);
