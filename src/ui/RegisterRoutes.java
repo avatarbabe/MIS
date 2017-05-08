@@ -19,7 +19,7 @@ public class RegisterRoutes extends JPanel{
 		JTextField from = new JTextField();
 		JTextField to = new JTextField();
 		JTextField distance = new JTextField();
-		JButton regitster = new JButton();
+		JButton register = new JButton();
 		
 		from.setText("From");
 		from.setAlignmentX(CENTER_ALIGNMENT);
