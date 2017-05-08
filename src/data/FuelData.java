@@ -1,6 +1,8 @@
 package data;
 
-public class FuelData {
+import datatransferobject.DataTransferObject;
+
+public class FuelData extends DataTransferObject {
 	private double volume;
 	private double emissionRate;
 }

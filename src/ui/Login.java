@@ -1,6 +1,8 @@
 package ui;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -8,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import broker.DatabaseBroker;
 
 public class Login extends JPanel{
 	
@@ -29,6 +33,14 @@ public class Login extends JPanel{
 		password.setMaximumSize(new Dimension(150, 20));
 		login.setText("Login");
 		login.setAlignmentX(CENTER_ALIGNMENT);
+		
+		login.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DatabaseBroker broker = new DatabaseBroker();
+			}
+		});
 		
 		add(Box.createRigidArea(new Dimension(200, 100)));
 		add(username);

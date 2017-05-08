@@ -1,6 +1,8 @@
 package data;
 
-public class RouteData {
+import datatransferobject.DataTransferObject;
+
+public class RouteData extends DataTransferObject {
 	
 	private double distance;
 	private String from;
