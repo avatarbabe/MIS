@@ -23,11 +23,9 @@ public class UserDataBroker extends DatabaseBroker {
 	// retrive list of students from the database
 	public ArrayList<User> getAllUsers() {
 
-		Connection conn = super.getDBConnection();
-		
-		Statement stm;
 		try {
-			
+			Connection conn = super.getDBConnection();
+			Statement stm;
 			stm = conn.createStatement();
 
 			String sql = "Select * From users";
@@ -44,5 +42,27 @@ public class UserDataBroker extends DatabaseBroker {
 			e.printStackTrace();
 		}
 		return users;
+	}
+
+	public User findUser(String username, String password) {
+		
+		try {
+			Connection conn = super.getDBConnection();
+			Statement stm;
+			stm = conn.createStatement();
+
+			String sql = "Select * From users WHERE username = \"" + username + "\" AND password = \"" + password + "\"";
+			ResultSet rst;
+			rst = stm.executeQuery(sql);
+
+			while (rst.next()) {
+				User user = new User(rst.getString("username"), rst.getString("password"));
+				return user;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+
 	}
 }

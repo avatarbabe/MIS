@@ -42,10 +42,14 @@ public class Login extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				UserDataBroker broker = new UserDataBroker();
-				ArrayList<User> users = broker.getAllUsers();
+				String getUsername = username.getText();
+				String getPassword = password.getText();
 				
-				for (User user : users) {
-				    System.out.println(user.getUsername());
+				User user = broker.findUser(getUsername, getPassword);
+				if(user == null){
+					System.out.println("Nope");
+				}else{
+					System.out.println(user.getUsername());
 				}
 			}
 		});
