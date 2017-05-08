@@ -6,7 +6,6 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class RegisterRoutes extends JPanel{
@@ -31,8 +30,8 @@ public class RegisterRoutes extends JPanel{
 		distance.setText("Distance");
 		distance.setAlignmentX(CENTER_ALIGNMENT);
 		route.setMaximumSize(new Dimension(150, 20));
-		login.setText("Register");
-		login.setAlignmentX(CENTER_ALIGNMENT);
+		route.setText("Register");
+		route.setAlignmentX(CENTER_ALIGNMENT);
 		
 		add(Box.createRigidArea(new Dimension(200, 100)));
 		add(from);
