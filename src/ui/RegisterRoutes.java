@@ -1,12 +1,13 @@
 package ui;
 
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class RegisterRoutes extends JPanel{
@@ -23,15 +24,34 @@ public class RegisterRoutes extends JPanel{
 		JButton register = new JButton("Register");
 		
 		from.setText("From");
+		from.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        from.setText("");
+		    }
+		});
 		from.setAlignmentX(CENTER_ALIGNMENT);
 		from.setMaximumSize(new Dimension(150, 20));
 		to.setText("To");
+		to.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        to.setText("");
+		    }
+		});
 		to.setAlignmentX(CENTER_ALIGNMENT);
 		to.setMaximumSize(new Dimension(150, 20));
 		distance.setText("Distance");
+		distance.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        distance.setText("");
+		    }
+		});
 		distance.setAlignmentX(CENTER_ALIGNMENT);
 		distance.setMaximumSize(new Dimension(150, 20));
 
+		register.setAlignmentX(CENTER_ALIGNMENT);
 		add(Box.createRigidArea(new Dimension(200, 100)));
 		add(from);
 		add(to);
