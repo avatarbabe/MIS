@@ -3,6 +3,8 @@ package ui;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.Box;
@@ -31,9 +33,21 @@ public class Login extends JPanel{
 		username.setText("Username");
 		username.setAlignmentX(CENTER_ALIGNMENT);
 		username.setMaximumSize(new Dimension(150, 20));
+		username.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        username.setText("");
+		    }
+		});
 		password.setText("Password");
 		password.setAlignmentX(CENTER_ALIGNMENT);
 		password.setMaximumSize(new Dimension(150, 20));
+		password.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        password.setText("");
+		    }
+		});
 		login.setText("Login");
 		login.setAlignmentX(CENTER_ALIGNMENT);
 		
