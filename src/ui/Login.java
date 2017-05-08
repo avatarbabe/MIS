@@ -3,6 +3,7 @@ package ui;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -12,11 +13,13 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import broker.DatabaseBroker;
+import broker.UserDataBroker;
+import domain.User;
 
 public class Login extends JPanel{
 	
 	public Login(){
-		setPreferredSize(new Dimension(400, 400));
+		
 		setFocusable(true);
 		
 		setLayout(new BoxLayout(this, 1));
@@ -38,7 +41,12 @@ public class Login extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DatabaseBroker broker = new DatabaseBroker();
+				UserDataBroker broker = new UserDataBroker();
+				ArrayList<User> users = broker.getAllUsers();
+				
+				for (User user : users) {
+				    System.out.println(user.getUsername());
+				}
 			}
 		});
 		

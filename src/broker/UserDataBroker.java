@@ -1,6 +1,8 @@
 package broker;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -10,17 +12,7 @@ public class UserDataBroker extends DatabaseBroker {
 	ArrayList<User> users;
 
 	public UserDataBroker() {
-		
-	    users = new ArrayList<>();
-	    
-	    while (rst.next()) {
-	        Customer customer = new Customer(rst.getString("id"), rst.getString("name"), rst.getString("address"), rst.getDouble("salary"));
-	        customerList.add(customer);
-	    }
-		
-		
-		
-
+		super();
 	}
 
 	public void deleteUser(User user) {
@@ -30,6 +22,27 @@ public class UserDataBroker extends DatabaseBroker {
 
 	// retrive list of students from the database
 	public ArrayList<User> getAllUsers() {
+
+		Connection conn = super.getDBConnection();
+		
+		Statement stm;
+		try {
+			
+			stm = conn.createStatement();
+
+			String sql = "Select * From users";
+			ResultSet rst;
+			rst = stm.executeQuery(sql);
+
+			users = new ArrayList<>();
+
+			while (rst.next()) {
+				User user = new User(rst.getString("username"), rst.getString("password"));
+				users.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return users;
 	}
 }

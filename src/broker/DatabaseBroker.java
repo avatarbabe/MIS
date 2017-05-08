@@ -3,14 +3,17 @@ package broker;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DatabaseBroker {
 	
+	private String url = "jdbc:mysql://mysql.iei.liu.se:5432/pgiei05";
+	private String username = "pgiei05";
+	private String password = "ZA0Nc((qfp4w";
+	
 	public DatabaseBroker(){
 		
-		String url = "jdbc:mysql://mysql.iei.liu.se:5432/pgiei05";
-		String username = "pgiei05";
-		String password = "ZA0Nc((qfp4w";
+		
 
 		System.out.println("Connecting database...");
 
@@ -20,4 +23,20 @@ public class DatabaseBroker {
 		    throw new IllegalStateException("Cannot connect the database!", e);
 		}
 	}
+
+	public Connection getDBConnection() {
+		
+		Connection connection = null;
+		try {
+			connection = DriverManager.getConnection(url, username, password);
+			return connection;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return connection;
+		
+		
+	}
+	
+	
 }
