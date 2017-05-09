@@ -1,8 +1,8 @@
 package ui;
-
 import java.awt.Dimension;
-
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 import datafacade.DataFacade;
@@ -20,12 +20,23 @@ public class Misma extends JFrame {
 		System.out.println("hallo");
 		
 		setTitle("MISMA");
+<<<<<<< HEAD
 		setPreferredSize(new Dimension(400, 400));
 		loadLogin();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		pack();
 		revalidate();
 		setVisible(true);
+=======
+		loadLogin();
+		setPreferredSize(new Dimension(600, 500));
+		pack();
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setVisible(true);
+		
+		
+>>>>>>> origin/master
 	}
 
 	public void loadLogin() {
@@ -41,10 +52,17 @@ public class Misma extends JFrame {
 
 	public void loadRegisterRoutes() {
 		getContentPane().removeAll();
-		JPanel registerRoutes = new RegisterRoutes();
+		JPanel registerRoutes = new RegisterRoutes(this);
 		add(registerRoutes);
 		pack();
 		
 	}
+	public void loadRegisterFuel() {
+		getContentPane().removeAll();
+		JPanel registerFuel = new RegisterFuel();
+		add(registerFuel);
+		pack();
+	
 
 }
+	}

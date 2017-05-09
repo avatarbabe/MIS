@@ -6,15 +6,18 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+<<<<<<< HEAD
 
 import broker.Broker;
+=======
+import broker.DatabaseBroker;
+>>>>>>> origin/master
 import broker.UserDataBroker;
 import data.UserData;
 import datafacade.DataFacade;
@@ -48,7 +51,7 @@ public class Login extends JPanel{
 		password.setText("Password");
 		password.setAlignmentX(CENTER_ALIGNMENT);
 		password.setMaximumSize(new Dimension(150, 20));
-		//Rensa fältet när man klickar på det
+		//Rensa fï¿½ltet nï¿½r man klickar pï¿½ det
 		password.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
@@ -71,6 +74,7 @@ public class Login extends JPanel{
 					System.out.println("Nope");
 				}else{
 					System.out.println(user.getUsername());
+					Menu menu = new Menu (misma);
 					misma.loadRegisterRoutes();
 				}
 			}

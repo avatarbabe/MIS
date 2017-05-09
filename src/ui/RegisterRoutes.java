@@ -1,9 +1,10 @@
 package ui;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -12,7 +13,7 @@ import javax.swing.JTextField;
 
 public class RegisterRoutes extends JPanel{
 	
-	public RegisterRoutes(){
+	public RegisterRoutes(Misma misma){
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
 		
@@ -58,5 +59,13 @@ public class RegisterRoutes extends JPanel{
 		add(distance);
 		add(Box.createRigidArea(new Dimension(200, 15)));
 		add(register);
+		
+		register.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			misma.loadRegisterFuel();
+			}
+		});
 	}
 }
