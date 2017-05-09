@@ -14,13 +14,19 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import broker.DatabaseBroker;
+import broker.Broker;
 import broker.UserDataBroker;
+import data.UserData;
+import datafacade.DataFacade;
 import domain.User;
 
 public class Login extends JPanel{
 	
-	public Login(Misma misma){
+	private DataFacade data;
+	
+	public Login(final Misma misma, DataFacade data){
+		
+		this.data = data;
 		
 		setFocusable(true);
 		
@@ -56,12 +62,12 @@ public class Login extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				UserDataBroker broker = new UserDataBroker();
 				String getUsername = username.getText();
 				String getPassword = password.getText();
 				
-				User user = broker.findUser(getUsername, getPassword);
-				if(user == null){
+				UserData user = new UserData(getUsername, getPassword);
+
+				if(data.find(user) == null){
 					System.out.println("Nope");
 				}else{
 					System.out.println(user.getUsername());
@@ -75,5 +81,8 @@ public class Login extends JPanel{
 		add(password);
 		add(Box.createRigidArea(new Dimension(200, 15)));
 		add(login);
+		
+		revalidate();
+		setVisible(true);
 	}
 }

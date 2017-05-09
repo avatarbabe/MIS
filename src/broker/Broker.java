@@ -4,14 +4,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
-public class DatabaseBroker {
+import data.UserData;
+import datatransferobject.DataTransferObject;
+
+public abstract class Broker {
 	
 	private String url = "jdbc:mysql://mysql.iei.liu.se:5432/pgiei05";
 	private String username = "pgiei05";
 	private String password = "ZA0Nc((qfp4w";
 	
-	public DatabaseBroker(){
+	public Broker(){
 		
 		
 
@@ -37,6 +41,8 @@ public class DatabaseBroker {
 		
 		
 	}
+
+	public abstract List<DataTransferObject> find(UserData data);
 	
 	
 }

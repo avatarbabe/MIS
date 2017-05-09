@@ -5,10 +5,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
+import data.UserData;
+import datatransferobject.DataTransferObject;
 import domain.User;
 
-public class UserDataBroker extends DatabaseBroker {
+public class UserDataBroker extends Broker {
 	ArrayList<User> users;
 
 	public UserDataBroker() {
@@ -64,5 +67,28 @@ public class UserDataBroker extends DatabaseBroker {
 		}
 		return null;
 
+	}
+
+	@Override
+	public List<DataTransferObject> find(UserData data) {
+		
+		List<DataTransferObject> users = new ArrayList<>();
+		
+		try {
+			Connection conn = super.getDBConnection();
+			Statement stm;
+			stm = conn.createStatement();
+
+			String sql = "Select * From users WHERE username = \"" + data.getUsername() + "\" AND password = \"" + data.getPassword() + "\"";
+			ResultSet rst;
+			rst = stm.executeQuery(sql);
+			System.out.println(sql);
+			while (rst.next()) {
+				users.add(new UserData(rst.getString("username"), rst.getString("password")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return users;
 	}
 }

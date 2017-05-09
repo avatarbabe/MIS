@@ -5,29 +5,37 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Misma extends JFrame {
+import datafacade.DataFacade;
+import domain.DomainFacade;
 
-	public Misma() {
+public class Misma extends JFrame {
+	
+	private DataFacade data;
+	private DomainFacade domain;
+	
+	public Misma(DataFacade data, DomainFacade domain) {
+		
+		this.data = data;
+		this.domain = domain;
+		System.out.println("hallo");
+		
 		setTitle("MISMA");
-		loadLogin();
 		setPreferredSize(new Dimension(400, 400));
-		pack();
-		setVisible(true);
+		loadLogin();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pack();
+		revalidate();
+		setVisible(true);
 	}
 
 	public void loadLogin() {
 		getContentPane().removeAll();
-		JPanel login = new Login(getWindow());
+		JPanel login = new Login(getWindow(), data);
 		add(login);
 
 	}
-
-	public static void main(String[] args) {
-		Misma mis = new Misma();
-	}
 	
-	public Misma getWindow(){
+	public final Misma getWindow(){
 		return this;
 	}
 
