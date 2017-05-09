@@ -10,6 +10,7 @@ import ui.Menu;
 public class DomainFacade {
 
 	private DataFacade data;
+	private User aUser = null;
 	
 	public void register(DataFacade data) {
 		this.data = data;
@@ -24,9 +25,12 @@ public class DomainFacade {
 		if(userList == null){
 			return null;
 		}else{
-			System.out.println(userData.getUsername() + " aaa " + userData.getLevel());
-			userList.get(0);
-			User user = new User(userData);
+			System.out.println(userList.get(0).getUsername() + " aaa " + userList.get(0).getLevel());
+			
+			User user = new User(userList.get(0));
+			System.out.println(user.getLevel());
+			
+			aUser = user;
 			return user;
 		}
 		

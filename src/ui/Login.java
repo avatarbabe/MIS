@@ -64,7 +64,8 @@ public class Login extends JPanel{
 				String getPassword = password.getText();
 				
 				if((domain.login(getUsername, getPassword)) != null){
-					
+					Menu menu = new Menu(misma);
+					misma.loadRegisterRoutes();
 				}
 			}
 		});

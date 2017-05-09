@@ -16,8 +16,8 @@ public class DataFacade {
 		List<UserData> result = new ArrayList<>();
 		List<DataTransferObject> list = persistance.find(data);
 
-		if (list.size() != 0) {
-			result.add(data);
+		for(DataTransferObject dto : list){
+			result.add((UserData) dto);
 		}
 		return result;
 

@@ -15,6 +15,7 @@ public class User {
 	public User(UserData userData) {
 		username = userData.getUsername();
 		password = userData.getPassword();
+		level = userData.getLevel();
 	}
 
 	public String getUsername() {
