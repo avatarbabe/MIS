@@ -32,7 +32,7 @@ public class Misma extends JFrame {
 
 	public void loadLogin() {
 		getContentPane().removeAll();
-		JPanel login = new Login(getWindow(), data);
+		JPanel login = new Login(getWindow(), data, domain);
 		add(login);
 
 	}

@@ -23,51 +23,6 @@ public class UserDataBroker extends Broker {
 		System.out.println("User: " + user.getUsername() + ", deleted from database");
 	}
 
-	// retrive list of students from the database
-	public ArrayList<User> getAllUsers() {
-
-		try {
-			Connection conn = super.getDBConnection();
-			Statement stm;
-			stm = conn.createStatement();
-
-			String sql = "Select * From users";
-			ResultSet rst;
-			rst = stm.executeQuery(sql);
-
-			users = new ArrayList<>();
-
-			while (rst.next()) {
-				User user = new User(rst.getString("username"), rst.getString("password"));
-				users.add(user);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return users;
-	}
-
-	public User findUser(String username, String password) {
-		
-		try {
-			Connection conn = super.getDBConnection();
-			Statement stm;
-			stm = conn.createStatement();
-
-			String sql = "Select * From users WHERE username = \"" + username + "\" AND password = \"" + password + "\"";
-			ResultSet rst;
-			rst = stm.executeQuery(sql);
-
-			while (rst.next()) {
-				User user = new User(rst.getString("username"), rst.getString("password"));
-				return user;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-
-	}
 
 	@Override
 	public List<DataTransferObject> find(UserData data) {
@@ -84,7 +39,8 @@ public class UserDataBroker extends Broker {
 			rst = stm.executeQuery(sql);
 			System.out.println(sql);
 			while (rst.next()) {
-				users.add(new UserData(rst.getString("username"), rst.getString("password")));
+				users.add(new UserData(rst.getString("username"), rst.getString("password"), rst.getInt("level")));
+				System.out.println(rst.getInt("level"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

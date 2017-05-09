@@ -12,6 +12,12 @@ public class UserData extends DataTransferObject{
 		this.password = password;
 	}
 
+	public UserData(String username, String password, int level) {
+		this.username = username;
+		this.password = password;
+		this.level = level;
+	}
+
 	public String getUsername() {
 		return username;
 	}

@@ -15,13 +15,15 @@ import javax.swing.JTextField;
 import broker.UserDataBroker;
 import data.UserData;
 import datafacade.DataFacade;
+import domain.DomainFacade;
 import domain.User;
 
 public class Login extends JPanel{
 	
 	private DataFacade data;
+	private DomainFacade domain;
 	
-	public Login(final Misma misma, DataFacade data){
+	public Login(final Misma misma, DataFacade data, DomainFacade domain){
 		
 		this.data = data;
 		
@@ -61,14 +63,8 @@ public class Login extends JPanel{
 				String getUsername = username.getText();
 				String getPassword = password.getText();
 				
-				UserData user = new UserData(getUsername, getPassword);
-
-				if(data.find(user) == null){
-					System.out.println("Nope");
-				}else{
-					System.out.println(user.getUsername());
-					Menu menu = new Menu (misma);
-					misma.loadRegisterRoutes();
+				if((domain.login(getUsername, getPassword)) != null){
+					
 				}
 			}
 		});

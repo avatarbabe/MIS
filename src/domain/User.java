@@ -1,5 +1,7 @@
 package domain;
 
+import data.UserData;
+
 public class User {
 	private String username;
 	private String password;
@@ -8,6 +10,11 @@ public class User {
 	public User(String username, String password){
 		this.username = username;
 		this.password = password;
+	}
+
+	public User(UserData userData) {
+		username = userData.getUsername();
+		password = userData.getPassword();
 	}
 
 	public String getUsername() {
