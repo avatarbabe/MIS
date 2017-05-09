@@ -12,12 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-<<<<<<< HEAD
 
-import broker.Broker;
-=======
-import broker.DatabaseBroker;
->>>>>>> origin/master
 import broker.UserDataBroker;
 import data.UserData;
 import datafacade.DataFacade;
@@ -51,7 +46,6 @@ public class Login extends JPanel{
 		password.setText("Password");
 		password.setAlignmentX(CENTER_ALIGNMENT);
 		password.setMaximumSize(new Dimension(150, 20));
-		//Rensa f�ltet n�r man klickar p� det
 		password.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
