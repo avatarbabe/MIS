@@ -17,7 +17,6 @@ public class Misma extends JFrame {
 		
 		this.data = data;
 		this.domain = domain;
-		System.out.println("hallo");
 		
 		setTitle("MISMA");
 		loadLogin();

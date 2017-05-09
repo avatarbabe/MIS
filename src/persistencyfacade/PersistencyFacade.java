@@ -13,13 +13,11 @@ public class PersistencyFacade {
 
 	public List<DataTransferObject> find(UserData data) {
 		Broker broker = brokers.get(data.getClass());
-		System.out.println("ababab" + broker.find(data));
 		return broker.find(data);
 	}
 
 	public void register(Class<?> key, Broker broker) {
 		brokers.put(key, broker);
-		System.out.println(brokers.get(key));
 	}
 
 }
