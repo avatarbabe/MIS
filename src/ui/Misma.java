@@ -20,23 +20,14 @@ public class Misma extends JFrame {
 		System.out.println("hallo");
 		
 		setTitle("MISMA");
-<<<<<<< HEAD
-		setPreferredSize(new Dimension(400, 400));
 		loadLogin();
+		setPreferredSize(new Dimension(600, 500));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		pack();
 		revalidate();
 		setVisible(true);
-=======
-		loadLogin();
-		setPreferredSize(new Dimension(600, 500));
-		pack();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-		setVisible(true);
 		
-		
->>>>>>> origin/master
 	}
 
 	public void loadLogin() {
