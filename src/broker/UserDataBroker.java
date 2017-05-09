@@ -37,10 +37,8 @@ public class UserDataBroker extends Broker {
 			String sql = "Select * From users WHERE username = \"" + data.getUsername() + "\" AND password = \"" + data.getPassword() + "\"";
 			ResultSet rst;
 			rst = stm.executeQuery(sql);
-			System.out.println(sql);
 			while (rst.next()) {
 				users.add(new UserData(rst.getString("username"), rst.getString("password"), rst.getInt("level")));
-				System.out.println(rst.getInt("level"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
