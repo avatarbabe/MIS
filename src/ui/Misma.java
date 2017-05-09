@@ -1,8 +1,8 @@
 package ui;
-
 import java.awt.Dimension;
-
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 public class Misma extends JFrame {
@@ -10,10 +10,13 @@ public class Misma extends JFrame {
 	public Misma() {
 		setTitle("MISMA");
 		loadLogin();
-		setPreferredSize(new Dimension(400, 400));
+		setPreferredSize(new Dimension(600, 500));
 		pack();
-		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setVisible(true);
+		
+		
 	}
 
 	public void loadLogin() {
