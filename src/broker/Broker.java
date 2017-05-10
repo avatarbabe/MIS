@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
+import data.RouteData;
 import data.UserData;
 import datatransferobject.DataTransferObject;
 
@@ -16,9 +17,7 @@ public abstract class Broker {
 	private String password = "ZA0Nc((qfp4w";
 	
 	public Broker(){
-		
-		
-
+	
 		System.out.println("Connecting database...");
 
 		try (Connection connection = DriverManager.getConnection(url, username, password)) {
@@ -43,6 +42,5 @@ public abstract class Broker {
 	}
 
 	public abstract List<DataTransferObject> find(UserData data);
-	
-	
+
 }

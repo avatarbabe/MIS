@@ -64,7 +64,7 @@ public class RegisterRoutes extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			misma.loadRegisterFuel();
+				
 			}
 		});
 	}

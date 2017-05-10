@@ -3,6 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import data.RouteData;
 import data.UserData;
 import datafacade.DataFacade;
 import ui.Menu;
@@ -11,6 +12,7 @@ public class DomainFacade {
 
 	private DataFacade data;
 	private User aUser = null;
+	private Calculator calculator;
 	
 	public void register(DataFacade data) {
 		this.data = data;
@@ -28,10 +30,21 @@ public class DomainFacade {
 			
 			User user = new User(userList.get(0));
 			
+			
 			aUser = user;
 			return user;
 		}
 		
 	}
+	
+	public void save(String start, String end, double distance, double fuelConsumption){
+		
+		calculator = new Calculator();
+		double emission = 0.1;
+		
+		RouteData routeData = new RouteData(start, end, distance, fuelConsumption, emission);
+		
+	}
+
 
 }
