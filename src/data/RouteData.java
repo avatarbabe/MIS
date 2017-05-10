@@ -3,18 +3,27 @@ package data;
 import datatransferobject.DataTransferObject;
 
 public class RouteData extends DataTransferObject {
-	
-	
+
 	private String start;
 	private String end;
 	private double distance;
 	private double emission;
-	
-	public RouteData(String start, String end, double distance, double emission) {
+	private String user;
+
+	public RouteData(String start, String end, double distance, double emission, String user) {
 		this.start = start;
 		this.end = end;
 		this.distance = distance;
 		this.emission = emission;
+		this.user = user;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
 	}
 
 	public String getStart() {
@@ -48,6 +57,5 @@ public class RouteData extends DataTransferObject {
 	public void setEmission(double emission) {
 		this.emission = emission;
 	}
-	
 
 }

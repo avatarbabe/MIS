@@ -42,5 +42,8 @@ public abstract class Broker {
 	}
 
 	public abstract List<DataTransferObject> find(UserData data);
+	public void insert(RouteData data){
+		
+	}
 
 }

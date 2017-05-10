@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import broker.Broker;
+import data.RouteData;
 import data.UserData;
 import datatransferobject.DataTransferObject;
 
@@ -18,6 +19,11 @@ public class PersistencyFacade {
 
 	public void register(Class<?> key, Broker broker) {
 		brokers.put(key, broker);
+	}
+
+	public void save(RouteData data) {
+		Broker broker = brokers.get(data.getClass());
+		broker.insert(data);
 	}
 
 }
