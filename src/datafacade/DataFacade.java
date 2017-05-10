@@ -26,7 +26,7 @@ public class DataFacade {
 	}
 
 	public void save(DataTransferObject data) {
-		
+		persistance.save(data);
 	}
 
 

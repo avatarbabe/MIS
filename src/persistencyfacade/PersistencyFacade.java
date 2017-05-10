@@ -20,4 +20,9 @@ public class PersistencyFacade {
 		brokers.put(key, broker);
 	}
 
+	public void save(DataTransferObject data) {
+		Broker broker = brokers.get(data.getClass());
+		broker.save();
+	}
+
 }

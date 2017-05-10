@@ -37,12 +37,14 @@ public class DomainFacade {
 		
 	}
 	
-	public void save(String start, String end, double distance, double fuelConsumption){
+	public void saveRoute(String start, String end, double distance, double fuelConsumption){
 		
 		calculator = new Calculator();
 		double emission = calculator.calculateRoute(distance, fuelConsumption);
 		
 		RouteData routeData = new RouteData(start, end, distance, emission);
+		
+		data.save(routeData);
 		
 	}
 
