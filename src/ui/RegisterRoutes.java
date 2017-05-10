@@ -1,5 +1,6 @@
 package ui;
 
+import domain.DomainFacade;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,19 +15,27 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class RegisterRoutes extends JPanel{
+	private Misma misma;
+	private DomainFacade domain;
+	private Double t = 1.6;
+
 	
-	public RegisterRoutes(Misma misma){
+	public RegisterRoutes(Misma misma, DomainFacade domain){
+		this.domain = domain;
+		this.misma = misma;
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
 		setLayout(new BoxLayout(this, 1));
 		String[] message = {"Truck x2000", "Truck 900", "Truck 30s"};
-		JLabel label = new JLabel("Route:");
 		JLabel vehicle = new JLabel("Vehicle:");
 		JTextField from = new JTextField();
 		JTextField to = new JTextField();
 		JTextField distance = new JTextField();
 		JComboBox box  = new JComboBox(message);
 		JButton register = new JButton("Register");
+
+		
+		
 		
 		from.setText("From");
 		from.addMouseListener(new MouseAdapter() {
@@ -57,7 +66,6 @@ public class RegisterRoutes extends JPanel{
 		});
 		distance.setAlignmentX(CENTER_ALIGNMENT);
 		distance.setMaximumSize(new Dimension(150, 20));
-		label.setAlignmentX(CENTER_ALIGNMENT);
 		vehicle.setAlignmentX(CENTER_ALIGNMENT);
 		
 		box.addMouseListener(new MouseAdapter() {
@@ -70,9 +78,9 @@ public class RegisterRoutes extends JPanel{
 		box.setMaximumSize(new Dimension(150, 20));
 		
 
+		
 		register.setAlignmentX(CENTER_ALIGNMENT);
 		add(Box.createRigidArea(new Dimension(200, 100)));
-		add(label);
 		add(from);
 		add(to);
 		add(distance);
@@ -81,12 +89,42 @@ public class RegisterRoutes extends JPanel{
 		add(Box.createRigidArea(new Dimension(200, 15)));
 		add(register);
 		
+		
+		box.setSelectedIndex(1);
+		box.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == box){
+					JComboBox cb = (JComboBox)e.getSource();
+					String msg = (String)cb.getSelectedItem();
+					
+					switch(msg){
+						case "Truck x2000":  t = 3.0; 
+							break;
+						case "Truck 900":  t = 1.6;
+							break;
+						case "Truck 30s": t = 1.2;
+							break;
+					}
+				}
+				
+			}
+		});
+
+			
 		register.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				String from1 = from.getText();
+				String to1 = to.getText();
+				Double distance1 = Double.parseDouble(distance.getText());
 				
+				domain.saveRoute(to1, from1, distance1, t);
 			}
 		});
+		
+		
 	}
 }
