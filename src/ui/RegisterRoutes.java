@@ -1,5 +1,6 @@
 package ui;
 
+import domain.DomainFacade;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,19 +15,27 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class RegisterRoutes extends JPanel{
+	private Misma misma;
+	private DomainFacade domain;
+	private Double t;
+
 	
-	public RegisterRoutes(Misma misma){
+	public RegisterRoutes(Misma misma, DomainFacade domain){
+		this.domain = domain;
+		this.misma = misma;
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
 		setLayout(new BoxLayout(this, 1));
 		String[] message = {"Truck x2000", "Truck 900", "Truck 30s"};
-		
 		JLabel vehicle = new JLabel("Vehicle:");
 		JTextField from = new JTextField();
 		JTextField to = new JTextField();
 		JTextField distance = new JTextField();
 		JComboBox box  = new JComboBox(message);
 		JButton register = new JButton("Register");
+		String from1 = from.getText();
+		String to1 = to.getText();
+		Double distance1 = Double.parseDouble(distance.getText());
 		
 		
 		
@@ -82,13 +91,6 @@ public class RegisterRoutes extends JPanel{
 		add(Box.createRigidArea(new Dimension(200, 15)));
 		add(register);
 		
-		register.addActionListener(new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
 		
 		box.setSelectedIndex(1);
 		box.addActionListener(new ActionListener(){
@@ -98,17 +100,27 @@ public class RegisterRoutes extends JPanel{
 				if(e.getSource() == box){
 					JComboBox cb = (JComboBox)e.getSource();
 					String msg = (String)cb.getSelectedItem();
+					
 					switch(msg){
-						case "Truck x2000": double t1 = 3.0; 
+						case "Truck x2000":  t = 3.0; 
 							break;
-						case "Truck 900": double t2 = 1.6;
+						case "Truck 900":  t = 1.6;
 							break;
-						case "Truck 30s": double t3 = 1.2;
+						case "Truck 30s": t = 1.2;
 							break;
 						default: System.out.println("no");
 					}
 				}
 				
+			}
+		});
+
+			
+		register.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				domain.save(to1, from1, distance1, t);
 			}
 		});
 		

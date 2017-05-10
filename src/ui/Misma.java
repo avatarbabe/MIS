@@ -43,7 +43,7 @@ public class Misma extends JFrame {
 
 	public void loadRegisterRoutes() {
 		getContentPane().removeAll();
-		JPanel registerRoutes = new RegisterRoutes(this);
+		JPanel registerRoutes = new RegisterRoutes(this, domain);
 		add(registerRoutes);
 		pack();
 		
