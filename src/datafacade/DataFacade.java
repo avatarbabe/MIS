@@ -3,6 +3,7 @@ package datafacade;
 import java.util.ArrayList;
 import java.util.List;
 
+import broker.RouteDataBroker;
 import broker.UserDataBroker;
 import data.FuelData;
 import data.RouteData;
@@ -32,6 +33,7 @@ public class DataFacade {
 
 	public void register() {
 		persistance.register(UserData.class, new UserDataBroker());
+		persistance.register(RouteData.class, new RouteDataBroker());
 	}
 
 }
