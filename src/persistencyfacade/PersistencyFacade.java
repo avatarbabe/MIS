@@ -22,7 +22,7 @@ public class PersistencyFacade {
 
 	public void save(DataTransferObject data) {
 		Broker broker = brokers.get(data.getClass());
-		broker.insert();
+		broker.insert(data);
 	}
 
 }
