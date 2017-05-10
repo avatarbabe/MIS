@@ -25,7 +25,7 @@ public class DataFacade {
 
 	}
 
-	public void save(DataTransferObject data) {
+	public void save(RouteData data) {
 		persistance.save(data);
 	}
 

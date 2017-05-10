@@ -9,8 +9,9 @@ public class RouteData extends DataTransferObject {
 	private String end;
 	private double distance;
 	private double emission;
+	private String user;
 	
-	public RouteData(String start, String end, double distance, double emission) {
+	public RouteData(String start, String end, double distance, double emission, String user) {
 		this.start = start;
 		this.end = end;
 		this.distance = distance;

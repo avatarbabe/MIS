@@ -42,7 +42,7 @@ public class DomainFacade {
 		calculator = new Calculator();
 		double emission = calculator.calculateRoute(distance, fuelConsumption);
 		
-		RouteData routeData = new RouteData(start, end, distance, emission);
+		RouteData routeData = new RouteData(start, end, distance, emission, aUser.getUsername());
 		
 		data.save(routeData);
 		
