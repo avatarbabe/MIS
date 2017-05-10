@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -20,21 +21,24 @@ public class RegisterFuel extends JPanel{
 		
 		setLayout(new BoxLayout(this, 1));
 		
+		JLabel label = new JLabel("Fuel:" );
 		JTextField fuel = new JTextField();
 		JButton register = new JButton("Register");
 		
-		fuel.setText("Register fuel in liter");
+		fuel.setText("in liter");
 		fuel.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
 		        fuel.setText("");
 		    }
 		});
+		label.setAlignmentX(CENTER_ALIGNMENT);
 		fuel.setAlignmentX(CENTER_ALIGNMENT);
 		fuel.setMaximumSize(new Dimension(150, 20));
 		
 		register.setAlignmentX(CENTER_ALIGNMENT);
 		add(Box.createRigidArea(new Dimension(200, 100)));
+		add(label);
 		add(fuel);
 		
 		add(Box.createRigidArea(new Dimension(200, 15)));
