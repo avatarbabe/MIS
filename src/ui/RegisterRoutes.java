@@ -71,6 +71,7 @@ public class RegisterRoutes extends JPanel{
 		box.setMaximumSize(new Dimension(150, 20));
 		
 
+		
 		register.setAlignmentX(CENTER_ALIGNMENT);
 		add(Box.createRigidArea(new Dimension(200, 100)));
 		add(from);
@@ -88,5 +89,29 @@ public class RegisterRoutes extends JPanel{
 				
 			}
 		});
+		
+		box.setSelectedIndex(1);
+		box.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == box){
+					JComboBox cb = (JComboBox)e.getSource();
+					String msg = (String)cb.getSelectedItem();
+					switch(msg){
+						case "Truck x2000": double t1 = 3.0; 
+							break;
+						case "Truck 900": System.out.println("t2");
+							break;
+						case "Truck 30s": double t3 = 1.2;
+							break;
+						default: System.out.println("no");
+					}
+				}
+				
+			}
+		});
+		
+		
 	}
 }
