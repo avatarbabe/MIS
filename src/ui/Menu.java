@@ -18,19 +18,19 @@ public class Menu {
 		menubar.add(menu3);
 		menubar.add(menu4);
 		misma.setJMenuBar(menubar);
-		
+
 		menu1.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-					misma.loadRegisterRoutes();
-				}
+				misma.loadRegisterRoutes();
+			}
 		});
-	
-	menu2.addActionListener(new ActionListener(){
-		@Override
-		public void actionPerformed(ActionEvent e) {
+
+		menu2.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
 				misma.loadRegisterFuel();
 			}
-	});
+		});
 	}
 }
