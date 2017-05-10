@@ -21,10 +21,11 @@ public class Misma extends JFrame {
 		setTitle("MISMA");
 		loadLogin();
 		setPreferredSize(new Dimension(600, 500));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-		pack();
 		revalidate();
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pack();
+		setLocationRelativeTo(null);
+		
 		setVisible(true);
 		
 	}
