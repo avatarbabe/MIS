@@ -35,6 +35,7 @@ public class Login extends JPanel{
 		setLayout(new BoxLayout(this, 1));
 		
 		JLabel jlabel = new JLabel();
+		JLabel loglabel = new JLabel("Log in:");
 		JTextField username = new JTextField();
 		JPasswordField password = new JPasswordField();
 		JButton login = new JButton();
@@ -78,13 +79,14 @@ public class Login extends JPanel{
 				}
 			}
 		});
-		
+
 		add(Box.createRigidArea(new Dimension(200, 100)));
+		add(loglabel);
+		loglabel.setAlignmentX(CENTER_ALIGNMENT);
 		add(username);
 		add(password);
 		add(Box.createRigidArea(new Dimension(200, 15)));
 		add(login);
-		
 		revalidate();
 		setVisible(true);
 	}

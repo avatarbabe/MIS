@@ -20,8 +20,6 @@ public class RegisterRoutes extends JPanel{
 		setFocusable(true);
 		setLayout(new BoxLayout(this, 1));
 		String[] message = {"Truck x2000", "Truck 900", "Truck 30s"};
-		
-
 		JLabel label = new JLabel("Route:");
 		JLabel vehicle = new JLabel("Vehicle:");
 		JTextField from = new JTextField();

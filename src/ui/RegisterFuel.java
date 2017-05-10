@@ -25,7 +25,7 @@ public class RegisterFuel extends JPanel{
 		JTextField fuel = new JTextField();
 		JButton register = new JButton("Register");
 		
-		fuel.setText("in liter");
+		fuel.setText("In liter");
 		fuel.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {

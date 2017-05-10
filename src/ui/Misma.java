@@ -30,17 +30,19 @@ public class Misma extends JFrame {
 		
 	}
 
-	public void loadLogin() {
-		getContentPane().removeAll();
-		JPanel login = new Login(getWindow(), data, domain);
-		add(login);
-
-	}
-	
 	public final Misma getWindow(){
 		return this;
 	}
 
+
+	public void loadLogin() {
+		getContentPane().removeAll();
+		JPanel login = new Login(getWindow(), data, domain);
+		add(login);
+		pack();
+
+	}
+	
 	public void loadRegisterRoutes() {
 		getContentPane().removeAll();
 		JPanel registerRoutes = new RegisterRoutes(this);
@@ -53,7 +55,18 @@ public class Misma extends JFrame {
 		JPanel registerFuel = new RegisterFuel();
 		add(registerFuel);
 		pack();
-	
-
 }
+	public void loadEditTax() {
+		getContentPane().removeAll();
+		JPanel registerTax = new EditTax();
+		add(registerTax);
+		pack();
 	}
+	public void loadViewEmission(){
+		getContentPane().removeAll();
+		JPanel viewEmission  = new ViewEmission();
+		add(viewEmission);
+		pack();
+	}
+	
+}

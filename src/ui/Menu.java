@@ -4,6 +4,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import com.sun.glass.ui.View;
+
 public class Menu {
 
 	public Menu(Misma misma) {
@@ -13,10 +15,12 @@ public class Menu {
 		JMenuItem menu2 = new JMenuItem("Register fuel");
 		JMenuItem menu3 = new JMenuItem("Edit tax");
 		JMenuItem menu4 = new JMenuItem("View emissions");
+		JMenuItem menu5 = new JMenuItem("Log out");
 		menubar.add(menu1);
 		menubar.add(menu2);
 		menubar.add(menu3);
 		menubar.add(menu4);
+		menubar.add(menu5);
 		misma.setJMenuBar(menubar);
 
 		menu1.addActionListener(new ActionListener(){
@@ -30,6 +34,27 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				misma.loadRegisterFuel();
+			}
+		});
+		
+		menu3.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				misma.loadEditTax();
+			}
+		});
+		
+		menu4.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				misma.loadViewEmission();
+			}
+		});
+		
+		menu5.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				misma.loadLogin();
 			}
 		});
 	}
