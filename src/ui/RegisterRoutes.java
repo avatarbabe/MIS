@@ -21,14 +21,14 @@ public class RegisterRoutes extends JPanel{
 		setLayout(new BoxLayout(this, 1));
 		String[] message = {"Truck x2000", "Truck 900", "Truck 30s"};
 		
+
+		JLabel label = new JLabel("Route:");
 		JLabel vehicle = new JLabel("Vehicle:");
 		JTextField from = new JTextField();
 		JTextField to = new JTextField();
 		JTextField distance = new JTextField();
 		JComboBox box  = new JComboBox(message);
 		JButton register = new JButton("Register");
-		
-		
 		
 		from.setText("From");
 		from.addMouseListener(new MouseAdapter() {
@@ -59,6 +59,7 @@ public class RegisterRoutes extends JPanel{
 		});
 		distance.setAlignmentX(CENTER_ALIGNMENT);
 		distance.setMaximumSize(new Dimension(150, 20));
+		label.setAlignmentX(CENTER_ALIGNMENT);
 		vehicle.setAlignmentX(CENTER_ALIGNMENT);
 		
 		box.addMouseListener(new MouseAdapter() {
@@ -73,6 +74,7 @@ public class RegisterRoutes extends JPanel{
 
 		register.setAlignmentX(CENTER_ALIGNMENT);
 		add(Box.createRigidArea(new Dimension(200, 100)));
+		add(label);
 		add(from);
 		add(to);
 		add(distance);
