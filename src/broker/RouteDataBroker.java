@@ -24,7 +24,7 @@ public class RouteDataBroker extends Broker {
 			Statement stm;
 			stm = conn.createStatement();
 			
-			String sql = "INSERT INTO routes (start, end, distance, emission, username) VALUES (" + data.getStart() + " " + data.getEnd() + " " + data.getDistance() + " " + data.getEmission() + ")";
+			String sql = "INSERT INTO routes (start, end, distance, emission, username) VALUES (\"" + data.getStart() + "\"" + " " +  "\"" + data.getEnd() + "\"" + " " + data.getDistance() + " " + data.getEmission() + ")";
 			System.out.println(sql);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
