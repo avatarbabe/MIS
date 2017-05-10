@@ -101,7 +101,7 @@ public class RegisterRoutes extends JPanel{
 					switch(msg){
 						case "Truck x2000": double t1 = 3.0; 
 							break;
-						case "Truck 900": System.out.println("t2");
+						case "Truck 900": double t2 = 1.6;
 							break;
 						case "Truck 30s": double t3 = 1.2;
 							break;
