@@ -22,7 +22,7 @@ public class DomainFacade {
 		
 		List<UserData> userList = data.find(userData);
 
-		if(userList == null){
+		if(userList.size() < 1){
 			return null;
 		}else{
 			

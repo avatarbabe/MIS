@@ -1,6 +1,7 @@
 package ui;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -8,6 +9,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -23,6 +25,7 @@ public class Login extends JPanel{
 	private DataFacade data;
 	private DomainFacade domain;
 	
+	
 	public Login(final Misma misma, DataFacade data, DomainFacade domain){
 		
 		this.data = data;
@@ -31,6 +34,7 @@ public class Login extends JPanel{
 		
 		setLayout(new BoxLayout(this, 1));
 		
+		JLabel jlabel = new JLabel();
 		JTextField username = new JTextField();
 		JPasswordField password = new JPasswordField();
 		JButton login = new JButton();
@@ -38,6 +42,8 @@ public class Login extends JPanel{
 		username.setText("Username");
 		username.setAlignmentX(CENTER_ALIGNMENT);
 		username.setMaximumSize(new Dimension(150, 20));
+		jlabel.setText("Not valid login");
+		jlabel.setAlignmentX(CENTER_ALIGNMENT);
 		username.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
@@ -66,6 +72,9 @@ public class Login extends JPanel{
 				if((domain.login(getUsername, getPassword)) != null){
 					Menu menu = new Menu(misma);
 					misma.loadRegisterRoutes();
+				} else {
+					add(jlabel);
+					validate();
 				}
 			}
 		});
