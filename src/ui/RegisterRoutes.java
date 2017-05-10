@@ -33,9 +33,7 @@ public class RegisterRoutes extends JPanel{
 		JTextField distance = new JTextField();
 		JComboBox box  = new JComboBox(message);
 		JButton register = new JButton("Register");
-		String from1 = from.getText();
-		String to1 = to.getText();
-		Double distance1 = Double.parseDouble(distance.getText());
+		
 		
 		
 		
@@ -120,7 +118,11 @@ public class RegisterRoutes extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				domain.save(to1, from1, distance1, t);
+				String from1 = from.getText();
+				String to1 = to.getText();
+				Double distance1 = Double.parseDouble(distance.getText());
+				
+				domain.saveRoute(to1, from1, distance1, t);
 			}
 		});
 		
