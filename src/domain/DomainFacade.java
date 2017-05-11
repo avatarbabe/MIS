@@ -60,5 +60,9 @@ public class DomainFacade {
 		Fuel fuel = new Fuel();
 		return data.findAll(fuel);
 	}
+	
+	public void resetUser(){
+		aUser = null;
+	}
 
 }
