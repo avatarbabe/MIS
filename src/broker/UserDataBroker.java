@@ -1,6 +1,7 @@
 package broker;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,20 +24,22 @@ public class UserDataBroker extends Broker {
 		System.out.println("User: " + user.getUsername() + ", deleted from database");
 	}
 
-
 	@Override
 	public List<DataTransferObject> find(UserData data) {
-		
+
 		List<DataTransferObject> users = new ArrayList<>();
-		
+
 		try {
 			Connection conn = super.getDBConnection();
-			Statement stm;
-			stm = conn.createStatement();
 
-			String sql = "Select * From users WHERE username = \"" + data.getUsername() + "\" AND password = \"" + data.getPassword() + "\"";
+			PreparedStatement selectUser = conn.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
+			
+			selectUser.setString(1, data.getUsername());
+			selectUser.setString(2, data.getPassword());
+			
 			ResultSet rst;
-			rst = stm.executeQuery(sql);
+			rst = selectUser.executeQuery();
+
 			while (rst.next()) {
 				users.add(new UserData(rst.getString("username"), rst.getString("password"), rst.getInt("level")));
 			}

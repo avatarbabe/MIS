@@ -44,5 +44,9 @@ public class DomainFacade {
 		data.save(route);
 
 	}
+	
+	public void saveFuel(){
+		
+	}
 
 }
