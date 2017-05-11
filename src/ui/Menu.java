@@ -1,35 +1,39 @@
 package ui;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 import com.sun.glass.ui.View;
 
-public class Menu {
+public class Menu extends JPanel{
 
+	private JButton menu1 = new JButton("Register route");
+	private JButton menu2 = new JButton("Register fuel");
+	private JButton menu3 = new JButton("Edit tax");
+	private JButton menu4 = new JButton("View emissions");
+	private JButton menu5 = new JButton("Log out");
+	
 	public Menu(Misma misma) {
-
-		JMenuBar menubar = new JMenuBar();
-		JMenuItem menu1 = new JMenuItem("Register route");
-		JMenuItem menu2 = new JMenuItem("Register fuel");
-		JMenuItem menu3 = new JMenuItem("Edit tax");
-		JMenuItem menu4 = new JMenuItem("View emissions");
-		JMenuItem menu5 = new JMenuItem("Log out");
-		menubar.add(menu1);
-		menubar.add(menu2);
-		menubar.add(menu3);
-		menubar.add(menu4);
-		menubar.add(menu5);
-		misma.setJMenuBar(menubar);
-
+		setLayout(new BoxLayout(this, 1));
+		setPreferredSize(new Dimension(400, 400));
+		setFocusable(true);
+	
+		
+		
 		menu1.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				misma.loadRegisterRoutes();
 			}
 		});
-
+		
+		menu2.setAlignmentX(CENTER_ALIGNMENT);
 		menu2.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -37,6 +41,7 @@ public class Menu {
 			}
 		});
 		
+		menu3.setAlignmentX(CENTER_ALIGNMENT);
 		menu3.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -44,6 +49,7 @@ public class Menu {
 			}
 		});
 		
+		menu4.setAlignmentX(CENTER_ALIGNMENT);
 		menu4.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -51,11 +57,19 @@ public class Menu {
 			}
 		});
 		
+		menu5.setAlignmentX(CENTER_ALIGNMENT);
 		menu5.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				misma.loadLogin();
 			}
 		});
+		
+		add(menu1);
+		add(menu2);
+		add(menu3);
+		add(menu4);
+		add(menu5);
+		
 	}
 }

@@ -34,13 +34,19 @@ public class Misma extends JFrame {
 		return this;
 	}
 
-
 	public void loadLogin() {
 		getContentPane().removeAll();
 		JPanel login = new Login(getWindow(), data, domain);
 		add(login);
 		pack();
 
+	}
+	
+	public void loadMenu(){
+		getContentPane().removeAll();
+		JPanel menu = new Menu(this);
+		add(menu);
+		pack();
 	}
 	
 	public void loadRegisterRoutes() {

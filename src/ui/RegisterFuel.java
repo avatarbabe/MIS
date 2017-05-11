@@ -18,7 +18,6 @@ public class RegisterFuel extends JPanel{
 	public RegisterFuel(){
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
-		
 		setLayout(new BoxLayout(this, 1));
 		
 		JLabel label = new JLabel("Fuel:" );

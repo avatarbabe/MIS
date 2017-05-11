@@ -35,8 +35,6 @@ public class RegisterRoutes extends JPanel{
 		JButton register = new JButton("Register");
 
 		
-		
-		
 		from.setText("From");
 		from.addMouseListener(new MouseAdapter() {
 		    @Override
