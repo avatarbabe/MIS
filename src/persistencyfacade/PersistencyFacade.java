@@ -26,4 +26,9 @@ public class PersistencyFacade {
 		broker.insert(data);
 	}
 
+	public List<DataTransferObject> findAll(DataTransferObject data) {
+		Broker broker = brokers.get(data.getClass());
+		return broker.findAll();
+	}
+
 }

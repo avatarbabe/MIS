@@ -19,6 +19,10 @@ public class Fuel {
 		emission = calculator.calculateFuel(volume, emissionRate);
 	}
 
+	public Fuel() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public double getVolume() {
 		return volume;
 	}

@@ -33,17 +33,21 @@ public class DataFacade {
 		DataTransferObject routeData = new RouteData(route);
 		persistance.save(routeData);
 	}
-	
+
 	public void save(Fuel fuel) {
 		DataTransferObject fuelData = new FuelData(fuel);
 		persistance.save(fuelData);
 	}
 
-
 	public void register() {
 		persistance.register(UserData.class, new UserDataBroker());
 		persistance.register(RouteData.class, new RouteDataBroker());
 		persistance.register(FuelData.class, new FuelDataBroker());
+	}
+
+	public List<DataTransferObject> findAll(Fuel fuel) {
+		DataTransferObject fuelData = new FuelData(fuel);
+		return persistance.findAll(fuelData);
 	}
 
 }

@@ -19,7 +19,7 @@ public class FuelDataBroker extends Broker {
 		return null;
 	}
 
-	public List<DataTransferObject> findAll(DataTransferObject data) {
+	public List<DataTransferObject> findAll() {
 
 		List<DataTransferObject> fuel = new ArrayList<>();
 		
@@ -33,7 +33,7 @@ public class FuelDataBroker extends Broker {
 
 			while (rst.next()) {
 				fuel.add(new FuelData(rst.getDouble("volume"), rst.getString("fueltype"), rst.getDouble("emission"),
-						rst.getString("user")));
+						rst.getString("username")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

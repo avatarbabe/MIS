@@ -39,7 +39,7 @@ public class RouteDataBroker extends Broker {
 		}
 	}
 
-	public List<DataTransferObject> findAll(DataTransferObject data) {
+	public List<DataTransferObject> findAll() {
 
 		List<DataTransferObject> routes = new ArrayList<>();
 

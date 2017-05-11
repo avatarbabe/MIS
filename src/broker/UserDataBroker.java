@@ -56,7 +56,7 @@ public class UserDataBroker extends Broker {
 	}
 
 	@Override
-	public List<DataTransferObject> findAll(DataTransferObject data) {
+	public List<DataTransferObject> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

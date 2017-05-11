@@ -6,6 +6,7 @@ import java.util.List;
 import data.RouteData;
 import data.UserData;
 import datafacade.DataFacade;
+import datatransferobject.DataTransferObject;
 import ui.Menu;
 
 public class DomainFacade {
@@ -53,6 +54,11 @@ public class DomainFacade {
 	
 	public int getActiveUserLevel(){
 		return aUser.getLevel();
+	}
+	
+	public List<DataTransferObject> getAllFuel(){
+		Fuel fuel = new Fuel();
+		return data.findAll(fuel);
 	}
 
 }
