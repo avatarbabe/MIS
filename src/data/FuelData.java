@@ -7,12 +7,14 @@ public class FuelData extends DataTransferObject {
 	private double emissionRate;
 	private double emission;
 	private String user;
+	private String fuelType;
 
-	public FuelData(double volume, double emissionRate, double emission, String user) {
+	public FuelData(double volume, String fuelType, double emission, String user) {
 		this.volume = volume;
-		this.emissionRate = volume;
+		this.fuelType = fuelType;
 		this.emission = emission;
 		this.user = user;
+		
 	}
 
 	public double getVolume() {
@@ -21,14 +23,6 @@ public class FuelData extends DataTransferObject {
 
 	public void setVolume(double volume) {
 		this.volume = volume;
-	}
-
-	public double getEmissionRate() {
-		return emissionRate;
-	}
-
-	public void setEmissionRate(double emissionRate) {
-		this.emissionRate = emissionRate;
 	}
 
 	public double getEmission() {
@@ -45,6 +39,14 @@ public class FuelData extends DataTransferObject {
 
 	public void setUser(String user) {
 		this.user = user;
+	}
+
+	public String getFuelType() {
+		return fuelType;
+	}
+
+	public void setFuelType(String fuelType) {
+		this.fuelType = fuelType;
 	}
 
 }
