@@ -22,6 +22,7 @@ public class RegisterRoutes extends JPanel{
 	private DomainFacade domain;
 	private Double t = 1.6;
 	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("arrow1.png")));
+	private JLabel jlabel = new JLabel();
 
 	
 	public RegisterRoutes(Misma misma, DomainFacade domain, int level){
@@ -37,6 +38,9 @@ public class RegisterRoutes extends JPanel{
 		JTextField distance = new JTextField();
 		JComboBox box  = new JComboBox(message);
 		JButton register = new JButton("Register");
+		
+		jlabel.setText("Route registered!");
+		jlabel.setAlignmentX(CENTER_ALIGNMENT);
 		
 		goBack.setVisible(true);
 		goBack.setBorder(BorderFactory.createEmptyBorder(1,1,1,1));
@@ -138,6 +142,8 @@ public class RegisterRoutes extends JPanel{
 				Double distance1 = Double.parseDouble(distance.getText());
 				
 				domain.saveRoute(to1, from1, distance1, t);
+				 add(jlabel);
+			     validate();
 			}
 		});
 		

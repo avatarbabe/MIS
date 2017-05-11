@@ -23,22 +23,28 @@ public class RegisterFuel extends JPanel{
 	private String msg;
 	private double rate = 0;
 	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("arrow1.png")));
+	private JLabel jlabel = new JLabel();
 	
 	public RegisterFuel(Misma misma, DomainFacade domain, int level){
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
 		setLayout(new BoxLayout(this, 1));
 		
+		jlabel.setText("Fuel registered!");
+		jlabel.setAlignmentX(CENTER_ALIGNMENT);
+		
 		goBack.setVisible(true);
 		goBack.setBorder(BorderFactory.createEmptyBorder(1,1,1,1));
 		goBack.setContentAreaFilled(false);
 		
 		
+		JLabel fuelType = new JLabel("Fuel type:");
 		String[] message = {"Diesel", "Bensin", "Etanol (E85)"};
 		JLabel label = new JLabel("Fuel:" );
 		JTextField fuel = new JTextField();
 		JButton register = new JButton("Register");
 		JComboBox box  = new JComboBox(message);
+		
 		
 		fuel.setText("In liter");
 		fuel.addMouseListener(new MouseAdapter() {
@@ -58,6 +64,7 @@ public class RegisterFuel extends JPanel{
 		
 		label.setAlignmentX(CENTER_ALIGNMENT);
 		fuel.setAlignmentX(CENTER_ALIGNMENT);
+		fuelType.setAlignmentX(CENTER_ALIGNMENT);
 		fuel.setMaximumSize(new Dimension(150, 20));
 		box.setAlignmentX(CENTER_ALIGNMENT);
 		box.setMaximumSize(new Dimension(150, 20));
@@ -85,6 +92,16 @@ public class RegisterFuel extends JPanel{
 			}
 		});
 		
+		
+		add(Box.createRigidArea(new Dimension(200, 100)));
+		add(label);
+		add(fuel);
+		add(fuelType);
+		add(box);
+		add(Box.createRigidArea(new Dimension(200, 15)));
+		add(register);
+		add(goBack);
+		
 		register.setAlignmentX(CENTER_ALIGNMENT);
 		register.addMouseListener(new MouseAdapter() {
 		    @Override
@@ -92,17 +109,12 @@ public class RegisterFuel extends JPanel{
 		    	
 		    	Double fuel1 = Double.parseDouble(fuel.getText());
 		        domain.saveFuel(fuel1, msg, rate);
+		        add(jlabel);
+		        validate();
+		        
 		    }
 		});
 		
-		
-		add(Box.createRigidArea(new Dimension(200, 100)));
-		add(label);
-		add(fuel);
-		add(box);
-		add(Box.createRigidArea(new Dimension(200, 15)));
-		add(register);
-		add(goBack);
 	
 	}
 }
