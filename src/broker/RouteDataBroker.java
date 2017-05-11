@@ -1,9 +1,9 @@
 package broker;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,15 +23,16 @@ public class RouteDataBroker extends Broker {
 
 		try {
 			Connection conn = super.getDBConnection();
-			Statement stm;
-			stm = conn.createStatement();
+			PreparedStatement insertRoutes = conn
+					.prepareStatement("INSERT INTO routes(start, end, distance, emission, username) VALUES(?,?,?,?,?)");
 
-			String sql = "INSERT INTO routes (start, end, distance, emission, username) VALUES (\"" + data.getStart()
-					+ "\"," + " " + "\"" + data.getEnd() + "\"," + " " + data.getDistance() + ", " + data.getEmission()
-					+ ", " + "\"" + data.getUser() + "\"" + ")";
-			System.out.println(sql);
+			insertRoutes.setString(1, data.getStart());
+			insertRoutes.setString(2, data.getEnd());
+			insertRoutes.setDouble(3, data.getDistance());
+			insertRoutes.setDouble(4, data.getEmission());
+			insertRoutes.setString(5, data.getUser());
 
-			stm.execute(sql);
+			insertRoutes.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -44,14 +45,15 @@ public class RouteDataBroker extends Broker {
 
 		try {
 			Connection conn = super.getDBConnection();
-			Statement stm;
-			stm = conn.createStatement();
 
-			String sql = "Select * From routes";
+			PreparedStatement selectRoutes = conn.prepareStatement("SELECT * FROM routes");
+
 			ResultSet rst;
-			rst = stm.executeQuery(sql);
+			rst = selectRoutes.executeQuery();
+
 			while (rst.next()) {
-				routes.add(new RouteData(rst.getString("start"), rst.getString("end"), rst.getDouble("distance"), rst.getDouble("emission"), rst.getString("user")));
+				routes.add(new RouteData(rst.getString("start"), rst.getString("end"), rst.getDouble("distance"),
+						rst.getDouble("emission"), rst.getString("user")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
