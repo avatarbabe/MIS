@@ -62,9 +62,9 @@ public class Misma extends JFrame {
 		add(registerFuel);
 		pack();
 }
-	public void loadEditTax() {
+	public void loadEditTax(int level) {
 		getContentPane().removeAll();
-		JPanel registerTax = new EditTax();
+		JPanel registerTax = new EditTax(this, level);
 		add(registerTax);
 		pack();
 	}

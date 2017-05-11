@@ -30,7 +30,7 @@ public class Menu extends JPanel{
 		add(Box.createRigidArea(new Dimension(200, 100)));
 		
 		switch(level){
-			case 2: addMenu3(misma);
+			case 2: addMenu3(misma, level);
 			case 1: addMenu2(misma, level);
 			case 0: addMenu1(misma, level);
 				break;
@@ -81,12 +81,12 @@ public class Menu extends JPanel{
 		add(menu4);
 	}
 	
-	public void addMenu3 (Misma misma){
+	public void addMenu3 (Misma misma, int level){
 		menu3.setAlignmentX(CENTER_ALIGNMENT);
 		menu3.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				misma.loadEditTax();
+				misma.loadEditTax(level);
 			}
 		});
 
