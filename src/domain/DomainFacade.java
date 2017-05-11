@@ -45,7 +45,7 @@ public class DomainFacade {
 
 	}
 	
-	public void saveFuel(){
+	public void saveFuel(double volume, double emissionRate){
 		
 	}
 	
