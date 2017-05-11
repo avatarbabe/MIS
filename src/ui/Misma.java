@@ -58,7 +58,7 @@ public class Misma extends JFrame {
 	}
 	public void loadRegisterFuel(int level) {
 		getContentPane().removeAll();
-		JPanel registerFuel = new RegisterFuel(this, level);
+		JPanel registerFuel = new RegisterFuel(this, domain, level);
 		add(registerFuel);
 		pack();
 }

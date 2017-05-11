@@ -1,5 +1,6 @@
 package ui;
 
+import domain.DomainFacade;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +12,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -18,9 +20,11 @@ import javax.swing.JTextField;
 
 public class RegisterFuel extends JPanel{
 	
+	private String msg;
+	private double rate = 0;
 	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("arrow1.png")));
 	
-	public RegisterFuel(Misma misma, int level){
+	public RegisterFuel(Misma misma, DomainFacade domain, int level){
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
 		setLayout(new BoxLayout(this, 1));
@@ -29,9 +33,12 @@ public class RegisterFuel extends JPanel{
 		goBack.setBorder(BorderFactory.createEmptyBorder(1,1,1,1));
 		goBack.setContentAreaFilled(false);
 		
+		
+		String[] message = {"Diesel", "Bensin", "Etanol (E85)"};
 		JLabel label = new JLabel("Fuel:" );
 		JTextField fuel = new JTextField();
 		JButton register = new JButton("Register");
+		JComboBox box  = new JComboBox(message);
 		
 		fuel.setText("In liter");
 		fuel.addMouseListener(new MouseAdapter() {
@@ -52,12 +59,47 @@ public class RegisterFuel extends JPanel{
 		label.setAlignmentX(CENTER_ALIGNMENT);
 		fuel.setAlignmentX(CENTER_ALIGNMENT);
 		fuel.setMaximumSize(new Dimension(150, 20));
+		box.setAlignmentX(CENTER_ALIGNMENT);
+		box.setMaximumSize(new Dimension(150, 20));
+		
+		box.setSelectedIndex(1);
+		box.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == box){
+					JComboBox cb = (JComboBox)e.getSource();
+					msg = (String)cb.getSelectedItem();
+					
+					switch(msg){
+						case "Diesel":  rate = 0.003; 
+							break;
+						case "Bensin":  rate = 0.003;
+							break;
+						case "Etanol (E85)": rate = 0.001;
+							break;
+						
+					}
+				}
+				
+			}
+		});
 		
 		register.setAlignmentX(CENTER_ALIGNMENT);
+		register.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		    	
+		    	Double fuel1 = Double.parseDouble(fuel.getText());
+		        domain.saveFuel(fuel1, msg, rate);
+		    }
+		});
+		
+		
 		add(Box.createRigidArea(new Dimension(200, 100)));
 		add(label);
 		add(fuel);
-		
+		add(box);
 		add(Box.createRigidArea(new Dimension(200, 15)));
 		add(register);
 		add(goBack);
