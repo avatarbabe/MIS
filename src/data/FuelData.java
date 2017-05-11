@@ -8,6 +8,7 @@ public class FuelData extends DataTransferObject {
 	private double emission;
 	private String user;
 	private String fuelType;
+	//wat
 
 	public FuelData(double volume, String fuelType, double emission, String user) {
 		this.volume = volume;
