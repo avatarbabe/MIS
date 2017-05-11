@@ -45,9 +45,10 @@ public class DomainFacade {
 
 	}
 	
-	public void saveFuel(double volume, double emissionRate){
+	public void saveFuel(double volume, String fuelType, double emissionRate){
 		
-		Fuel fuel = new Fuel(volume, emissionRate, aUser.getUsername());
+		Fuel fuel = new Fuel(volume, fuelType, emissionRate, aUser.getUsername());
+		data.save(fuel);
 	}
 	
 	public int getActiveUserLevel(){

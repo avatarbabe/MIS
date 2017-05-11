@@ -21,7 +21,7 @@ public class PersistencyFacade {
 		brokers.put(key, broker);
 	}
 
-	public void save(RouteData data) {
+	public void save(DataTransferObject data) {
 		Broker broker = brokers.get(data.getClass());
 		broker.insert(data);
 	}
