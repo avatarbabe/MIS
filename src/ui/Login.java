@@ -24,6 +24,7 @@ public class Login extends JPanel{
 	
 	private DataFacade data;
 	private DomainFacade domain;
+	private int level;
 	
 	
 	public Login(final Misma misma, DataFacade data, DomainFacade domain){
@@ -71,7 +72,8 @@ public class Login extends JPanel{
 				String getPassword = password.getText();
 				
 				if((domain.login(getUsername, getPassword)) != null){
-					misma.loadMenu();
+					misma.loadMenu(domain.getActiveUserLevel());
+					
 				} else {
 					add(jlabel);
 					validate();
@@ -89,4 +91,16 @@ public class Login extends JPanel{
 		revalidate();
 		setVisible(true);
 	}
+	
+//	public void setLevel(String username, Misma misma){
+//		if (username.equals("truckdriver")){
+//			level = 0;
+//		} else if (username.equals("ceo")){
+//			level = 1;
+//		} else if (username.equals("official")){
+//			level = 2;
+//		}
+//		
+//		misma.loadMenu(domain.findLevel());
+//	}
 }

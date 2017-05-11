@@ -42,9 +42,9 @@ public class Misma extends JFrame {
 
 	}
 	
-	public void loadMenu(){
+	public void loadMenu(int level){
 		getContentPane().removeAll();
-		JPanel menu = new Menu(this);
+		JPanel menu = new Menu(this, level);
 		add(menu);
 		pack();
 	}
