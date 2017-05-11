@@ -70,7 +70,7 @@ public class Misma extends JFrame {
 	}
 	public void loadViewEmission(int level){
 		getContentPane().removeAll();
-		JPanel viewEmission  = new ViewEmission(this, level);
+		JPanel viewEmission  = new ViewEmission(this, domain, level);
 		add(viewEmission);
 		pack();
 	}
