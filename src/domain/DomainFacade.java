@@ -48,5 +48,9 @@ public class DomainFacade {
 	public void saveFuel(){
 		
 	}
+	
+	public int getActiveUserLevel(){
+		return aUser.getLevel();
+	}
 
 }
