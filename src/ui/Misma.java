@@ -68,9 +68,9 @@ public class Misma extends JFrame {
 		add(registerTax);
 		pack();
 	}
-	public void loadViewEmission(){
+	public void loadViewEmission(int level){
 		getContentPane().removeAll();
-		JPanel viewEmission  = new ViewEmission();
+		JPanel viewEmission  = new ViewEmission(this, level);
 		add(viewEmission);
 		pack();
 	}

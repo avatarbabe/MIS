@@ -29,11 +29,9 @@ public class Menu extends JPanel{
 		setFocusable(true);
 		add(Box.createRigidArea(new Dimension(200, 100)));
 		
-	
-		
 		switch(level){
 			case 2: addMenu3(misma);
-			case 1: addMenu2(misma);
+			case 1: addMenu2(misma, level);
 			case 0: addMenu1(misma, level);
 				break;
 		}
@@ -71,12 +69,12 @@ public class Menu extends JPanel{
 		
 	}
 	
-	public void addMenu2(Misma misma){
+	public void addMenu2(Misma misma, int level){
 		menu4.setAlignmentX(CENTER_ALIGNMENT);
 		menu4.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				misma.loadViewEmission();
+				misma.loadViewEmission(level);
 			}
 		});
 		
