@@ -1,6 +1,7 @@
 package data;
 
 import datatransferobject.DataTransferObject;
+import domain.Fuel;
 
 public class FuelData extends DataTransferObject {
 	private double volume;
@@ -8,7 +9,6 @@ public class FuelData extends DataTransferObject {
 	private double emission;
 	private String user;
 	private String fuelType;
-	//wat
 
 	public FuelData(double volume, String fuelType, double emission, String user) {
 		this.volume = volume;
@@ -16,6 +16,13 @@ public class FuelData extends DataTransferObject {
 		this.emission = emission;
 		this.user = user;
 		
+	}
+
+	public FuelData(Fuel fuel) {
+		volume = fuel.getVolume();
+		fuelType = fuel.getFuelType();
+		emission = fuel.getEmission();
+		user = fuel.getUser();
 	}
 
 	public double getVolume() {
