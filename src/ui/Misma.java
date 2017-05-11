@@ -49,16 +49,16 @@ public class Misma extends JFrame {
 		pack();
 	}
 	
-	public void loadRegisterRoutes() {
+	public void loadRegisterRoutes(int level) {
 		getContentPane().removeAll();
-		JPanel registerRoutes = new RegisterRoutes(this, domain);
+		JPanel registerRoutes = new RegisterRoutes(this, domain, level);
 		add(registerRoutes);
 		pack();
 		
 	}
-	public void loadRegisterFuel() {
+	public void loadRegisterFuel(int level) {
 		getContentPane().removeAll();
-		JPanel registerFuel = new RegisterFuel();
+		JPanel registerFuel = new RegisterFuel(this, level);
 		add(registerFuel);
 		pack();
 }

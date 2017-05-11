@@ -21,16 +21,14 @@ public class Menu extends JPanel{
 	private JButton menu3 = new JButton("Edit tax");
 	private JButton menu4 = new JButton("View emissions");
 	private JButton menu5 = new JButton("Log out");
-	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("images/arrow.png")));
+	
 	
 	public Menu(Misma misma, int level) {
 		setLayout(new BoxLayout(this, 1));
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
 		add(Box.createRigidArea(new Dimension(200, 100)));
-		goBack.setVisible(true);
-		goBack.setBorder(BorderFactory.createEmptyBorder(1,1,1,1));
-		goBack.setContentAreaFilled(false);
+		
 	
 		
 		switch(level){
@@ -46,7 +44,7 @@ public class Menu extends JPanel{
 		menu1.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				misma.loadRegisterRoutes();
+				misma.loadRegisterRoutes(level);
 			}
 		});
 		
@@ -54,7 +52,7 @@ public class Menu extends JPanel{
 		menu2.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				misma.loadRegisterFuel();
+				misma.loadRegisterFuel(level);
 			}
 		});
 		
@@ -66,18 +64,11 @@ public class Menu extends JPanel{
 			}
 		});
 		
-		goBack.setAlignmentX(CENTER_ALIGNMENT);
-		goBack.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				misma.loadMenu(level);
-			}
-		});
 		
 		add(menu1);
 		add(menu2);
 		add(menu5);
-		add(goBack);
+		
 	}
 	
 	public void addMenu2(Misma misma){

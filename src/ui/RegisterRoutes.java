@@ -6,8 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -18,9 +21,10 @@ public class RegisterRoutes extends JPanel{
 	private Misma misma;
 	private DomainFacade domain;
 	private Double t = 1.6;
+	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("arrow1.png")));
 
 	
-	public RegisterRoutes(Misma misma, DomainFacade domain){
+	public RegisterRoutes(Misma misma, DomainFacade domain, int level){
 		this.domain = domain;
 		this.misma = misma;
 		setPreferredSize(new Dimension(400, 400));
@@ -33,6 +37,10 @@ public class RegisterRoutes extends JPanel{
 		JTextField distance = new JTextField();
 		JComboBox box  = new JComboBox(message);
 		JButton register = new JButton("Register");
+		
+		goBack.setVisible(true);
+		goBack.setBorder(BorderFactory.createEmptyBorder(1,1,1,1));
+		goBack.setContentAreaFilled(false);
 
 		
 		from.setText("From");
@@ -72,6 +80,15 @@ public class RegisterRoutes extends JPanel{
 		        distance.setText("");
 		    }
 		});
+		
+		goBack.setAlignmentX(CENTER_ALIGNMENT);
+		goBack.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				misma.loadMenu(level);
+			}
+		});
+		
 		box.setAlignmentX(CENTER_ALIGNMENT);
 		box.setMaximumSize(new Dimension(150, 20));
 		
@@ -86,6 +103,7 @@ public class RegisterRoutes extends JPanel{
 		add(box);
 		add(Box.createRigidArea(new Dimension(200, 15)));
 		add(register);
+		add(goBack);
 		
 		
 		box.setSelectedIndex(1);
