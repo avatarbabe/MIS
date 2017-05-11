@@ -48,4 +48,16 @@ public class UserDataBroker extends Broker {
 		}
 		return users;
 	}
+
+	@Override
+	public void insert(DataTransferObject data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<DataTransferObject> findAll(DataTransferObject data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

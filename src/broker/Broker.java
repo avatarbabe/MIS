@@ -42,8 +42,7 @@ public abstract class Broker {
 	}
 
 	public abstract List<DataTransferObject> find(UserData data);
-	public void insert(DataTransferObject routeData){
-		
-	}
+	public abstract void insert(DataTransferObject data);
+	public abstract List<DataTransferObject> findAll(DataTransferObject data);
 
 }

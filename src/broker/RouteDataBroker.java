@@ -19,18 +19,18 @@ public class RouteDataBroker extends Broker {
 		return null;
 	}
 
-	public void insert(RouteData data) {
+	public void insert(DataTransferObject data) {
 
 		try {
 			Connection conn = super.getDBConnection();
 			PreparedStatement insertRoutes = conn
 					.prepareStatement("INSERT INTO routes(start, end, distance, emission, username) VALUES(?,?,?,?,?)");
 
-			insertRoutes.setString(1, data.getStart());
-			insertRoutes.setString(2, data.getEnd());
-			insertRoutes.setDouble(3, data.getDistance());
-			insertRoutes.setDouble(4, data.getEmission());
-			insertRoutes.setString(5, data.getUser());
+			insertRoutes.setString(1, ((RouteData) data).getStart());
+			insertRoutes.setString(2, ((RouteData) data).getEnd());
+			insertRoutes.setDouble(3, ((RouteData) data).getDistance());
+			insertRoutes.setDouble(4, ((RouteData) data).getEmission());
+			insertRoutes.setString(5, ((RouteData) data).getUser());
 
 			insertRoutes.executeUpdate();
 
@@ -39,7 +39,7 @@ public class RouteDataBroker extends Broker {
 		}
 	}
 
-	public List<DataTransferObject> findAll(RouteData data) {
+	public List<DataTransferObject> findAll(DataTransferObject data) {
 
 		List<DataTransferObject> routes = new ArrayList<>();
 

@@ -19,7 +19,7 @@ public class FuelDataBroker extends Broker {
 		return null;
 	}
 
-	public List<DataTransferObject> findAll(FuelData data) {
+	public List<DataTransferObject> findAll(DataTransferObject data) {
 
 		List<DataTransferObject> fuel = new ArrayList<>();
 		
@@ -42,18 +42,16 @@ public class FuelDataBroker extends Broker {
 
 	}
 
-	public void insert(FuelData data) {
+	public void insert(DataTransferObject data) {
 
 		try {
 			Connection conn = super.getDBConnection();
-			PreparedStatement insertFuel = conn
-					.prepareStatement("INSERT INTO fuel(volume, fueltype emission, user) VALUES(?,?,?,?)");
+			PreparedStatement insertFuel = conn.prepareStatement("INSERT INTO fuel(volume, fueltype, emission, username) VALUES(?,?,?,?)");
 
-			insertFuel.setDouble(1, data.getVolume());
-			insertFuel.setString(2, data.getFuelType());
-			insertFuel.setDouble(3, data.getEmission());
-			insertFuel.setString(4, data.getUser());
-
+			insertFuel.setDouble(1, ((FuelData) data).getVolume());
+			insertFuel.setString(2, ((FuelData) data).getFuelType());
+			insertFuel.setDouble(3, ((FuelData) data).getEmission());
+			insertFuel.setString(4, ((FuelData) data).getUser());
 			insertFuel.executeUpdate();
 
 		} catch (SQLException e) {

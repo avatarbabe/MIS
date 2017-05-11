@@ -13,4 +13,16 @@ public class TaxesDataBroker extends Broker {
 		return null;
 	}
 
+	@Override
+	public void insert(DataTransferObject data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<DataTransferObject> findAll(DataTransferObject data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
