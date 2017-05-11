@@ -9,6 +9,7 @@ import data.FuelData;
 import data.RouteData;
 import data.UserData;
 import datatransferobject.DataTransferObject;
+import domain.Route;
 import persistencyfacade.PersistencyFacade;
 
 public class DataFacade {
@@ -26,8 +27,9 @@ public class DataFacade {
 
 	}
 
-	public void save(RouteData data) {
-		persistance.save(data);
+	public void save(Route route) {
+		RouteData routeData = new RouteData(route);
+		persistance.save(routeData);
 	}
 
 

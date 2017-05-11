@@ -31,7 +31,7 @@ public class DomainFacade {
 			User user = new User(userList.get(0));
 
 			aUser = user;
-			
+
 			return user;
 		}
 
@@ -39,12 +39,9 @@ public class DomainFacade {
 
 	public void saveRoute(String start, String end, double distance, double fuelConsumption) {
 
-		calculator = new Calculator();
-		double emission = calculator.calculateRoute(distance, fuelConsumption);
+		Route route = new Route(start, end, distance, fuelConsumption, aUser.getUsername());
 
-		RouteData routeData = new RouteData(start, end, distance, emission, aUser.getUsername());
-
-		data.save(routeData);
+		data.save(route);
 
 	}
 

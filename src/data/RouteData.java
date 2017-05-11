@@ -1,6 +1,7 @@
 package data;
 
 import datatransferobject.DataTransferObject;
+import domain.Route;
 
 public class RouteData extends DataTransferObject {
 
@@ -16,6 +17,14 @@ public class RouteData extends DataTransferObject {
 		this.distance = distance;
 		this.emission = emission;
 		this.user = user;
+	}
+
+	public RouteData(Route route) {
+		start = route.getStart();
+		end = route.getEnd();
+		distance = route.getDistance();
+		emission = route.getEmission();
+		user = route.getUser();
 	}
 
 	public String getUser() {
