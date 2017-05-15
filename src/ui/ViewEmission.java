@@ -40,9 +40,10 @@ public class ViewEmission extends JPanel {
 			goBack.setContentAreaFilled(false);
 
 			
-			JLabel label = new JLabel("View emissions:" );
-			JLabel label1 = new JLabel("View routes:" );
+			JLabel label = new JLabel("Fuel: " );
+			JLabel label1 = new JLabel("Routes:" );
 			DefaultListModel listModel = new DefaultListModel();
+			DefaultListModel listModel1 = new DefaultListModel();
 			
 			
 			List<DataTransferObject> fuel = domain.getAllFuel();
@@ -51,7 +52,8 @@ public class ViewEmission extends JPanel {
 			for (DataTransferObject dto: fuel){
 				String type = ((FuelData) dto).getFuelType();
 				double volume = ((FuelData) dto).getVolume();
-				listModel.addElement(type + "   " + volume);
+				double emissions2 = ((FuelData) dto).getEmission();
+				listModel.addElement("<html><b>Type: </b>" +type + " <b>Volume: </b>" + volume + " <b> Emissions: </b>" +emissions2);
 			}
 			
 			for (DataTransferObject dto: routes){
@@ -60,12 +62,13 @@ public class ViewEmission extends JPanel {
 				Double distance = ((RouteData) dto).getDistance();
 				Double emissions1 = ((RouteData) dto).getEmission();
 				
-				listModel.addElement("From: " + start + ". To: " + end + "Distance: " +distance+ ". " + emissions1);
+				listModel1.addElement("<html><b>From: </b>" + start + ". <b> To: </b>" + end + " <b>Distance: </b> " +distance+ "<b> Emissions: </b> " + emissions1 + "</html> ");
 			}
 
 			JList emissions = new JList(listModel);
+			JList route = new JList(listModel1);
 			JScrollPane sp = new JScrollPane(emissions);
-			JScrollPane sp1 = new JScrollPane();
+			JScrollPane sp1 = new JScrollPane(route);
 			
 			goBack.setAlignmentX(CENTER_ALIGNMENT);
 			goBack.addActionListener(new ActionListener(){
@@ -75,8 +78,8 @@ public class ViewEmission extends JPanel {
 				}
 			});
 			
-			//label.setAlignmentX(CENTER_ALIGNMENT);
-			add(Box.createRigidArea(new Dimension(200, 100)));
+			setAlignmentX(CENTER_ALIGNMENT);
+			add(Box.createRigidArea(new Dimension(90, 10)));
 			add(label);
 			add(sp);
 			add(label1);
