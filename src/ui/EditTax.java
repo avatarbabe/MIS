@@ -36,27 +36,37 @@ public class EditTax extends JPanel {
 			
 			JLabel label = new JLabel("Edit:" );
 			JTextField tax = new JTextField();
-			JButton changeRate = new JButton("change tax rate");
+			JButton changeRate = new JButton("Change tax rate");
 			
-			tax.setText("Edit");
+			String taxes = Double.toString(domain.getTaxes());
+			
+			tax.setText(taxes);
 			
 			tax.addMouseListener(new MouseAdapter() {
 			    @Override
 			    public void mouseClicked(MouseEvent e) {
 			        tax.setText("");
+
 			    }
 			});
 			
+			changeRate.addMouseListener(new MouseAdapter() {
+			    @Override
+			    public void mouseClicked(MouseEvent e) {
+			    	Double taxRate = Double.parseDouble(tax.getText());
+					
+					domain.setTaxes(taxRate);
+					add(jlabel);
+					validate();
 
+			    }
+			});
+						
 			goBack.setAlignmentX(CENTER_ALIGNMENT);
 			goBack.addActionListener(new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					String tax1 = tax.getText();
-					Double taxRate = Double.parseDouble(tax1);
-					
-					domain.setTaxes(taxRate);
-					add(jlabel);
+					misma.loadMenu(level);
 				}
 			});
 			label.setAlignmentX(CENTER_ALIGNMENT);
