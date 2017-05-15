@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import data.FuelData;
 import data.UserData;
 import datatransferobject.DataTransferObject;
 import domain.User;
@@ -32,11 +33,12 @@ public class UserDataBroker extends Broker {
 		try {
 			Connection conn = super.getDBConnection();
 
-			PreparedStatement selectUser = conn.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
-			
+			PreparedStatement selectUser = conn
+					.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
+
 			selectUser.setString(1, data.getUsername());
 			selectUser.setString(2, data.getPassword());
-			
+
 			ResultSet rst;
 			rst = selectUser.executeQuery();
 
@@ -51,8 +53,20 @@ public class UserDataBroker extends Broker {
 
 	@Override
 	public void insert(DataTransferObject data) {
-		// TODO Auto-generated method stub
-		
+
+		try {
+			Connection conn = super.getDBConnection();
+			PreparedStatement insertUser = conn
+					.prepareStatement("INSERT INTO user(username, password, level) VALUES(?,?,?)");
+
+			insertUser.setString(1, ((UserData) data).getUsername());
+			insertUser.setString(2, ((UserData) data).getPassword());
+			insertUser.setInt(3, ((UserData) data).getLevel());
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
