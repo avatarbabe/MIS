@@ -2,7 +2,9 @@ package broker;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import data.TaxesData;
@@ -13,8 +15,27 @@ public class TaxesDataBroker extends Broker {
 
 	@Override
 	public List<DataTransferObject> find(DataTransferObject data) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<DataTransferObject> taxes = new ArrayList<>();
+
+		try {
+			Connection conn = super.getDBConnection();
+
+			PreparedStatement selectTaxes = conn
+					.prepareStatement("SELECT * FROM taxes WHERE tax_id = ?");
+
+			selectTaxes.setDouble(1, 1);
+
+			ResultSet rst;
+			rst = selectTaxes.executeQuery();
+
+			while (rst.next()) {
+				taxes.add(new TaxesData(rst.getDouble("taxrate")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return taxes;
 	}
 
 	@Override
