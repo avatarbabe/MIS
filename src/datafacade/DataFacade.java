@@ -14,6 +14,7 @@ import data.UserData;
 import datatransferobject.DataTransferObject;
 import domain.Fuel;
 import domain.Route;
+import domain.Taxes;
 import domain.User;
 import persistencyfacade.PersistencyFacade;
 
@@ -62,6 +63,12 @@ public class DataFacade {
 	public List<DataTransferObject> findAll(Route route) {
 		DataTransferObject routeData = new RouteData(route);
 		return persistance.findAll(routeData);
+	}
+
+	public void update(Taxes tax) {
+		DataTransferObject taxData = new TaxesData(tax);
+		persistance.update(taxData);
+		
 	}
 
 }

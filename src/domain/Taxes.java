@@ -2,19 +2,19 @@ package domain;
 
 public class Taxes {
 
-	private double taxRate;
+	private double taxrate;
 
-	public Taxes() {
-
+	public Taxes(Double taxrate) {
+		this.taxrate = taxrate;
 	}
 
 	public double getTaxRate() {
-		return taxRate;
+		return taxrate;
 	}
 
 	public void setTaxRate(double taxRate) {
 		//+ ändra i databasen
-		this.taxRate = taxRate;
+		this.taxrate = taxRate;
 	}
 
 }

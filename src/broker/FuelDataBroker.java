@@ -58,4 +58,10 @@ public class FuelDataBroker extends Broker {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public void update(DataTransferObject data) {
+		// TODO Auto-generated method stub
+		
+	}
 }

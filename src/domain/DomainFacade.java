@@ -74,5 +74,10 @@ public class DomainFacade {
 		User user = new User(username, password, level);
 		data.save(user);
 	}
+	
+	public void setTaxes(Double taxrate){
+		Taxes tax = new Taxes(taxrate);
+		data.update(tax);
+	}
 
 }
