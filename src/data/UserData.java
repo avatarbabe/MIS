@@ -1,6 +1,7 @@
 package data;
 
 import datatransferobject.DataTransferObject;
+import domain.User;
 
 public class UserData extends DataTransferObject{
 	private String username;
@@ -16,6 +17,12 @@ public class UserData extends DataTransferObject{
 		this.username = username;
 		this.password = password;
 		this.level = level;
+	}
+
+	public UserData(User user) {
+		username = user.getUsername();
+		password = user.getPassword();
+		level = user.getLevel();
 	}
 
 	public String getUsername() {

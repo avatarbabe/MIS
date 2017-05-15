@@ -18,6 +18,12 @@ public class User {
 		level = userData.getLevel();
 	}
 
+	public User(String username, String password, int level) {
+		this.username = username;
+		this.password = password;
+		this.level = level;
+	}
+
 	public String getUsername() {
 		return username;
 	}
