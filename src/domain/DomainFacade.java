@@ -64,5 +64,10 @@ public class DomainFacade {
 	public void resetUser(){
 		aUser = null;
 	}
+	
+	public void saveUser(String username, String password, int level){
+		User user = new User(username, password, level);
+		data.save(user);
+	}
 
 }
