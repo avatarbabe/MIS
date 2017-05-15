@@ -77,4 +77,9 @@ public class DataFacade {
 
 	}
 
+	public int getTax() {
+		
+		
+	}
+
 }

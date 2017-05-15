@@ -12,7 +12,7 @@ import datatransferobject.DataTransferObject;
 public class TaxesDataBroker extends Broker {
 
 	@Override
-	public List<DataTransferObject> find(UserData data) {
+	public List<DataTransferObject> find(DataTransferObject data) {
 		// TODO Auto-generated method stub
 		return null;
 	}

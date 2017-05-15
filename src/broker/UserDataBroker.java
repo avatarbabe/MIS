@@ -26,7 +26,7 @@ public class UserDataBroker extends Broker {
 	}
 
 	@Override
-	public List<DataTransferObject> find(UserData data) {
+	public List<DataTransferObject> find(DataTransferObject data) {
 
 		List<DataTransferObject> users = new ArrayList<>();
 
@@ -36,8 +36,8 @@ public class UserDataBroker extends Broker {
 			PreparedStatement selectUser = conn
 					.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
 
-			selectUser.setString(1, data.getUsername());
-			selectUser.setString(2, data.getPassword());
+			selectUser.setString(1, ((UserData) data).getUsername());
+			selectUser.setString(2, ((UserData) data).getPassword());
 
 			ResultSet rst;
 			rst = selectUser.executeQuery();
