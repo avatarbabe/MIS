@@ -96,7 +96,6 @@ public class RegisterRoutes extends JPanel{
 		box.setAlignmentX(CENTER_ALIGNMENT);
 		box.setMaximumSize(new Dimension(150, 20));
 		
-
 		
 		register.setAlignmentX(CENTER_ALIGNMENT);
 		add(Box.createRigidArea(new Dimension(200, 100)));

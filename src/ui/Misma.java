@@ -74,5 +74,11 @@ public class Misma extends JFrame {
 		add(viewEmission);
 		pack();
 	}
+	public void loadNewUser(int level){
+		getContentPane().removeAll();
+		JPanel newUser  = new NewUser(this, domain, level);
+		add(newUser);
+		pack();
+	}
 	
 }
