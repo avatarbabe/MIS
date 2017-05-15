@@ -8,6 +8,10 @@ public class Taxes {
 		this.taxrate = taxrate;
 	}
 
+	public Taxes() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public double getTaxRate() {
 		return taxrate;
 	}

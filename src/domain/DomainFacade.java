@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.RouteData;
+import data.TaxesData;
 import data.UserData;
 import datafacade.DataFacade;
 import datatransferobject.DataTransferObject;
@@ -81,7 +82,10 @@ public class DomainFacade {
 	}
 	
 	public double getTaxes(){
-		return data.getTax();
+		Taxes tax = new Taxes();
+		List<DataTransferObject> taxes = data.getTax(tax);
+		double taxrate = ((TaxesData) taxes.get(0)).getTaxRate();
+		return taxrate;
 	}
 	
 	public void updateFuel(double volume, String fuelType, String user, double emission, int id){

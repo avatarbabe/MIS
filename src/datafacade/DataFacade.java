@@ -77,9 +77,9 @@ public class DataFacade {
 
 	}
 
-	public int getTax() {
-		
-		
+	public List<DataTransferObject> getTax(Taxes tax) {
+		DataTransferObject taxesData = new TaxesData(tax);
+		return persistance.find(taxesData);
 	}
 
 }

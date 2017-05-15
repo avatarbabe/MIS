@@ -12,7 +12,7 @@ public class PersistencyFacade {
 
 	protected HashMap<Class<?>, Broker> brokers = new HashMap<>();
 
-	public List<DataTransferObject> find(UserData data) {
+	public List<DataTransferObject> find(DataTransferObject data) {
 		Broker broker = brokers.get(data.getClass());
 		return broker.find(data);
 	}
