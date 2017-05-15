@@ -80,8 +80,8 @@ public class DomainFacade {
 		data.update(tax);
 	}
 	
-	public void updateFuel(double volume, String fuelType, String user, double emission){
-		Fuel fuel = new Fuel(volume, fuelType, user, emission);
+	public void updateFuel(double volume, String fuelType, String user, double emission, int id){
+		Fuel fuel = new Fuel(volume, fuelType, emission, user, id);
 		data.update(fuel);
 	}
 

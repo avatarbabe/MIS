@@ -1,6 +1,7 @@
 package domain;
 
 public class Fuel {
+	private int id;
 	private double volume;
 	private String fuelType;
 	private double emissionRate;
@@ -19,11 +20,12 @@ public class Fuel {
 		emission = calculator.calculateFuel(volume, emissionRate);
 	}
 	
-	public Fuel(double volume, String fuelType, String user, double emission) {
+	public Fuel(double volume, String fuelType, double emission, String user, int id) {
 		this.volume = volume;
 		this.fuelType = fuelType;
 		this.emission = emission;
 		this.user = user;
+		this.id = id;
 	}
 
 	public Fuel() {
@@ -77,6 +79,15 @@ public class Fuel {
 	public void setCalculator(Calculator calculator) {
 		this.calculator = calculator;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	
 	
 }
