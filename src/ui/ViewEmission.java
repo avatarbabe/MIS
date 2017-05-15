@@ -21,6 +21,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import data.FuelData;
+import data.RouteData;
 import datatransferobject.DataTransferObject;
 import domain.DomainFacade;
 
@@ -40,19 +41,31 @@ public class ViewEmission extends JPanel {
 
 			
 			JLabel label = new JLabel("View emissions:" );
+			JLabel label1 = new JLabel("View routes:" );
 			DefaultListModel listModel = new DefaultListModel();
 			
 			
 			List<DataTransferObject> fuel = domain.getAllFuel();
+			List<DataTransferObject> routes = domain.getAllRoutes();
 			
 			for (DataTransferObject dto: fuel){
 				String type = ((FuelData) dto).getFuelType();
 				double volume = ((FuelData) dto).getVolume();
 				listModel.addElement(type + "   " + volume);
 			}
+			
+			for (DataTransferObject dto: routes){
+				String start = ((RouteData) dto).getStart();
+				String end = ((RouteData) dto).getEnd();
+				Double distance = ((RouteData) dto).getDistance();
+				Double emissions1 = ((RouteData) dto).getEmission();
+				
+				listModel.addElement("From: " + start + ". To: " + end + "Distance: " +distance+ ". " + emissions1);
+			}
 
 			JList emissions = new JList(listModel);
 			JScrollPane sp = new JScrollPane(emissions);
+			JScrollPane sp1 = new JScrollPane();
 			
 			goBack.setAlignmentX(CENTER_ALIGNMENT);
 			goBack.addActionListener(new ActionListener(){
@@ -62,10 +75,12 @@ public class ViewEmission extends JPanel {
 				}
 			});
 			
-			label.setAlignmentX(CENTER_ALIGNMENT);
+			//label.setAlignmentX(CENTER_ALIGNMENT);
 			add(Box.createRigidArea(new Dimension(200, 100)));
 			add(label);
 			add(sp);
+			add(label1);
+			add(sp1);
 			add(goBack);
 			
 

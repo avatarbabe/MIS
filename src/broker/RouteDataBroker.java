@@ -53,7 +53,7 @@ public class RouteDataBroker extends Broker {
 
 			while (rst.next()) {
 				routes.add(new RouteData(rst.getString("start"), rst.getString("end"), rst.getDouble("distance"),
-						rst.getDouble("emission"), rst.getString("user")));
+						rst.getDouble("emission"), rst.getString("username")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
