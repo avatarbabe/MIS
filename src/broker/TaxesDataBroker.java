@@ -20,7 +20,7 @@ public class TaxesDataBroker extends Broker {
 	@Override
 	public void insert(DataTransferObject data) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,17 +28,17 @@ public class TaxesDataBroker extends Broker {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	public void update(DataTransferObject data){
+
+	public void update(DataTransferObject data) {
 		Connection conn = super.getDBConnection();
 		try {
-			PreparedStatement updateTaxes = conn
-					.prepareStatement("UPDATE taxes SET taxrate = ? WHERE tax_id = 1");
+			PreparedStatement updateTaxes = conn.prepareStatement("UPDATE taxes SET taxrate = ? WHERE tax_id = ?");
 			updateTaxes.setDouble(1, ((TaxesData) data).getTaxRate());
+			updateTaxes.setInt(2, 1);
 			updateTaxes.executeUpdate();
-			
+
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		}
 	}
