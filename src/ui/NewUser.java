@@ -6,8 +6,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -19,6 +21,8 @@ import domain.DomainFacade;
 
 public class NewUser extends JPanel{
 	private int level1 = 0;
+	private JLabel jlabel = new JLabel();
+	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("arrow1.png")));
 	
 	public NewUser(Misma misma, DomainFacade domain, int level){
 		
@@ -33,6 +37,13 @@ public class NewUser extends JPanel{
 		JPasswordField password = new JPasswordField();
 		JComboBox box = new JComboBox(message);
 		JButton register = new JButton();
+		
+		jlabel.setText("New user registered!");
+		jlabel.setAlignmentX(CENTER_ALIGNMENT);
+		
+		goBack.setVisible(true);
+		goBack.setBorder(BorderFactory.createEmptyBorder(1,1,1,1));
+		goBack.setContentAreaFilled(false);
 		
 		username.setText("Username");
 		username.setAlignmentX(CENTER_ALIGNMENT);
@@ -90,9 +101,17 @@ public class NewUser extends JPanel{
 				String getPassword = password.getText();
 				
 				domain.saveUser(getUsername, getPassword, level1);
-					misma.loadMenu(domain.getActiveUserLevel());
+					add(jlabel);
 					validate();
 				
+			}
+		});
+		
+		goBack.setAlignmentX(CENTER_ALIGNMENT);
+		goBack.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				misma.loadMenu(level);
 			}
 		});
 		
@@ -105,6 +124,7 @@ public class NewUser extends JPanel{
 		add(box);
 		add(Box.createRigidArea(new Dimension(200, 15)));
 		add(register);
+		add(goBack);
 		revalidate();
 		setVisible(true);
 	}
