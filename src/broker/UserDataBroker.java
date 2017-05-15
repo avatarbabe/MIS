@@ -57,11 +57,13 @@ public class UserDataBroker extends Broker {
 		try {
 			Connection conn = super.getDBConnection();
 			PreparedStatement insertUser = conn
-					.prepareStatement("INSERT INTO user(username, password, level) VALUES(?,?,?)");
+					.prepareStatement("INSERT INTO users(username, password, level) VALUES(?,?,?)");
 
 			insertUser.setString(1, ((UserData) data).getUsername());
 			insertUser.setString(2, ((UserData) data).getPassword());
 			insertUser.setInt(3, ((UserData) data).getLevel());
+			insertUser.executeUpdate();
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
