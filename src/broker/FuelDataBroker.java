@@ -33,7 +33,7 @@ public class FuelDataBroker extends Broker {
 
 			while (rst.next()) {
 				fuel.add(new FuelData(rst.getDouble("volume"), rst.getString("fueltype"), rst.getDouble("emission"),
-						rst.getString("username")));
+						rst.getString("username"), rst.getInt("fuel_id")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -5,6 +5,7 @@ import domain.Route;
 
 public class RouteData extends DataTransferObject {
 
+	private int id;
 	private String start;
 	private String end;
 	private double distance;
@@ -25,6 +26,15 @@ public class RouteData extends DataTransferObject {
 		distance = route.getDistance();
 		emission = route.getEmission();
 		user = route.getUser();
+	}
+	
+	public RouteData(String start, String end, double distance, double emission, String user, int id) {
+		this.start = start;
+		this.end = end;
+		this.distance = distance;
+		this.emission = emission;
+		this.user = user;
+		this.id = id;
 	}
 
 	public String getUser() {
