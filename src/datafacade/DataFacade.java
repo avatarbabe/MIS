@@ -59,4 +59,9 @@ public class DataFacade {
 		return persistance.findAll(fuelData);
 	}
 
+	public List<DataTransferObject> findAll(Route route) {
+		DataTransferObject routeData = new RouteData(route);
+		return persistance.findAll(routeData);
+	}
+
 }

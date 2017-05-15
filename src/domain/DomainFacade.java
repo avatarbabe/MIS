@@ -61,6 +61,11 @@ public class DomainFacade {
 		return data.findAll(fuel);
 	}
 	
+	public List<DataTransferObject> getAllRoutes(){
+		Route route = new Route();
+		return data.findAll(route);
+	}
+	
 	public void resetUser(){
 		aUser = null;
 	}

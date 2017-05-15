@@ -24,6 +24,11 @@ public class Route {
 	}
 
 
+	public Route() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public double getDistance() {
 		return distance;
 	}
