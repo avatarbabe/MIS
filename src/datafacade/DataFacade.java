@@ -68,7 +68,13 @@ public class DataFacade {
 	public void update(Taxes tax) {
 		DataTransferObject taxData = new TaxesData(tax);
 		persistance.update(taxData);
-		
+
+	}
+
+	public void update(Fuel fuel) {
+		DataTransferObject fuelData = new FuelData(fuel);
+		persistance.update(fuelData);
+
 	}
 
 }

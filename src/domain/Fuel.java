@@ -18,6 +18,13 @@ public class Fuel {
 		calculator = new Calculator();
 		emission = calculator.calculateFuel(volume, emissionRate);
 	}
+	
+	public Fuel(double volume, String fuelType, String user, double emission) {
+		this.volume = volume;
+		this.fuelType = fuelType;
+		this.emission = emission;
+		this.user = user;
+	}
 
 	public Fuel() {
 		// TODO Auto-generated constructor stub

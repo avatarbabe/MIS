@@ -79,5 +79,10 @@ public class DomainFacade {
 		Taxes tax = new Taxes(taxrate);
 		data.update(tax);
 	}
+	
+	public void updateFuel(double volume, String fuelType, String user, double emission){
+		Fuel fuel = new Fuel(volume, fuelType, user, emission);
+		data.update(fuel);
+	}
 
 }
