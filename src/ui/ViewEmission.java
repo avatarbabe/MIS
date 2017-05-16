@@ -28,6 +28,7 @@ import domain.DomainFacade;
 public class ViewEmission extends JPanel {
 
 	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("arrow1.png")));
+	private JButton edit = new JButton("Edit emission");
 
 
 	public ViewEmission(Misma misma, DomainFacade domain, int level){
@@ -53,7 +54,8 @@ public class ViewEmission extends JPanel {
 				String type = ((FuelData) dto).getFuelType();
 				double volume = ((FuelData) dto).getVolume();
 				double emissions2 = ((FuelData) dto).getEmission();
-				listModel.addElement("<html><b>Type: </b>" +type + " <b>Volume: </b>" + volume + " <b> Emissions: </b>" +emissions2);
+				int id = ((FuelData) dto).getId();
+				listModel.addElement("<html><b>Type: </b>" +type + " <b>Volume: </b>" + volume + " <b> Emissions: </b>" +emissions2 + "</html>");
 			}
 			
 			for (DataTransferObject dto: routes){
@@ -61,14 +63,23 @@ public class ViewEmission extends JPanel {
 				String end = ((RouteData) dto).getEnd();
 				Double distance = ((RouteData) dto).getDistance();
 				Double emissions1 = ((RouteData) dto).getEmission();
+
 				
-				listModel1.addElement("<html><b>From: </b>" + start + ". <b> To: </b>" + end + " <b>Distance: </b> " +distance+ "<b> Emissions: </b> " + emissions1 + "</html> ");
+				listModel1.addElement("<html><b>From: </b>" + start + ". <b> To: </b>" + end + " <b>Distance: </b> " +distance+ "<b> Emissions: </b> " + emissions1 + "</html>");
 			}
 
 			JList emissions = new JList(listModel);
 			JList route = new JList(listModel1);
 			JScrollPane sp = new JScrollPane(emissions);
 			JScrollPane sp1 = new JScrollPane(route);
+			
+			edit.setAlignmentX(CENTER_ALIGNMENT);
+			edit.addActionListener(new ActionListener(){
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					System.out.println(emissions.getSelectedValue());
+				}
+			});
 			
 			goBack.setAlignmentX(CENTER_ALIGNMENT);
 			goBack.addActionListener(new ActionListener(){
@@ -84,6 +95,7 @@ public class ViewEmission extends JPanel {
 			add(sp);
 			add(label1);
 			add(sp1);
+			add(edit);
 			add(goBack);
 			
 
