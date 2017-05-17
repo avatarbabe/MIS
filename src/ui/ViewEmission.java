@@ -77,9 +77,6 @@ public class ViewEmission extends JPanel {
 			JScrollPane sp = new JScrollPane(emissions);
 			JScrollPane sp1 = new JScrollPane(route);
 			
-		
-			//String type  = row.substring(5,11);
-			//String volume = row.s
 			
 			edit.setAlignmentX(CENTER_ALIGNMENT);
 			edit.addActionListener(new ActionListener(){
@@ -96,7 +93,7 @@ public class ViewEmission extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					
-					misma.loadEditRoutes(emissions.getSelectedValue(), level);
+					misma.loadEditRoutes(route.getSelectedValue(), level);
 					//misma.loadEditFuel(level);
 				}
 			});
