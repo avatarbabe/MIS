@@ -104,7 +104,7 @@ public class EditRoutes extends JPanel{
 		    	String editTo1 = editTo.getText();
 		    	Double editDistance1 = Double.parseDouble(editDistance.getText());
 		    	
-		        //domain.updateRoute(editFrom1, editTo1, editDistance1, t, user, id);
+		        domain.updateRoute(editFrom1, editTo1, editDistance1, t, user, id);
 		        add(jlabel);
 		        validate();
 		    }
