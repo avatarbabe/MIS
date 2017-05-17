@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import data.FuelData;
@@ -44,16 +48,21 @@ public class FuelDataBroker extends Broker {
 	}
 
 	public void insert(DataTransferObject data) {
-
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		LocalDate localDate = LocalDate.now();
+		Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+		
 		try {
 			Connection conn = super.getDBConnection();
 			PreparedStatement insertFuel = conn
-					.prepareStatement("INSERT INTO fuel(volume, fueltype, emission, username) VALUES(?,?,?,?)");
+					.prepareStatement("INSERT INTO fuel(volume, fueltype, emission, username, date) VALUES(?,?,?,?,?)");
 
 			insertFuel.setDouble(1, ((FuelData) data).getVolume());
 			insertFuel.setString(2, ((FuelData) data).getFuelType());
 			insertFuel.setDouble(3, ((FuelData) data).getEmission());
 			insertFuel.setString(4, ((FuelData) data).getUser());
+			insertFuel.setDate(5, sqlDate);
 			insertFuel.executeUpdate();
 
 		} catch (SQLException e) {
