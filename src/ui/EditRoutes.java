@@ -31,7 +31,7 @@ public class EditRoutes extends JPanel{
 		String[] split = row.split("\\s+");
 		String [] message = {"x2000", "900", "30s"};
 		int id = Integer.parseInt(split[0]);
-		String user = split[10];
+		String user = split[12];
 		
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
@@ -52,7 +52,7 @@ public class EditRoutes extends JPanel{
 		JButton changeEmissions = new JButton("Change");
 		
 		
-		editTruck.setSelectedIndex(1);
+		editTruck.setSelectedItem(split[10]);
 		editTruck.addActionListener(new ActionListener(){
 
 			@Override
@@ -68,6 +68,7 @@ public class EditRoutes extends JPanel{
 							break;
 						case "30s": t = 1.2;
 							break;
+						default: t = 1.6;	
 						
 					}
 				}

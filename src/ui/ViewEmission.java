@@ -68,8 +68,9 @@ public class ViewEmission extends JPanel {
 				double emissions1 = ((RouteData) dto).getEmission();
 				int id = ((RouteData) dto).getId();
 				String user = ((RouteData) dto).getUser();
+				String vehicle = ((RouteData) dto).getVehicle();
 				
-				listModel1.addElement(id +" From: " + start + " To: " + end + " Distance: " +distance+ " Emissions: " + emissions1 + " User: " + user);
+				listModel1.addElement(id +" From: " + start + " To: " + end + " Distance: " +distance+ " Emissions: " + emissions1 + " Vehicle: "+vehicle+" User: " + user);
 			}
 
 			JList emissions = new JList(listModel);
