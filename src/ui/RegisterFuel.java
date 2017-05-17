@@ -39,7 +39,7 @@ public class RegisterFuel extends JPanel{
 		
 		
 		JLabel fuelType = new JLabel("Fuel type:");
-		String[] message = {"Diesel", "Bensin", "Etanol (E85)"};
+		String[] message = {"Diesel", "Bensin", "Etanol(E85)"};
 		JLabel label = new JLabel("Fuel:" );
 		JTextField fuel = new JTextField();
 		JButton register = new JButton("Register");

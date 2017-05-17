@@ -55,7 +55,8 @@ public class ViewEmission extends JPanel {
 				double volume = ((FuelData) dto).getVolume();
 				double emissions2 = ((FuelData) dto).getEmission();
 				int id = ((FuelData) dto).getId();
-				listModel.addElement("<html><b>Type: </b>" +type + " <b>Volume: </b>" + volume + " <b> Emissions: </b>" +emissions2 + "</html>");
+				
+				listModel.addElement("Type: " +type + " Volume: " + volume + " Emissions: " +emissions2);
 			}
 			
 			for (DataTransferObject dto: routes){
@@ -63,7 +64,6 @@ public class ViewEmission extends JPanel {
 				String end = ((RouteData) dto).getEnd();
 				Double distance = ((RouteData) dto).getDistance();
 				Double emissions1 = ((RouteData) dto).getEmission();
-
 				
 				listModel1.addElement("<html><b>From: </b>" + start + ". <b> To: </b>" + end + " <b>Distance: </b> " +distance+ "<b> Emissions: </b> " + emissions1 + "</html>");
 			}
@@ -73,11 +73,17 @@ public class ViewEmission extends JPanel {
 			JScrollPane sp = new JScrollPane(emissions);
 			JScrollPane sp1 = new JScrollPane(route);
 			
+		
+			//String type  = row.substring(5,11);
+			//String volume = row.s
+			
 			edit.setAlignmentX(CENTER_ALIGNMENT);
 			edit.addActionListener(new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					System.out.println(emissions.getSelectedValue());
+					
+					misma.loadEditFuel(emissions.getSelectedValue(), level);
+					//misma.loadEditFuel(level);
 				}
 			});
 			

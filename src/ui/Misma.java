@@ -80,5 +80,11 @@ public class Misma extends JFrame {
 		add(newUser);
 		pack();
 	}
+	public void loadEditFuel(Object object, int level){
+		getContentPane().removeAll();
+		JPanel editFuel = new EditFuel(this, domain, level, object);
+		add(editFuel);
+		pack();
+	}
 	
 }
