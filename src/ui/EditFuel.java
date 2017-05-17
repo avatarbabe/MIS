@@ -49,8 +49,7 @@ public class EditFuel extends JPanel {
 		JTextField editVolume = new JTextField(split[4]);
 		JButton changeEmissions = new JButton("Change");
 		
-		
-		editType.setSelectedIndex(1);
+		editType.setSelectedItem(split[2]);
 		editType.addActionListener(new ActionListener(){
 
 			@Override
