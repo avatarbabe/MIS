@@ -109,5 +109,19 @@ public class RouteDataBroker extends Broker {
 			e.printStackTrace();
 		}
 	}
+	public void selectBetween (String dateOne, String dateTwo) {
+		Connection conn = super.getDBConnection();
+		try {
+			PreparedStatement selectBetween = conn.prepareStatement(
+					"SELECT emission FROM routes WHERE date BETWEEN ? AND ?");
+			selectBetween.setString(1, dateOne);
+			selectBetween.setString(2, dateTwo);
+			selectBetween.executeQuery();
 
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+	}
 }
