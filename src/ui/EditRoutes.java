@@ -24,7 +24,7 @@ public class EditRoutes extends JPanel{
 	private JLabel jlabel = new JLabel();
 	private String type;
 	private String msg;
-	private double rate;
+	private double t;
 	
 	public EditRoutes(Misma misma, DomainFacade domain, int level, Object routeRow){
 		String row = routeRow.toString();
@@ -57,16 +57,16 @@ public class EditRoutes extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(e.getSource() == editType){
+				if(e.getSource() == editTruck){
 					JComboBox cb = (JComboBox)e.getSource();
 					msg = (String)cb.getSelectedItem();
 					
 					switch(msg){
-						case "Diesel":  rate = 0.003; 
+						case "x2000":  t = 3.0; 
 							break;
-						case "Bensin":  rate = 0.003;
+						case "900":  t = 1.6;
 							break;
-						case "Etanol(E85)": rate = 0.001;
+						case "30s": t = 1.2;
 							break;
 						
 					}
@@ -75,10 +75,17 @@ public class EditRoutes extends JPanel{
 			}
 		});
 		
-		editVolume.addMouseListener(new MouseAdapter() {
+		editFrom.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
-		        editVolume.setText("");
+		        editFrom.setText("");
+		    }
+		});
+		
+		editTo.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        editFrom.setText("");
 		    }
 		});
 		
@@ -87,7 +94,7 @@ public class EditRoutes extends JPanel{
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
 		    	Double volume = Double.parseDouble(editVolume.getText());
-		        domain.updateFuel(volume, msg, rate, user, id);
+		        domain.updateFuel(volume, msg, t, user, id);
 		        add(jlabel);
 		        validate();
 		    }
