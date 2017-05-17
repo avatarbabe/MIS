@@ -18,7 +18,7 @@ public class Calculator {
 	}
 	
 	public double calculateTax(){
-		
+		return 1.0;
 	}
 
 }

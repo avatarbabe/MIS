@@ -41,7 +41,7 @@ public class DomainFacade {
 
 	public void saveRoute(String start, String end, double distance, double fuelConsumption, String vehicle) {
 
-		Route route = new Route(start, end, distance, fuelConsumption, aUser.getUsername(), vehicle);
+		Route route = new Route(start, end, distance, fuelConsumption, aUser.getUsername(), vehicle);		
 
 		data.save(route);
 

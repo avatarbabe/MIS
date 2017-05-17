@@ -28,6 +28,7 @@ public class RouteData extends DataTransferObject {
 		distance = route.getDistance();
 		emission = route.getEmission();
 		user = route.getUser();
+		vehicle = route.getVehicle();
 	}
 	
 	public RouteData(String start, String end, double distance, double emission, String user, int id) {

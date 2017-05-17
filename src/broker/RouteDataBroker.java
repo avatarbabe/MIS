@@ -41,8 +41,9 @@ public class RouteDataBroker extends Broker {
 			insertRoutes.setDouble(3, ((RouteData) data).getDistance());
 			insertRoutes.setDouble(4, ((RouteData) data).getEmission());
 			insertRoutes.setString(5, ((RouteData) data).getUser());
-			insertRoutes.setString(6, ((RouteData) data).getVehicle());
-			insertRoutes.setDate(7, sqlDate);
+			insertRoutes.setDate(6, sqlDate);
+			insertRoutes.setString(7, ((RouteData) data).getVehicle());
+			System.out.println(((RouteData) data).getVehicle());
 
 			insertRoutes.executeUpdate();
 
