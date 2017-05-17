@@ -119,11 +119,11 @@ public class RegisterRoutes extends JPanel{
 					String msg = (String)cb.getSelectedItem();
 					
 					switch(msg){
-						case "Truck x2000":  t = 3.0; 
+						case "x2000":  t = 3.0; 
 							break;
-						case "Truck 900":  t = 1.6;
+						case "900":  t = 1.6;
 							break;
-						case "Truck 30s": t = 1.2;
+						case "30s": t = 1.2;
 							break;
 					}
 				}
