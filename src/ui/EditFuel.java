@@ -30,7 +30,8 @@ public class EditFuel extends JPanel {
 		String row = fuelRow.toString();
 		String[] split = row.split("\\s+");
 		String [] message = {"Diesel", "Bensin", "Etanol(E85)"};
-		
+		int id = Integer.parseInt(split[0]);
+		String user = split[8];
 		
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
@@ -45,7 +46,7 @@ public class EditFuel extends JPanel {
 		
 		JLabel label = new JLabel("Edit:" );
 		JComboBox editType = new JComboBox(message);
-		JTextField editVolume = new JTextField(split[3]);
+		JTextField editVolume = new JTextField(split[4]);
 		JButton changeEmissions = new JButton("Change");
 		
 		
@@ -84,7 +85,7 @@ public class EditFuel extends JPanel {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
 		    	Double volume = Double.parseDouble(editVolume.getText());
-		        domain.saveFuel(volume, msg, rate);
+		        domain.updateFuel(volume, msg, rate, user, id);
 		        add(jlabel);
 		        validate();
 		    }

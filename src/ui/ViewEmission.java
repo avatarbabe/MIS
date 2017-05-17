@@ -28,7 +28,8 @@ import domain.DomainFacade;
 public class ViewEmission extends JPanel {
 
 	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("arrow1.png")));
-	private JButton edit = new JButton("Edit emission");
+	private JButton edit = new JButton("Edit fuel");
+	private JButton edit1 = new JButton("Edit routes");
 
 
 	public ViewEmission(Misma misma, DomainFacade domain, int level){
@@ -55,17 +56,20 @@ public class ViewEmission extends JPanel {
 				double volume = ((FuelData) dto).getVolume();
 				double emissions2 = ((FuelData) dto).getEmission();
 				int id = ((FuelData) dto).getId();
+				String user = ((FuelData) dto).getUser();
 				
-				listModel.addElement("Type: " +type + " Volume: " + volume + " Emissions: " +emissions2);
+				listModel.addElement(id +" Type: " +type + " Volume: " + volume + " Emissions: " +emissions2 + " User: " +user);
 			}
 			
 			for (DataTransferObject dto: routes){
 				String start = ((RouteData) dto).getStart();
 				String end = ((RouteData) dto).getEnd();
-				Double distance = ((RouteData) dto).getDistance();
-				Double emissions1 = ((RouteData) dto).getEmission();
+				double distance = ((RouteData) dto).getDistance();
+				double emissions1 = ((RouteData) dto).getEmission();
+				int id = ((RouteData) dto).getId();
+				String user = ((RouteData) dto).getUser();
 				
-				listModel1.addElement("<html><b>From: </b>" + start + ". <b> To: </b>" + end + " <b>Distance: </b> " +distance+ "<b> Emissions: </b> " + emissions1 + "</html>");
+				listModel1.addElement(id +" From: " + start + " To: " + end + " Distance: " +distance+ " Emissions: " + emissions1 + " User: " + user);
 			}
 
 			JList emissions = new JList(listModel);
@@ -87,6 +91,16 @@ public class ViewEmission extends JPanel {
 				}
 			});
 			
+			edit1.setAlignmentX(CENTER_ALIGNMENT);
+			edit1.addActionListener(new ActionListener(){
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					//misma.load(emissions.getSelectedValue(), level);
+					//misma.loadEditFuel(level);
+				}
+			});
+			
 			goBack.setAlignmentX(CENTER_ALIGNMENT);
 			goBack.addActionListener(new ActionListener(){
 				@Override
@@ -99,9 +113,10 @@ public class ViewEmission extends JPanel {
 			add(Box.createRigidArea(new Dimension(90, 10)));
 			add(label);
 			add(sp);
+			add(edit);
 			add(label1);
 			add(sp1);
-			add(edit);
+			add(edit1);
 			add(goBack);
 			
 

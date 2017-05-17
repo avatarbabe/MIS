@@ -87,4 +87,10 @@ public class Misma extends JFrame {
 		pack();
 	}
 	
+	public void loadEditRoutes(Object object, int level){
+		getContentPane().removeAll();
+		JPanel editRoutes = new EditRoutes(this, domain, level, object);
+		add(editRoutes);
+		pack();
+	}
 }

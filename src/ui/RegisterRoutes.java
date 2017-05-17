@@ -31,7 +31,7 @@ public class RegisterRoutes extends JPanel{
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
 		setLayout(new BoxLayout(this, 1));
-		String[] message = {"Truck x2000", "Truck 900", "Truck 30s"};
+		String[] message = {"x2000", "900", "30s"};
 		JLabel vehicle = new JLabel("Vehicle:");
 		JTextField from = new JTextField();
 		JTextField to = new JTextField();
@@ -140,7 +140,7 @@ public class RegisterRoutes extends JPanel{
 				String to1 = to.getText();
 				Double distance1 = Double.parseDouble(distance.getText());
 				
-				domain.saveRoute(from1, to1, distance1, t);
+				domain.saveRoute(from1, to1, distance1, t, msg);
 				 add(jlabel);
 			     validate();
 			}
