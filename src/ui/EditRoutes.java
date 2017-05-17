@@ -104,7 +104,7 @@ public class EditRoutes extends JPanel{
 		    	String editTo1 = editTo.getText();
 		    	Double editDistance1 = Double.parseDouble(editDistance.getText());
 		    	
-		        domain.updateFuel(editFrom1, editTo1, editDistance1, user, id);
+		        domain.updateRoute(editFrom1, editTo1, editDistance1, t, user, id);
 		        add(jlabel);
 		        validate();
 		    }
@@ -119,16 +119,22 @@ public class EditRoutes extends JPanel{
 		});
 		
 		label.setAlignmentX(CENTER_ALIGNMENT);
-		editType.setAlignmentX(CENTER_ALIGNMENT);
-		editVolume.setAlignmentX(CENTER_ALIGNMENT);
+		editFrom.setAlignmentX(CENTER_ALIGNMENT);
+		editTo.setAlignmentX(CENTER_ALIGNMENT);
+		editDistance.setAlignmentX(CENTER_ALIGNMENT);
+		editTruck.setAlignmentX(CENTER_ALIGNMENT);
 		changeEmissions.setAlignmentX(CENTER_ALIGNMENT);
 		
 		add(Box.createRigidArea(new Dimension(200, 100)));
-		editType.setMaximumSize(new Dimension(150, 20));
-		editVolume.setMaximumSize(new Dimension(150, 20));
+		editFrom.setMaximumSize(new Dimension(150, 20));
+		editTo.setMaximumSize(new Dimension(150, 20));
+		editDistance.setMaximumSize(new Dimension(150, 20));
+		editTruck.setMaximumSize(new Dimension(150, 20));
 		add(label);
-		add(editType);
-		add(editVolume);
+		add(editFrom);
+		add(editTo);
+		add(editDistance);
+		add(editTruck);
 		add(changeEmissions);
 		add(goBack);
 	}
