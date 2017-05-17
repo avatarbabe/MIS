@@ -43,7 +43,6 @@ public class RouteDataBroker extends Broker {
 			insertRoutes.setString(5, ((RouteData) data).getUser());
 			insertRoutes.setDate(6, sqlDate);
 			insertRoutes.setString(7, ((RouteData) data).getVehicle());
-			System.out.println(((RouteData) data).getVehicle());
 
 			insertRoutes.executeUpdate();
 
