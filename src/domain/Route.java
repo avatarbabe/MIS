@@ -9,15 +9,17 @@ public class Route {
 	private double emission;
 	private double fuelConsumption;
 	private String user;
+	private String vehicle;
 
 	private Calculator calculator;
 
-	public Route(String start, String end, double distance, double fuelConsumption, String user) {
+	public Route(String start, String end, double distance, double fuelConsumption, String user, String vehicle) {
 		this.distance = distance;
 		this.start = start;
 		this.end = end;
 		this.fuelConsumption = fuelConsumption;
 		this.user = user;
+		this.vehicle = vehicle;
 
 		calculator = new Calculator();
 		emission = calculator.calculateRoute(distance, fuelConsumption);
@@ -90,6 +92,22 @@ public class Route {
 
 	public void setUser(String user) {
 		this.user = user;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(String vehicle) {
+		this.vehicle = vehicle;
 	}
 
 }

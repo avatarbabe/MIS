@@ -34,14 +34,15 @@ public class RouteDataBroker extends Broker {
 		try {
 			Connection conn = super.getDBConnection();
 			PreparedStatement insertRoutes = conn.prepareStatement(
-					"INSERT INTO routes(start, end, distance, emission, username, date) VALUES(?,?,?,?,?,?)");
+					"INSERT INTO routes(start, end, distance, emission, username, date, vehicle) VALUES(?,?,?,?,?,?,?)");
 
 			insertRoutes.setString(1, ((RouteData) data).getStart());
 			insertRoutes.setString(2, ((RouteData) data).getEnd());
 			insertRoutes.setDouble(3, ((RouteData) data).getDistance());
 			insertRoutes.setDouble(4, ((RouteData) data).getEmission());
 			insertRoutes.setString(5, ((RouteData) data).getUser());
-			insertRoutes.setDate(6, sqlDate);
+			insertRoutes.setString(6, ((RouteData) data).getVehicle());
+			insertRoutes.setDate(7, sqlDate);
 
 			insertRoutes.executeUpdate();
 

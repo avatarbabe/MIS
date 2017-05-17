@@ -39,9 +39,9 @@ public class DomainFacade {
 
 	}
 
-	public void saveRoute(String start, String end, double distance, double fuelConsumption) {
+	public void saveRoute(String start, String end, double distance, double fuelConsumption, String vehicle) {
 
-		Route route = new Route(start, end, distance, fuelConsumption, aUser.getUsername());
+		Route route = new Route(start, end, distance, fuelConsumption, aUser.getUsername(), vehicle);
 
 		data.save(route);
 
@@ -91,6 +91,10 @@ public class DomainFacade {
 	public void updateFuel(double volume, String fuelType, double rate, String user, int id){
 		Fuel fuel = new Fuel(volume, fuelType, rate, user, id);
 		data.update(fuel);
+	}
+	
+	public void updateRoute(String start, String end, double distance, String user, int id){
+		Route route = new Route();
 	}
 
 }

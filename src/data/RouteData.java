@@ -11,13 +11,15 @@ public class RouteData extends DataTransferObject {
 	private double distance;
 	private double emission;
 	private String user;
+	private String vehicle;
 
-	public RouteData(String start, String end, double distance, double emission, String user) {
+	public RouteData(String start, String end, double distance, double emission, String user, String vehicle) {
 		this.start = start;
 		this.end = end;
 		this.distance = distance;
 		this.emission = emission;
 		this.user = user;
+		this.vehicle = vehicle;
 	}
 
 	public RouteData(Route route) {
@@ -83,6 +85,10 @@ public class RouteData extends DataTransferObject {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getVehicle() {
+		return vehicle;
 	}
 
 }

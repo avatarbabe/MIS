@@ -16,5 +16,9 @@ public class Calculator {
 		emission = volume * emissionRate;
 		return emission;
 	}
+	
+	public double calculateTax(){
+		
+	}
 
 }
