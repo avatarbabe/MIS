@@ -29,12 +29,13 @@ public class Route {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Route(String start, String end, double distance, double fuelConsumption, String user, int id) {
+	public Route(String start, String end, double distance, double fuelConsumption, String user, int id, String vehicle) {
 		this.start = start;
 		this.end = end;
 		this.distance = distance;
 		this.user = user;
 		this.id = id;
+		this.vehicle = vehicle;
 		
 		calculator = new Calculator();
 		emission = calculator.calculateRoute(distance, fuelConsumption);

@@ -93,8 +93,8 @@ public class DomainFacade {
 		data.update(fuel);
 	}
 	
-	public void updateRoute(String start, String end, double distance, double fuelConsumption, String user, int id){
-		Route route = new Route(start, end, distance, fuelConsumption, user, id);
+	public void updateRoute(String start, String end, double distance, double fuelConsumption, String user, int id, String vehicle){
+		Route route = new Route(start, end, distance, fuelConsumption, user, id, vehicle);
 		data.update(route);
 	}
 
