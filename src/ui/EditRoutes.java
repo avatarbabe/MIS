@@ -85,7 +85,14 @@ public class EditRoutes extends JPanel{
 		editTo.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
-		        editFrom.setText("");
+		        editTo.setText("");
+		    }
+		});
+		
+		editDistance.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        editDistance.setText("");
 		    }
 		});
 		
@@ -93,8 +100,11 @@ public class EditRoutes extends JPanel{
 		changeEmissions.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
-		    	Double volume = Double.parseDouble(editVolume.getText());
-		        domain.updateFuel(volume, msg, t, user, id);
+		    	String editFrom1 = editFrom.getText();
+		    	String editTo1 = editTo.getText();
+		    	Double editDistance1 = Double.parseDouble(editDistance.getText());
+		    	
+		        domain.updateFuel(editFrom1, editTo1, editDistance1, user, id);
 		        add(jlabel);
 		        validate();
 		    }

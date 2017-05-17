@@ -23,7 +23,7 @@ public class RegisterRoutes extends JPanel{
 	private Double t = 1.6;
 	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("arrow1.png")));
 	private JLabel jlabel = new JLabel();
-	private String msg;
+	private String msg = "hej";
 
 	
 	public RegisterRoutes(Misma misma, DomainFacade domain, int level){
