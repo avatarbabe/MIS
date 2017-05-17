@@ -2,10 +2,10 @@ package domain;
 
 public class Calculator {
 
-	private Taxes tax;
+	private double tax;
 	private double emission;
 
-	public Calculator(Taxes tax) {
+	public Calculator(double tax) {
 		this.tax = tax;
 	}
 
@@ -27,7 +27,7 @@ public class Calculator {
 	}
 
 	public double calculateTax(double emission) {
-		return emission * tax.getTaxRate();
+		return emission * 1000 * tax;
 	}
 
 }

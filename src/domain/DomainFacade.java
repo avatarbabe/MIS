@@ -100,12 +100,12 @@ public class DomainFacade {
 	}
 	
 	public double getTotalTax(){
-		List <DataTransferObject> routes = getAllFuel();
-		List <DataTransferObject> fuel = getAllRoutes();
+		List <DataTransferObject> routes = getAllRoutes();
+		List <DataTransferObject> fuel = getAllFuel();
 		
-		getTaxes();
+		double taxrate = getTaxes();
 		
-		return tax.getTotalTax(fuel, routes);
+		return tax.getTotalTax(fuel, routes, taxrate);
 				
 	}
 
