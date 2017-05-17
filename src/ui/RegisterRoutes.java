@@ -140,7 +140,7 @@ public class RegisterRoutes extends JPanel{
 				String to1 = to.getText();
 				Double distance1 = Double.parseDouble(distance.getText());
 				
-				domain.saveRoute(to1, from1, distance1, t);
+				domain.saveRoute(from1, to1, distance1, t);
 				 add(jlabel);
 			     validate();
 			}

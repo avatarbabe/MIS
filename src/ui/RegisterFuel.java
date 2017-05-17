@@ -85,6 +85,7 @@ public class RegisterFuel extends JPanel{
 							break;
 						case "Etanol (E85)": rate = 0.001;
 							break;
+						default: rate = 0.003;
 						
 					}
 				}
