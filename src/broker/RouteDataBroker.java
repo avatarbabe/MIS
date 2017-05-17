@@ -85,8 +85,8 @@ public class RouteDataBroker extends Broker {
 			updateRoutes.setDouble(3, ((RouteData) data).getDistance());
 			updateRoutes.setDouble(4, ((RouteData) data).getEmission());
 			updateRoutes.setString(5, ((RouteData) data).getUser());
-			updateRoutes.setString(5, ((RouteData) data).getVehicle());
-			updateRoutes.setInt(6, ((RouteData) data).getId());
+			updateRoutes.setString(6, ((RouteData) data).getVehicle());
+			updateRoutes.setInt(7, ((RouteData) data).getId());
 
 			updateRoutes.executeUpdate();
 
