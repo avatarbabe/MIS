@@ -76,6 +76,12 @@ public class DataFacade {
 		persistance.update(fuelData);
 
 	}
+	
+	public void update(Route route) {
+		DataTransferObject routeData = new RouteData(route);
+		persistance.update(routeData);
+
+	}
 
 	public List<DataTransferObject> getTax(Taxes tax) {
 		DataTransferObject taxesData = new TaxesData(tax);

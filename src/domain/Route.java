@@ -25,17 +25,19 @@ public class Route {
 		emission = calculator.calculateRoute(distance, fuelConsumption);
 	}
 
-	public Route(String start, String end, double distance, double emission, String user, int id) {
-		this.distance = distance;
-		this.start = start;
-		this.end = end;
-		this.emission = emission;
-		this.user = user;
-		this.id = id;
-	}
-
 	public Route() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Route(String start, String end, double distance, double fuelConsumption, String user, int id) {
+		this.start = start;
+		this.end = end;
+		this.distance = distance;
+		this.user = user;
+		this.id = id;
+		
+		calculator = new Calculator();
+		emission = calculator.calculateRoute(distance, fuelConsumption);
 	}
 
 	public double getDistance() {
