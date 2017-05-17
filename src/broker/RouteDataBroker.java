@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.RouteData;
+import data.TaxesData;
 import data.UserData;
 import datatransferobject.DataTransferObject;
 
@@ -63,8 +64,23 @@ public class RouteDataBroker extends Broker {
 
 	@Override
 	public void update(DataTransferObject data) {
-		// TODO Auto-generated method stub
-		
+		Connection conn = super.getDBConnection();
+		try {
+			PreparedStatement updateRoutes = conn.prepareStatement(
+					"UPDATE routes SET start = ?, end = ?, distance = ?, emission = ?, username =? WHERE start = ?, end = ?, distance = ?, emission = ? username = ?");
+			updateRoutes.setString(1, ((RouteData) data).getStart());
+			updateRoutes.setString(2, ((RouteData) data).getEnd());
+			updateRoutes.setDouble(3, ((RouteData) data).getDistance());
+			updateRoutes.setDouble(4, ((RouteData) data).getEmission());
+			updateRoutes.setString(5, ((RouteData) data).getUser());
+			
+			updateRoutes.executeUpdate();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
 	}
 
 }

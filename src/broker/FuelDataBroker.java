@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.FuelData;
+import data.TaxesData;
 import data.UserData;
 import datatransferobject.DataTransferObject;
 
@@ -22,7 +23,7 @@ public class FuelDataBroker extends Broker {
 	public List<DataTransferObject> findAll() {
 
 		List<DataTransferObject> fuel = new ArrayList<>();
-		
+
 		try {
 			Connection conn = super.getDBConnection();
 
@@ -46,7 +47,8 @@ public class FuelDataBroker extends Broker {
 
 		try {
 			Connection conn = super.getDBConnection();
-			PreparedStatement insertFuel = conn.prepareStatement("INSERT INTO fuel(volume, fueltype, emission, username) VALUES(?,?,?,?)");
+			PreparedStatement insertFuel = conn
+					.prepareStatement("INSERT INTO fuel(volume, fueltype, emission, username) VALUES(?,?,?,?)");
 
 			insertFuel.setDouble(1, ((FuelData) data).getVolume());
 			insertFuel.setString(2, ((FuelData) data).getFuelType());
@@ -61,7 +63,20 @@ public class FuelDataBroker extends Broker {
 
 	@Override
 	public void update(DataTransferObject data) {
-		// TODO Auto-generated method stub
-		
+		Connection conn = super.getDBConnection();
+		try {
+			PreparedStatement updateFuel = conn.prepareStatement(
+					"UPDATE fuel SET volume = ?, fueltype = ?, emission = ?, username = ? WHERE volume = ?, fueltype = ?, emission = ?, username = ?");
+			updateFuel.setDouble(1, ((FuelData) data).getVolume());
+			updateFuel.setString(2, ((FuelData) data).getFuelType());
+			updateFuel.setDouble(3, ((FuelData) data).getEmission());
+			updateFuel.setString(4, ((FuelData) data).getUser());
+			updateFuel.executeUpdate();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
 	}
 }
