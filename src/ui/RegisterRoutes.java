@@ -23,6 +23,7 @@ public class RegisterRoutes extends JPanel{
 	private Double t = 1.6;
 	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("arrow1.png")));
 	private JLabel jlabel = new JLabel();
+	private String msg;
 
 	
 	public RegisterRoutes(Misma misma, DomainFacade domain, int level){
@@ -116,7 +117,7 @@ public class RegisterRoutes extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == box){
 					JComboBox cb = (JComboBox)e.getSource();
-					String msg = (String)cb.getSelectedItem();
+					msg = (String)cb.getSelectedItem();
 					
 					switch(msg){
 						case "x2000":  t = 3.0; 

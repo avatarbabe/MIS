@@ -52,8 +52,8 @@ public class EditRoutes extends JPanel{
 		JButton changeEmissions = new JButton("Change");
 		
 		
-		editType.setSelectedIndex(1);
-		editType.addActionListener(new ActionListener(){
+		editTruck.setSelectedIndex(1);
+		editTruck.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
