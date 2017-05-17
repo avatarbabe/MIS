@@ -88,7 +88,7 @@ public class RouteDataBroker extends Broker {
 		Connection conn = super.getDBConnection();
 		try {
 			PreparedStatement deleteRoute = conn.prepareStatement(
-					"DELETE * from routes WHERE route_id = ?");
+					"DELETE from routes WHERE route_id = ?");
 			
 			deleteRoute.setInt(1, ((RouteData) data).getId());
 			deleteRoute.executeUpdate();

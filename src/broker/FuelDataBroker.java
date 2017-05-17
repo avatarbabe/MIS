@@ -85,7 +85,7 @@ public class FuelDataBroker extends Broker {
 		Connection conn = super.getDBConnection();
 		try {
 			PreparedStatement deleteFuel = conn.prepareStatement(
-					"DELETE * from fuel WHERE fuel_id = ?");
+					"DELETE from fuel WHERE fuel_id = ?");
 			
 			deleteFuel.setInt(1, ((FuelData) data).getId());
 			deleteFuel.executeUpdate();
