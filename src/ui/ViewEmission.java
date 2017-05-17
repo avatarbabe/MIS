@@ -96,7 +96,7 @@ public class ViewEmission extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					
-					//misma.load(emissions.getSelectedValue(), level);
+					misma.loadEditRoutes(emissions.getSelectedValue(), level);
 					//misma.loadEditFuel(level);
 				}
 			});
