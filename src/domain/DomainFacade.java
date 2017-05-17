@@ -15,6 +15,7 @@ public class DomainFacade {
 	private DataFacade data;
 	private User aUser;
 	private Calculator calculator;
+	private Taxes tax;
 
 	public void register(DataFacade data) {
 		this.data = data;
@@ -77,12 +78,12 @@ public class DomainFacade {
 	}
 	
 	public void setTaxes(Double taxrate){
-		Taxes tax = new Taxes(taxrate);
+		tax = new Taxes(taxrate);
 		data.update(tax);
 	}
 	
 	public double getTaxes(){
-		Taxes tax = new Taxes();
+		tax = new Taxes();
 		List<DataTransferObject> taxes = data.getTax(tax);
 		double taxrate = ((TaxesData) taxes.get(0)).getTaxRate();
 		return taxrate;
@@ -96,6 +97,16 @@ public class DomainFacade {
 	public void updateRoute(String start, String end, double distance, double fuelConsumption, String user, int id, String vehicle){
 		Route route = new Route(start, end, distance, fuelConsumption, user, id, vehicle);
 		data.update(route);
+	}
+	
+	public double getTotalTax(){
+		List <DataTransferObject> routes = getAllFuel();
+		List <DataTransferObject> fuel = getAllRoutes();
+		
+		getTaxes();
+		
+		return tax.getTotalTax(fuel, routes);
+				
 	}
 
 }

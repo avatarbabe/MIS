@@ -2,7 +2,16 @@ package domain;
 
 public class Calculator {
 
+	private Taxes tax;
 	private double emission;
+
+	public Calculator(Taxes tax) {
+		this.tax = tax;
+	}
+
+	public Calculator() {
+		
+	}
 
 	// Räknar ut utsläppen för en viss sträcka med ett visst fordon
 	public double calculateRoute(double distance, double fuelConsumption) {
@@ -16,9 +25,9 @@ public class Calculator {
 		emission = volume * emissionRate;
 		return emission;
 	}
-	
-	public double calculateTax(){
-		return 1.0;
+
+	public double calculateTax(double emission) {
+		return emission * tax.getTaxRate();
 	}
 
 }
