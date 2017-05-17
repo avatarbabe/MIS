@@ -66,11 +66,12 @@ public class FuelDataBroker extends Broker {
 		Connection conn = super.getDBConnection();
 		try {
 			PreparedStatement updateFuel = conn.prepareStatement(
-					"UPDATE fuel SET volume = ?, fueltype = ?, emission = ?, username = ? WHERE volume = ?, fueltype = ?, emission = ?, username = ?");
+					"UPDATE fuel SET volume = ?, fueltype = ?, emission = ?, username = ? WHERE fuel_id = ?");
 			updateFuel.setDouble(1, ((FuelData) data).getVolume());
 			updateFuel.setString(2, ((FuelData) data).getFuelType());
 			updateFuel.setDouble(3, ((FuelData) data).getEmission());
 			updateFuel.setString(4, ((FuelData) data).getUser());
+			updateFuel.setInt(5, ((FuelData) data).getId());
 			updateFuel.executeUpdate();
 
 		} catch (SQLException e) {
@@ -78,5 +79,20 @@ public class FuelDataBroker extends Broker {
 			e.printStackTrace();
 		}
 
+	}
+
+	public void delete(DataTransferObject data){
+		Connection conn = super.getDBConnection();
+		try {
+			PreparedStatement deleteFuel = conn.prepareStatement(
+					"DELETE * from fuel WHERE fuel_id = ?");
+			
+			deleteFuel.setInt(1, ((FuelData) data).getId());
+			deleteFuel.executeUpdate();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 	}
 }

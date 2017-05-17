@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import data.FuelData;
 import data.RouteData;
 import data.TaxesData;
 import data.UserData;
@@ -67,12 +68,13 @@ public class RouteDataBroker extends Broker {
 		Connection conn = super.getDBConnection();
 		try {
 			PreparedStatement updateRoutes = conn.prepareStatement(
-					"UPDATE routes SET start = ?, end = ?, distance = ?, emission = ?, username =? WHERE start = ?, end = ?, distance = ?, emission = ? username = ?");
+					"UPDATE routes SET start = ?, end = ?, distance = ?, emission = ?, username =? WHERE route_id = ?");
 			updateRoutes.setString(1, ((RouteData) data).getStart());
 			updateRoutes.setString(2, ((RouteData) data).getEnd());
 			updateRoutes.setDouble(3, ((RouteData) data).getDistance());
 			updateRoutes.setDouble(4, ((RouteData) data).getEmission());
 			updateRoutes.setString(5, ((RouteData) data).getUser());
+			updateRoutes.setInt(6, ((RouteData) data).getId());
 			
 			updateRoutes.executeUpdate();
 
@@ -81,6 +83,20 @@ public class RouteDataBroker extends Broker {
 			e.printStackTrace();
 		}
 
+	}
+	public void delete(DataTransferObject data){
+		Connection conn = super.getDBConnection();
+		try {
+			PreparedStatement deleteRoute = conn.prepareStatement(
+					"DELETE * from routes WHERE route_id = ?");
+			
+			deleteRoute.setInt(1, ((RouteData) data).getId());
+			deleteRoute.executeUpdate();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 	}
 
 }
