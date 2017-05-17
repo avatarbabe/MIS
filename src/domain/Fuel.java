@@ -20,7 +20,7 @@ public class Fuel {
 		emission = calculator.calculateFuel(volume, emissionRate);
 	}
 	
-	public Fuel(double volume, String fuelType, String user, int id) {
+	public Fuel(double volume, String fuelType, double emissionRate, String user, int id) {
 		this.volume = volume;
 		this.fuelType = fuelType;
 		this.user = user;
