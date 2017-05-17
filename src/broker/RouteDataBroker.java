@@ -79,12 +79,13 @@ public class RouteDataBroker extends Broker {
 		Connection conn = super.getDBConnection();
 		try {
 			PreparedStatement updateRoutes = conn.prepareStatement(
-					"UPDATE routes SET start = ?, end = ?, distance = ?, emission = ?, username =? WHERE route_id = ?");
+					"UPDATE routes SET start = ?, end = ?, distance = ?, emission = ?, username =?, vehicle = ? WHERE route_id = ?");
 			updateRoutes.setString(1, ((RouteData) data).getStart());
 			updateRoutes.setString(2, ((RouteData) data).getEnd());
 			updateRoutes.setDouble(3, ((RouteData) data).getDistance());
 			updateRoutes.setDouble(4, ((RouteData) data).getEmission());
 			updateRoutes.setString(5, ((RouteData) data).getUser());
+			updateRoutes.setString(5, ((RouteData) data).getVehicle());
 			updateRoutes.setInt(6, ((RouteData) data).getId());
 
 			updateRoutes.executeUpdate();
