@@ -58,7 +58,7 @@ public class ViewEmission extends JPanel {
 				int id = ((FuelData) dto).getId();
 				String user = ((FuelData) dto).getUser();
 				
-				listModel.addElement(id +" Type: " +type + " Volume: " + volume + " Emissions: " +emissions2 + " User: " +user);
+				listModel.addElement("<html>" + id +"<b> Type: </b>" + type + "<b> Volume: </b>" + volume + "<b> Emissions: </B>" +emissions2 + "<b> User: </b>" +user + " </html>");
 			}
 			
 			for (DataTransferObject dto: routes){
@@ -70,7 +70,7 @@ public class ViewEmission extends JPanel {
 				String user = ((RouteData) dto).getUser();
 				String vehicle = ((RouteData) dto).getVehicle();
 				
-				listModel1.addElement(id +" From: " + start + " To: " + end + " Distance: " +distance+ " Emissions: " + emissions1 + " Vehicle: "+vehicle+" User: " + user);
+				listModel1.addElement("<html>" + id +"<b> From: </b>" + start + "<b> To: </b>" + end + "<b> Distance: </b>" + distance+ "<b> Emissions: </b>" + emissions1 + " Vehicle: " + vehicle + "<b> User: </b>" + user);
 			}
 
 			JList emissions = new JList(listModel);
