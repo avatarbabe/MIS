@@ -36,13 +36,14 @@ public class RouteData extends DataTransferObject {
 		dateTo = route.getDateTo();
 	}
 	
-	public RouteData(String start, String end, double distance, double emission, String user, int id) {
+	public RouteData(String start, String end, double distance, double emission, String user, int id, String vehicle) {
 		this.start = start;
 		this.end = end;
 		this.distance = distance;
 		this.emission = emission;
 		this.user = user;
 		this.id = id;
+		this.vehicle = vehicle;
 	}
 
 	public String getUser() {

@@ -37,7 +37,7 @@ public class RouteDataBroker extends Broker {
 
 			while (rst.next()) {
 				routes.add(new RouteData(rst.getString("start"), rst.getString("end"), rst.getDouble("distance"),
-						rst.getDouble("emission"), rst.getString("username"), rst.getInt("route_id")));
+						rst.getDouble("emission"), rst.getString("username"), rst.getInt("route_id"), rst.getString("vehicle")));
 			}
 
 		} catch (SQLException e) {
@@ -89,7 +89,7 @@ public class RouteDataBroker extends Broker {
 
 			while (rst.next()) {
 				routes.add(new RouteData(rst.getString("start"), rst.getString("end"), rst.getDouble("distance"),
-						rst.getDouble("emission"), rst.getString("username"), rst.getInt("route_id")));
+						rst.getDouble("emission"), rst.getString("username"), rst.getInt("route_id"), rst.getString("vehicle")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
