@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
-
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -19,7 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import data.FuelData;
 import data.RouteData;
 import datatransferobject.DataTransferObject;
@@ -43,7 +41,7 @@ public class ViewEmission extends JPanel {
 
 			
 			JLabel label = new JLabel("Fuel: " );
-			JLabel label1 = new JLabel("Routes:" );
+			JLabel label1 = new JLabel("Routes: " );
 			DefaultListModel listModel = new DefaultListModel();
 			DefaultListModel listModel1 = new DefaultListModel();
 			
@@ -58,7 +56,7 @@ public class ViewEmission extends JPanel {
 				int id = ((FuelData) dto).getId();
 				String user = ((FuelData) dto).getUser();
 				
-				listModel.addElement("<html>" + id +"<b> Type: </b>" + type + "<b> Volume: </b>" + volume + "<b> Emissions: </B>" +emissions2 + "<b> User: </b>" +user + " </html>");
+				listModel.addElement(id + " Type: " + type + " Volume: " + volume + " Emissions: " +emissions2 + " User: " +user);
 			}
 			
 			for (DataTransferObject dto: routes){
@@ -70,7 +68,7 @@ public class ViewEmission extends JPanel {
 				String user = ((RouteData) dto).getUser();
 				String vehicle = ((RouteData) dto).getVehicle();
 				
-				listModel1.addElement("<html>" + id +"<b> From: </b>" + start + "<b> To: </b>" + end + "<b> Distance: </b>" + distance+ "<b> Emissions: </b>" + emissions1 + " Vehicle: " + vehicle + "<b> User: </b>" + user);
+				listModel1.addElement(id + " From: " + start + " To: " + end + " Distance: " + distance+ " Emissions: " + emissions1 + " Vehicle: " + vehicle + " User: " + user);
 			}
 
 			JList emissions = new JList(listModel);
@@ -115,8 +113,6 @@ public class ViewEmission extends JPanel {
 			add(label1);
 			add(sp1);
 			add(edit1);
-			add(goBack);
-			
-
+			add(goBack);		
 		}
 }
