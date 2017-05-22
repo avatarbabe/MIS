@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 import data.FuelData;
+import data.RouteData;
 import data.TaxesData;
 import data.UserData;
 import datatransferobject.DataTransferObject;
@@ -20,8 +21,30 @@ public class FuelDataBroker extends Broker {
 
 	@Override
 	public List<DataTransferObject> find(DataTransferObject data) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = super.getDBConnection();
+
+		List<DataTransferObject> fuel = new ArrayList<>();
+
+		try {
+			PreparedStatement selectBetween = conn
+					.prepareStatement("SELECT emission FROM fuel WHERE date BETWEEN ? AND ?");
+			selectBetween.setString(1, ((FuelData) data).getDateFrom());
+			selectBetween.setString(2, ((FuelData) data).getDateTo());
+
+			ResultSet rst;
+			rst = selectBetween.executeQuery();
+
+			while (rst.next()) {
+				fuel.add(new FuelData(rst.getDouble("volume"), rst.getString("fueltype"), rst.getDouble("emission"),
+						rst.getString("username"), rst.getInt("fuel_id")));
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return fuel;
 	}
 
 	public List<DataTransferObject> findAll() {
@@ -52,7 +75,7 @@ public class FuelDataBroker extends Broker {
 		LocalDate localDate = LocalDate.now();
 		Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-		
+
 		try {
 			Connection conn = super.getDBConnection();
 			PreparedStatement insertFuel = conn
@@ -90,12 +113,11 @@ public class FuelDataBroker extends Broker {
 
 	}
 
-	public void delete(DataTransferObject data){
+	public void delete(DataTransferObject data) {
 		Connection conn = super.getDBConnection();
 		try {
-			PreparedStatement deleteFuel = conn.prepareStatement(
-					"DELETE from fuel WHERE fuel_id = ?");
-			
+			PreparedStatement deleteFuel = conn.prepareStatement("DELETE from fuel WHERE fuel_id = ?");
+
 			deleteFuel.setInt(1, ((FuelData) data).getId());
 			deleteFuel.executeUpdate();
 
