@@ -9,6 +9,8 @@ import datatransferobject.DataTransferObject;
 public class Taxes {
 
 	private double taxrate;
+	private String dateFrom;
+	private String dateTo;
 
 	public Taxes(Double taxrate) {
 		this.taxrate = taxrate;
@@ -16,6 +18,12 @@ public class Taxes {
 
 	public Taxes() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public Taxes(double taxrate, String dateFrom, String dateTo) {
+		this.taxrate = taxrate;
+		this.dateFrom = dateFrom;
+		this.dateTo = dateTo;
 	}
 
 	public double getTaxRate() {
@@ -41,6 +49,22 @@ public class Taxes {
 		Calculator calc = new Calculator(tax);
 		
 		return calc.calculateTax(totalEmissions);
+	}
+
+	public String getDateFrom() {
+		return dateFrom;
+	}
+
+	public void setDateFrom(String dateFrom) {
+		this.dateFrom = dateFrom;
+	}
+
+	public String getDateTo() {
+		return dateTo;
+	}
+
+	public void setDateTo(String dateTo) {
+		this.dateTo = dateTo;
 	}
 
 }

@@ -88,4 +88,9 @@ public class DataFacade {
 		return persistance.find(taxesData);
 	}
 
+	public List<DataTransferObject> findBetween(Taxes tax) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

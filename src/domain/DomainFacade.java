@@ -108,5 +108,14 @@ public class DomainFacade {
 		return tax.getTotalTax(fuel, routes, taxrate);
 				
 	}
+	
+	public double getTaxBetween(String dateFrom, String dateTo){
+		
+		Taxes tax = new Taxes(getTaxes(), dateFrom, dateTo);
+		List <DataTransferObject> routes = data.findBetween(tax);
+		List <DataTransferObject> fuel = data.findBetween(tax);
+		
+		return tax.getTax(getTaxes(), routes, fuel);
+	}
 
 }
