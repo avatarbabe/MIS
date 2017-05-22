@@ -63,5 +63,21 @@ public class TaxesDataBroker extends Broker {
 			e.printStackTrace();
 		}
 	}
+	
+	public void selectBetween (DataTransferObject data) {
+		Connection conn = super.getDBConnection();
+		try {
+			PreparedStatement selectTaxesBetween = conn.prepareStatement(
+					"SELECT emission FROM taxes WHERE date BETWEEN ? AND ?");
+			selectTaxesBetween.setString(1, ((TaxesData) data).getDateFrom());
+			selectTaxesBetween.setString(2, ((TaxesData) data).getDateTo());
+			selectTaxesBetween.executeQuery();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+	}
 
 }
