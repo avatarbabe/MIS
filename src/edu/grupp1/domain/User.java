@@ -1,6 +1,11 @@
 package edu.grupp1.domain;
 
+import java.util.ArrayList;
+
 import edu.grupp1.data.dto.UserData;
+import edu.grupp1.ui.IObserver;
+import edu.grupp1.ui.ISubject;
+import edu.grupp1.ui.Misma;
 
 public class User {
 	private String username;
@@ -46,6 +51,5 @@ public class User {
 
 	public void setLevel(int level) {
 		this.level = level;
-	}
-	
+	}	
 }

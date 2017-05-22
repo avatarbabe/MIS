@@ -125,5 +125,9 @@ public class DomainFacade {
 		
 		return tax.getTotalTax(fuels, routes, taxrate);
 	}
+	
+	public User getUser(){
+		return aUser;
+	}
 
 }

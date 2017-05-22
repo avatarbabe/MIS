@@ -8,9 +8,9 @@ import javax.swing.JPanel;
 import edu.grupp1.data.datafacade.DataFacade;
 import edu.grupp1.domain.domainfacade.DomainFacade;
 
-public class Misma extends JFrame {
+public class Misma extends JFrame implements IObserver{
 	
-	//registrera i domänlagret som lyssnare subjekt.register(this)
+	//registrera i domï¿½nlagret som lyssnare subjekt.register(this)
 	
 	private DataFacade data;
 	private DomainFacade domain;
@@ -20,7 +20,7 @@ public class Misma extends JFrame {
 		this.data = data;
 		this.domain = domain;
 		
-		setTitle("MISMA");
+		
 		loadLogin();
 		setPreferredSize(new Dimension(600, 500));
 		revalidate();
@@ -37,6 +37,7 @@ public class Misma extends JFrame {
 	}
 
 	public void loadLogin() {
+		setTitle("MISMA");
 		getContentPane().removeAll();
 		JPanel login = new Login(getWindow(), data, domain);
 		add(login);
@@ -101,5 +102,11 @@ public class Misma extends JFrame {
 		JPanel futureProjections = new FutureProjections(this, domain, level);
 		add(futureProjections);
 		pack();
+	}
+
+	@Override
+	public void update() {
+		setTitle("MISMA - " + domain.getUser().getUsername());
+		
 	}
 }

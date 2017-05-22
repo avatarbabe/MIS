@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -20,11 +22,13 @@ import edu.grupp1.data.dto.UserData;
 import edu.grupp1.domain.User;
 import edu.grupp1.domain.domainfacade.DomainFacade;
 
-public class Login extends JPanel{
+public class Login extends JPanel implements ISubject{
 	
 	private DataFacade data;
 	private DomainFacade domain;
 	private int level;
+
+	private ArrayList<IObserver> observer = new ArrayList<IObserver>();
 	
 	
 	public Login(final Misma misma, DataFacade data, DomainFacade domain){
@@ -72,6 +76,7 @@ public class Login extends JPanel{
 				String getPassword = password.getText();
 				
 				if((domain.login(getUsername, getPassword)) != null){
+					notifyObserver(misma);
 					misma.loadMenu(domain.getActiveUserLevel());
 					
 				} else {
@@ -90,6 +95,23 @@ public class Login extends JPanel{
 		add(login);
 		revalidate();
 		setVisible(true);
+	}
+	
+	@Override
+	public void addObserver(Misma misma) {
+		observer.add(misma);
+		
+	}
+
+	@Override
+	public void removeObserver(Misma misma) {
+		observer.remove(misma);
+		
+	}
+
+	@Override
+	public void notifyObserver(Misma misma) {
+		misma.update();
 	}
 	
 //	public void setLevel(String username, Misma misma){
