@@ -12,6 +12,8 @@ public class RouteData extends DataTransferObject {
 	private double emission;
 	private String user;
 	private String vehicle;
+	private String dateFrom;
+	private String dateTo;
 
 	public RouteData(String start, String end, double distance, double emission, String user, String vehicle) {
 		this.start = start;
@@ -30,6 +32,8 @@ public class RouteData extends DataTransferObject {
 		user = route.getUser();
 		vehicle = route.getVehicle();
 		id = route.getId();
+		dateFrom = route.getDateFrom();
+		dateTo = route.getDateTo();
 	}
 	
 	public RouteData(String start, String end, double distance, double emission, String user, int id) {
@@ -91,6 +95,22 @@ public class RouteData extends DataTransferObject {
 
 	public String getVehicle() {
 		return vehicle;
+	}
+
+	public String getDateFrom() {
+		return dateFrom;
+	}
+
+	public void setDateFrom(String dateFrom) {
+		this.dateFrom = dateFrom;
+	}
+
+	public String getDateTo() {
+		return dateTo;
+	}
+
+	public void setDateTo(String dateTo) {
+		this.dateTo = dateTo;
 	}
 
 }

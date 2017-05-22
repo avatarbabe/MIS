@@ -10,6 +10,8 @@ public class Route {
 	private double fuelConsumption;
 	private String user;
 	private String vehicle;
+	private String dateFrom;
+	private String dateTo;
 
 	private Calculator calculator;
 
@@ -39,6 +41,11 @@ public class Route {
 		
 		calculator = new Calculator();
 		emission = calculator.calculateRoute(distance, fuelConsumption);
+	}
+
+	public Route(String dateFrom, String dateTo) {
+		this.dateFrom = dateFrom;
+		this.dateTo = dateTo;
 	}
 
 	public double getDistance() {
@@ -111,6 +118,22 @@ public class Route {
 
 	public void setVehicle(String vehicle) {
 		this.vehicle = vehicle;
+	}
+
+	public String getDateFrom() {
+		return dateFrom;
+	}
+
+	public void setDateFrom(String dateFrom) {
+		this.dateFrom = dateFrom;
+	}
+
+	public String getDateTo() {
+		return dateTo;
+	}
+
+	public void setDateTo(String dateTo) {
+		this.dateTo = dateTo;
 	}
 
 }

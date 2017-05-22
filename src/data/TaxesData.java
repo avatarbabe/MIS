@@ -15,6 +15,8 @@ public class TaxesData extends DataTransferObject {
 
 	public TaxesData(Taxes tax) {
 		taxrate = tax.getTaxRate();
+		dateFrom = tax.getDateFrom();
+		dateTo = tax.getDateTo();
 	}
 
 	public double getTaxRate() {

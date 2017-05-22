@@ -7,6 +7,8 @@ public class Fuel {
 	private double emissionRate;
 	private double emission;
 	private String user;
+	private String dateFrom;
+	private String dateTo;
 
 	private Calculator calculator;
 
@@ -32,6 +34,11 @@ public class Fuel {
 
 	public Fuel() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Fuel(String dateFrom, String dateTo) {
+		this.dateFrom = dateFrom;
+		this.dateTo = dateTo;
 	}
 
 	public double getVolume() {
@@ -88,6 +95,22 @@ public class Fuel {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getDateFrom() {
+		return dateFrom;
+	}
+
+	public void setDateFrom(String dateFrom) {
+		this.dateFrom = dateFrom;
+	}
+
+	public String getDateTo() {
+		return dateTo;
+	}
+
+	public void setDateTo(String dateTo) {
+		this.dateTo = dateTo;
 	}
 	
 	

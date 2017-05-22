@@ -76,7 +76,7 @@ public class DataFacade {
 		persistance.update(fuelData);
 
 	}
-	
+
 	public void update(Route route) {
 		DataTransferObject routeData = new RouteData(route);
 		persistance.update(routeData);
@@ -88,9 +88,14 @@ public class DataFacade {
 		return persistance.find(taxesData);
 	}
 
-	public List<DataTransferObject> findBetween(Taxes tax) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<DataTransferObject> findBetween(Route route) {
+		RouteData routeData = new RouteData(route);
+		return persistance.find(routeData);
+	}
+
+	public List<DataTransferObject> findBetween(Fuel fuel) {
+		FuelData fuelData = new FuelData(fuel);
+		return persistance.find(fuelData);
 	}
 
 }

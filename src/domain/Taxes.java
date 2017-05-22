@@ -19,12 +19,6 @@ public class Taxes {
 	public Taxes() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Taxes(double taxrate, String dateFrom, String dateTo) {
-		this.taxrate = taxrate;
-		this.dateFrom = dateFrom;
-		this.dateTo = dateTo;
-	}
 
 	public double getTaxRate() {
 		return taxrate;

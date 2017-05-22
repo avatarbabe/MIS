@@ -21,8 +21,32 @@ public class RouteDataBroker extends Broker {
 
 	@Override
 	public List<DataTransferObject> find(DataTransferObject data) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Connection conn = super.getDBConnection();
+		
+		List<DataTransferObject> routes = new ArrayList<>();
+		
+		try {
+			PreparedStatement selectBetween = conn.prepareStatement(
+					"SELECT emission FROM routes WHERE date BETWEEN ? AND ?");
+			selectBetween.setString(1, ((RouteData) data).getDateFrom());
+			selectBetween.setString(2, ((RouteData) data).getDateTo());
+
+			ResultSet rst;
+			rst = selectBetween.executeQuery();
+
+			while (rst.next()) {
+				routes.add(new RouteData(rst.getString("start"), rst.getString("end"), rst.getDouble("distance"),
+						rst.getDouble("emission"), rst.getString("username"), rst.getInt("route_id")));
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		
+		return routes;
+
 	}
 
 	public void insert(DataTransferObject data) {
@@ -109,19 +133,5 @@ public class RouteDataBroker extends Broker {
 			e.printStackTrace();
 		}
 	}
-	public void selectBetween (String dateOne, String dateTwo) {
-		Connection conn = super.getDBConnection();
-		try {
-			PreparedStatement selectBetween = conn.prepareStatement(
-					"SELECT emission FROM routes WHERE date BETWEEN ? AND ?");
-			selectBetween.setString(1, dateOne);
-			selectBetween.setString(2, dateTwo);
-			selectBetween.executeQuery();
 
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
-
-	}
 }
