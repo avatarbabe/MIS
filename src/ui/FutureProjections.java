@@ -44,7 +44,7 @@ public class FutureProjections extends JPanel {
 		String total = d.toString();
 		
 		JLabel label1 = new JLabel("The total tax for the month is: "+ total + " kr");
-		JLabel jlabel = new JLabel("Choose two dates to check the total tax");
+		JLabel jlabel = new JLabel("Choose two dates to check the total tax between those dates");
 		JLabel from = new JLabel("From: ");
 		JLabel to = new JLabel("To: ");
 		JTextField date1 = new JTextField("YYYY-MM-DD");
