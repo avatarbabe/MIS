@@ -22,7 +22,7 @@ public class Menu extends JPanel{
 	private JButton menu4 = new JButton("View emissions");
 	private JButton menu5 = new JButton("Log out");
 	private JButton menu6 = new JButton("Create new user");
-	private JButton menu7 = new JButton("View payed tax");
+	private JButton menu7 = new JButton("View total tax");
 	
 	
 	public Menu(Misma misma, int level) {
