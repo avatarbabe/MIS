@@ -66,7 +66,8 @@ public class FutureProjections extends JPanel {
 		    	
 		    	double result = domain.getTaxBetween(firstDate, secondDate);
 		    	String result1 = Double.toString(result);
-		    	JLabel res = new JLabel(result1);
+		    	JLabel res = new JLabel(result1 + " kr");
+		    	res.setAlignmentX(CENTER_ALIGNMENT);
 		    	add(res);
 		    	validate();
 
