@@ -1,7 +1,7 @@
 package test;
 
 import datafacade.DataFacade;
-import domain.DomainFacade;
+import domainfacade.DomainFacade;
 import ui.Misma;
 
 public class Start {

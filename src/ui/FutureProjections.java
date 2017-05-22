@@ -20,7 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import domain.DomainFacade;
+import domainfacade.DomainFacade;
 
 
 public class FutureProjections extends JPanel {

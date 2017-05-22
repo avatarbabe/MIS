@@ -33,11 +33,9 @@ public class Taxes {
 		
 		for(DataTransferObject dtoFuel: fuel){
 			totalEmissions = totalEmissions + ((FuelData) dtoFuel).getEmission();
-			System.out.println(((FuelData) dtoFuel).getEmission());
 		}
 		for(DataTransferObject dtoRoute: routes){
 			totalEmissions = totalEmissions + ((RouteData) dtoRoute).getEmission();
-			System.out.println(((RouteData) dtoRoute).getEmission());
 		}
 		
 		Calculator calc = new Calculator(tax);

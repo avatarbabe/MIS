@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import domain.DomainFacade;
+import domainfacade.DomainFacade;
 
 public class NewUser extends JPanel{
 	private int level1 = 0;

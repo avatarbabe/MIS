@@ -6,7 +6,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 import datafacade.DataFacade;
-import domain.DomainFacade;
+import domainfacade.DomainFacade;
 
 public class Misma extends JFrame {
 	

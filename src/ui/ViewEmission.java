@@ -21,7 +21,7 @@ import javax.swing.JTextField;
 import data.FuelData;
 import data.RouteData;
 import datatransferobject.DataTransferObject;
-import domain.DomainFacade;
+import domainfacade.DomainFacade;
 
 public class ViewEmission extends JPanel {
 

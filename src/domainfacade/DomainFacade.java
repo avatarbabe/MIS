@@ -1,4 +1,4 @@
-package domain;
+package domainfacade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,11 @@ import data.TaxesData;
 import data.UserData;
 import datafacade.DataFacade;
 import datatransferobject.DataTransferObject;
+import domain.Calculator;
+import domain.Fuel;
+import domain.Route;
+import domain.Taxes;
+import domain.User;
 import ui.Menu;
 
 public class DomainFacade {

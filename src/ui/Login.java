@@ -17,8 +17,8 @@ import javax.swing.JTextField;
 import broker.UserDataBroker;
 import data.UserData;
 import datafacade.DataFacade;
-import domain.DomainFacade;
 import domain.User;
+import domainfacade.DomainFacade;
 
 public class Login extends JPanel{
 	
