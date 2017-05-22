@@ -27,7 +27,7 @@ public class FutureProjections extends JPanel {
 	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("arrow1.png")));
 	private JButton getTax = new JButton("Get Tax");
 	
-	public FutureProjections(Misma misma, DomainFacade domian, int level){
+	public FutureProjections(Misma misma, DomainFacade domain, int level){
 		
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
@@ -57,6 +57,22 @@ public class FutureProjections extends JPanel {
 		    }
 		});
 		
+		getTax.setAlignmentX(CENTER_ALIGNMENT);
+		getTax.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		    	String firstDate = date1.getText();
+		    	String secondDate = date2.getText();
+		    	
+		    	double result = domain.getTaxBetween(firstDate, secondDate);
+		    	String result1 = Double.toString(result);
+		    	JLabel res = new JLabel(result1);
+		    	add(res);
+		    	validate();
+
+		    }
+		});
+		
 		goBack.setVisible(true);
 		goBack.setBorder(BorderFactory.createEmptyBorder(1,1,1,1));
 		goBack.setContentAreaFilled(false);
@@ -71,6 +87,7 @@ public class FutureProjections extends JPanel {
 
 		
 		add(Box.createRigidArea(new Dimension(200, 100)));
+		jlabel.setAlignmentX(CENTER_ALIGNMENT);
 		from.setAlignmentX(CENTER_ALIGNMENT);
 		to.setAlignmentX(CENTER_ALIGNMENT);
 		date1.setMaximumSize(new Dimension(150, 20));
@@ -80,6 +97,7 @@ public class FutureProjections extends JPanel {
 		add(date1);
 		add(to);
 		add(date2);
+		add(getTax);
 		add(goBack);
 	}
 }
