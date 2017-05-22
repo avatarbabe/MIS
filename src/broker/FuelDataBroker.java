@@ -27,7 +27,7 @@ public class FuelDataBroker extends Broker {
 
 		try {
 			PreparedStatement selectBetween = conn
-					.prepareStatement("SELECT emission FROM fuel WHERE date BETWEEN ? AND ?");
+					.prepareStatement("SELECT * FROM fuel WHERE date BETWEEN ? AND ?");
 			selectBetween.setString(1, ((FuelData) data).getDateFrom());
 			selectBetween.setString(2, ((FuelData) data).getDateTo());
 

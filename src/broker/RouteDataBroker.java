@@ -28,7 +28,7 @@ public class RouteDataBroker extends Broker {
 		
 		try {
 			PreparedStatement selectBetween = conn.prepareStatement(
-					"SELECT emission FROM routes WHERE date BETWEEN ? AND ?");
+					"SELECT * FROM routes WHERE date BETWEEN ? AND ?");
 			selectBetween.setString(1, ((RouteData) data).getDateFrom());
 			selectBetween.setString(2, ((RouteData) data).getDateTo());
 
