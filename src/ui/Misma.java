@@ -93,4 +93,11 @@ public class Misma extends JFrame {
 		add(editRoutes);
 		pack();
 	}
+	
+	public void loadFutureProjections(int level){
+		getContentPane().removeAll();
+		JPanel futureProjections = new FutureProjections(this, domain, level);
+		add(futureProjections);
+		pack();
+	}
 }

@@ -22,6 +22,7 @@ public class Menu extends JPanel{
 	private JButton menu4 = new JButton("View emissions");
 	private JButton menu5 = new JButton("Log out");
 	private JButton menu6 = new JButton("Create new user");
+	private JButton menu7 = new JButton("View payed tax");
 	
 	
 	public Menu(Misma misma, int level) {
@@ -87,9 +88,18 @@ public class Menu extends JPanel{
 			}
 		});
 		
+		menu7.setAlignmentX(CENTER_ALIGNMENT);
+		menu7.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				misma.loadFutureProjections(level);
+			}
+		});
+		
 		
 		add(menu4);
 		add(menu6);
+		add(menu7);
 	}
 	
 	public void addMenu3 (Misma misma, int level){

@@ -60,6 +60,7 @@ public class ViewEmission extends JPanel {
 			}
 			
 			for (DataTransferObject dto: routes){
+				
 				String start = ((RouteData) dto).getStart();
 				String end = ((RouteData) dto).getEnd();
 				double distance = ((RouteData) dto).getDistance();
