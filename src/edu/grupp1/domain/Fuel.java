@@ -1,5 +1,9 @@
 package edu.grupp1.domain;
 
+import edu.grupp1.data.datatransferobject.DataTransferObject;
+import edu.grupp1.data.dto.FuelData;
+import edu.grupp1.data.dto.RouteData;
+
 public class Fuel {
 	private int id;
 	private double volume;
@@ -113,6 +117,10 @@ public class Fuel {
 		this.dateTo = dateTo;
 	}
 	
+	public DataTransferObject transform() {
+		DataTransferObject fuelData = new FuelData(this);
+		return fuelData;
+	}
 	
 	
 }

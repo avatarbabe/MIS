@@ -30,13 +30,13 @@ public class DomainFacade {
 
 		UserData userData = new UserData(username, password);
 
-		List<UserData> userList = data.find(userData);
+		List<DataTransferObject> userList = data.find(userData);
 
 		if (userList.size() < 1) {
 			return null;
 		} else {
 
-			User user = new User(userList.get(0));
+			User user = new User((UserData) userList.get(0));
 
 			aUser = user;
 
@@ -48,15 +48,14 @@ public class DomainFacade {
 	public void saveRoute(String start, String end, double distance, double fuelConsumption, String vehicle) {
 
 		Route route = new Route(start, end, distance, fuelConsumption, aUser.getUsername(), vehicle);		
-
-		data.save(route);
+		data.save(route.transform());
 
 	}
 	
 	public void saveFuel(double volume, String fuelType, double emissionRate){
 		
 		Fuel fuel = new Fuel(volume, fuelType, emissionRate, aUser.getUsername());
-		data.save(fuel);
+		data.save(fuel.transform());
 	}
 	
 	public int getActiveUserLevel(){
@@ -65,12 +64,12 @@ public class DomainFacade {
 	
 	public List<DataTransferObject> getAllFuel(){
 		Fuel fuel = new Fuel();
-		return data.findAll(fuel);
+		return data.findAll(fuel.transform());
 	}
 	
 	public List<DataTransferObject> getAllRoutes(){
 		Route route = new Route();
-		return data.findAll(route);
+		return data.findAll(route.transform());
 	}
 	
 	public void resetUser(){
@@ -79,29 +78,29 @@ public class DomainFacade {
 	
 	public void saveUser(String username, String password, int level){
 		User user = new User(username, password, level);
-		data.save(user);
+		data.save(user.transform());
 	}
 	
 	public void setTaxes(Double taxrate){
 		tax = new Taxes(taxrate);
-		data.update(tax);
+		data.update(tax.transform());
 	}
 	
 	public double getTaxes(){
 		tax = new Taxes();
-		List<DataTransferObject> taxes = data.getTax(tax);
+		List<DataTransferObject> taxes = data.find(tax.transform());
 		double taxrate = ((TaxesData) taxes.get(0)).getTaxRate();
 		return taxrate;
 	}
 	
 	public void updateFuel(double volume, String fuelType, double rate, String user, int id){
 		Fuel fuel = new Fuel(volume, fuelType, rate, user, id);
-		data.update(fuel);
+		data.update(fuel.transform());
 	}
 	
 	public void updateRoute(String start, String end, double distance, double fuelConsumption, String user, int id, String vehicle){
 		Route route = new Route(start, end, distance, fuelConsumption, user, id, vehicle);
-		data.update(route);
+		data.update(route.transform());
 	}
 	
 	public double getTotalTax(){
@@ -118,8 +117,8 @@ public class DomainFacade {
 		
 		Fuel fuel = new Fuel(dateFrom, dateTo);
 		Route route = new Route(dateFrom, dateTo);
-		List <DataTransferObject> routes = data.findBetween(route);
-		List <DataTransferObject> fuels = data.findBetween(fuel);
+		List <DataTransferObject> routes = data.find(route.transform());
+		List <DataTransferObject> fuels = data.find(fuel.transform());
 		
 		double taxrate = getTaxes();
 		

@@ -5,5 +5,4 @@ public class DataTransferObject {
 	
 	private EnumState state = EnumState.CLEAN;
 	
-	
 }

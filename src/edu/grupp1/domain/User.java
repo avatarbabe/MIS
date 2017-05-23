@@ -2,6 +2,8 @@ package edu.grupp1.domain;
 
 import java.util.ArrayList;
 
+import edu.grupp1.data.datatransferobject.DataTransferObject;
+import edu.grupp1.data.dto.RouteData;
 import edu.grupp1.data.dto.UserData;
 import edu.grupp1.ui.IObserver;
 import edu.grupp1.ui.ISubject;
@@ -51,5 +53,10 @@ public class User {
 
 	public void setLevel(int level) {
 		this.level = level;
-	}	
+	}
+	
+	public DataTransferObject transform() {
+		DataTransferObject userData = new UserData(this);
+		return userData;
+	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import edu.grupp1.data.datatransferobject.DataTransferObject;
 import edu.grupp1.data.dto.FuelData;
 import edu.grupp1.data.dto.RouteData;
+import edu.grupp1.data.dto.TaxesData;
 
 public class Taxes {
 
@@ -57,6 +58,11 @@ public class Taxes {
 
 	public void setDateTo(String dateTo) {
 		this.dateTo = dateTo;
+	}
+	
+	public DataTransferObject transform() {
+		DataTransferObject taxesData = new TaxesData(this);
+		return taxesData;
 	}
 
 }

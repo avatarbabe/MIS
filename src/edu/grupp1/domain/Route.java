@@ -1,5 +1,8 @@
 package edu.grupp1.domain;
 
+import edu.grupp1.data.datatransferobject.DataTransferObject;
+import edu.grupp1.data.dto.RouteData;
+
 public class Route {
 
 	private int id;
@@ -134,6 +137,11 @@ public class Route {
 
 	public void setDateTo(String dateTo) {
 		this.dateTo = dateTo;
+	}
+
+	public DataTransferObject transform() {
+		DataTransferObject routeData = new RouteData(this);
+		return routeData;
 	}
 
 }
