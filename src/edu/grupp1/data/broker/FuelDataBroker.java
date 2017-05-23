@@ -9,7 +9,9 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import edu.grupp1.data.datatransferobject.DataTransferObject;
 import edu.grupp1.data.dto.FuelData;
@@ -19,15 +21,23 @@ import edu.grupp1.data.dto.UserData;
 
 public class FuelDataBroker extends Broker {
 
+	private HashMap<Integer, DataTransferObject> cache = new HashMap<>();
+
 	@Override
 	public List<DataTransferObject> find(DataTransferObject data) {
 		Connection conn = super.getDBConnection();
 
 		List<DataTransferObject> fuel = new ArrayList<>();
 
+		if (cache.containsKey(data.getId())) {
+
+			fuel.add(cache.get(data.getId()));
+			System.out.println("aba");
+			return fuel;
+		}
+
 		try {
-			PreparedStatement selectBetween = conn
-					.prepareStatement("SELECT * FROM fuel WHERE date BETWEEN ? AND ?");
+			PreparedStatement selectBetween = conn.prepareStatement("SELECT * FROM fuel WHERE date BETWEEN ? AND ?");
 			selectBetween.setString(1, ((FuelData) data).getDateFrom());
 			selectBetween.setString(2, ((FuelData) data).getDateTo());
 
@@ -35,8 +45,12 @@ public class FuelDataBroker extends Broker {
 			rst = selectBetween.executeQuery();
 
 			while (rst.next()) {
-				fuel.add(new FuelData(rst.getDouble("volume"), rst.getString("fueltype"), rst.getDouble("emission"),
-						rst.getString("username"), rst.getInt("fuel_id")));
+
+				DataTransferObject dto = new FuelData(rst.getDouble("volume"), rst.getString("fueltype"),
+						rst.getDouble("emission"), rst.getString("username"), rst.getInt("fuel_id"));
+
+				fuel.add(dto);
+				cache.put(dto.getId(), dto);
 			}
 
 		} catch (SQLException e) {
@@ -60,8 +74,12 @@ public class FuelDataBroker extends Broker {
 			rst = selectFuel.executeQuery();
 
 			while (rst.next()) {
-				fuel.add(new FuelData(rst.getDouble("volume"), rst.getString("fueltype"), rst.getDouble("emission"),
-						rst.getString("username"), rst.getInt("fuel_id")));
+				
+				DataTransferObject dto = new FuelData(rst.getDouble("volume"), rst.getString("fueltype"),
+						rst.getDouble("emission"), rst.getString("username"), rst.getInt("fuel_id"));
+
+				fuel.add(dto);
+				cache.put(dto.getId(), dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

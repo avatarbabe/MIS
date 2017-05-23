@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import edu.grupp1.data.datatransferobject.DataTransferObject;
@@ -14,16 +15,10 @@ import edu.grupp1.data.dto.UserData;
 import edu.grupp1.domain.User;
 
 public class UserDataBroker extends Broker {
-	ArrayList<User> users;
-
-	public UserDataBroker() {
-		super();
-	}
-
-	public void deleteUser(User user) {
-		users.remove(user.getUsername());
-		System.out.println("User: " + user.getUsername() + ", deleted from database");
-	}
+	
+	private ArrayList<User> users;
+	
+	private HashMap<Integer, DataTransferObject> cache = new HashMap<>();
 
 	@Override
 	public List<DataTransferObject> find(DataTransferObject data) {
@@ -43,7 +38,11 @@ public class UserDataBroker extends Broker {
 			rst = selectUser.executeQuery();
 
 			while (rst.next()) {
-				users.add(new UserData(rst.getString("username"), rst.getString("password"), rst.getInt("level")));
+				
+				DataTransferObject dto = new UserData(rst.getString("username"), rst.getString("password"), rst.getInt("level"));
+				
+				users.add(dto);
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

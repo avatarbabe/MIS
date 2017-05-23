@@ -5,6 +5,7 @@ import edu.grupp1.domain.Taxes;
 
 public class TaxesData extends DataTransferObject {
 
+	private int id;
 	private double taxrate;
 	private String dateFrom;
 	private String dateTo;
