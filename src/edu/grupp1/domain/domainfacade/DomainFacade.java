@@ -95,14 +95,12 @@ public class DomainFacade {
 		return taxrate;
 	}
 	
-	public void updateFuel(double volume, String fuelType, double rate, String user, int id){
-		Fuel fuel = new Fuel(volume, fuelType, rate, user, id);
-		data.update(fuel.transform());
+	public void updateFuel(DataTransferObject dto){
+		data.update(dto);
 	}
 	
-	public void updateRoute(String start, String end, double distance, double fuelConsumption, String user, int id, String vehicle){
-		Route route = new Route(start, end, distance, fuelConsumption, user, id, vehicle);
-		data.update(route.transform());
+	public void updateRoute(DataTransferObject dto){
+		data.update(dto);
 	}
 	
 	public double getTotalTax(){
