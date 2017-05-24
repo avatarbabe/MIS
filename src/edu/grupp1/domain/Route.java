@@ -51,6 +51,19 @@ public class Route {
 		this.dateTo = dateTo;
 	}
 
+	public Route(DataTransferObject dto) {
+		start = ((RouteData) dto).getStart();
+		end = ((RouteData) dto).getEnd();
+		distance = ((RouteData) dto).getDistance();
+		user = ((RouteData) dto).getUser();
+		id = dto.getId();
+		vehicle = ((RouteData) dto).getVehicle();
+		
+		calculator = new Calculator();
+		emission = calculator.calculateRoute(distance, fuelConsumption);
+	}
+	
+
 	public double getDistance() {
 		return distance;
 	}
@@ -89,6 +102,9 @@ public class Route {
 
 	public void setFuelConsumption(double fuelConsumption) {
 		this.fuelConsumption = fuelConsumption;
+		
+		calculator = new Calculator();
+		emission = calculator.calculateRoute(distance, fuelConsumption);
 	}
 
 	public Calculator getCalculator() {
@@ -143,5 +159,7 @@ public class Route {
 		DataTransferObject routeData = new RouteData(this);
 		return routeData;
 	}
+	
+	
 
 }

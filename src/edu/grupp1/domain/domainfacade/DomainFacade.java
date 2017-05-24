@@ -48,95 +48,124 @@ public class DomainFacade {
 
 	public void saveRoute(String start, String end, double distance, double fuelConsumption, String vehicle) {
 
-		Route route = new Route(start, end, distance, fuelConsumption, aUser.getUsername(), vehicle);		
+		Route route = new Route(start, end, distance, fuelConsumption, aUser.getUsername(), vehicle);
 		data.save(route.transform());
 
 	}
-	
-	public void saveFuel(double volume, String fuelType, double emissionRate){
-		
+
+	public void saveFuel(double volume, String fuelType, double emissionRate) {
+
 		Fuel fuel = new Fuel(volume, fuelType, emissionRate, aUser.getUsername());
 		data.save(fuel.transform());
 	}
-	
-	public int getActiveUserLevel(){
+
+	public int getActiveUserLevel() {
 		return aUser.getLevel();
 	}
-	
-	public List<DataTransferObject> getAllFuel(){
+
+	public List<Fuel> getAllFuel() {
 		Fuel fuel = new Fuel();
-		return data.findAll(fuel.transform());
+		List<Fuel> fuels = new ArrayList<>();
+
+		List<DataTransferObject> fuelDtos = data.findAll(fuel.transform());
+
+		for (DataTransferObject dto : fuelDtos) {
+			fuels.add(new Fuel(dto));
+		}
+
+		return fuels;
 	}
-	
-	public List<DataTransferObject> getAllRoutes(){
+
+	public List<Route> getAllRoutes() {
 		Route route = new Route();
-		return data.findAll(route.transform());
+		List<Route> routes = new ArrayList<>();
+
+		List<DataTransferObject> routeDtos = data.findAll(route.transform());
+
+		for (DataTransferObject dto : routeDtos) {
+			routes.add(new Route(dto));
+		}
+
+		return routes;
 	}
-	
-	public void resetUser(){
+
+	public void resetUser() {
 		aUser = null;
 	}
-	
-	public void saveUser(String username, String password, int level){
+
+	public void saveUser(String username, String password, int level) {
 		User user = new User(username, password, level);
 		data.save(user.transform());
 	}
-	
-	public void setTaxes(Double taxrate){
+
+	public void setTaxes(Double taxrate) {
 		tax = new Taxes(taxrate);
 		data.update(tax.transform());
 	}
-	
-	public double getTaxes(){
+
+	public double getTaxes() {
 		tax = new Taxes();
 		tax.setId(1);
 		List<DataTransferObject> taxes = data.find(tax.transform());
 		double taxrate = ((TaxesData) taxes.get(0)).getTaxRate();
 		return taxrate;
 	}
-	
-	public void updateFuel(DataTransferObject dto){
+
+	public void updateFuel(DataTransferObject dto) {
 		data.update(dto);
 	}
-	
-	public void updateRoute(DataTransferObject dto){
+
+	public void updateRoute(DataTransferObject dto) {
 		data.update(dto);
 	}
-	
-	public double getTotalTax(){
-		List <DataTransferObject> routes = getAllRoutes();
-		List <DataTransferObject> fuel = getAllFuel();
-		
+
+	public double getTotalTax() {
+		List<Route> routes = getAllRoutes();
+		List<Fuel> fuel = getAllFuel();
+
 		double taxrate = getTaxes();
-		
+
 		return tax.getTotalTax(fuel, routes, taxrate);
-				
+
 	}
-	
-	public double getTaxBetween(String dateFrom, String dateTo){
-		
+
+	public double getTaxBetween(String dateFrom, String dateTo) {
+
 		Fuel fuel = new Fuel(dateFrom, dateTo);
 		Route route = new Route(dateFrom, dateTo);
-		List <DataTransferObject> routes = data.find(route.transform());
-		List <DataTransferObject> fuels = data.find(fuel.transform());
-		
+
+		List<DataTransferObject> routeDto = data.find(route.transform());
+		List<DataTransferObject> fuelDto = data.find(fuel.transform());
+
+		List<Route> routes = new ArrayList<>();
+		List<Fuel> fuels = new ArrayList<>();
+
+		for (DataTransferObject dto : routeDto) {
+
+			routes.add(new Route(dto));
+		}
+		for (DataTransferObject dto : fuelDto) {
+
+			fuels.add(new Fuel(dto));
+		}
+
 		double taxrate = getTaxes();
-		
+
 		return tax.getTotalTax(fuels, routes, taxrate);
 	}
-	
-	public User getUser(){
+
+	public User getUser() {
 		return aUser;
 	}
-	
-	public HashMap<Integer, DataTransferObject> toHashMap(List<DataTransferObject> dtos){
-		
+
+	public HashMap<Integer, DataTransferObject> toHashMap(List<DataTransferObject> dtos) {
+
 		HashMap<Integer, DataTransferObject> hashDto = new HashMap<>();
-		
-		for(DataTransferObject dto: dtos){
+
+		for (DataTransferObject dto : dtos) {
 			hashDto.put(dto.getId(), dto);
 		}
-		
+
 		return hashDto;
 	}
 

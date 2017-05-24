@@ -34,14 +34,15 @@ public class Taxes {
 		this.taxrate = taxRate;
 	}
 	
-	public double getTotalTax(List<DataTransferObject> fuel, List<DataTransferObject> routes, double tax){
+	public double getTotalTax(List<Fuel> fuel, List<Route> routes, double tax){
+		
 		double totalEmissions = 0;
 		
-		for(DataTransferObject dtoFuel: fuel){
-			totalEmissions = totalEmissions + ((FuelData) dtoFuel).getEmission();
+		for(Fuel fuel1: fuel){
+			totalEmissions = totalEmissions + fuel1.getEmission();
 		}
-		for(DataTransferObject dtoRoute: routes){
-			totalEmissions = totalEmissions + ((RouteData) dtoRoute).getEmission();
+		for(Route route: routes){
+			totalEmissions = totalEmissions + route.getEmission();
 		}
 		
 		Calculator calc = new Calculator(tax);

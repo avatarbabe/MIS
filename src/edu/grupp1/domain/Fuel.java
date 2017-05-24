@@ -45,6 +45,16 @@ public class Fuel {
 		this.dateTo = dateTo;
 	}
 
+	public Fuel(DataTransferObject dto) {
+		volume = ((FuelData) dto).getVolume();
+		fuelType = ((FuelData) dto).getFuelType();
+		user = ((FuelData) dto).getUser();
+		id = dto.getId();
+		
+		calculator = new Calculator();
+		emission = calculator.calculateFuel(volume, emissionRate);
+	}
+
 	public double getVolume() {
 		return volume;
 	}
