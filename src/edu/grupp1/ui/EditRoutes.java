@@ -114,6 +114,7 @@ public class EditRoutes extends JPanel{
 		    	routeRow.setDistance(editDistance1);
 		    	routeRow.setUser(user);
 		    	routeRow.setFuelConsumption(t);
+		    	routeRow.setVehicle(msg);
 
 		    	
 		    	
