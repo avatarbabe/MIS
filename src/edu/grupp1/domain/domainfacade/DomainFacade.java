@@ -1,6 +1,7 @@
 package edu.grupp1.domain.domainfacade;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import edu.grupp1.data.datafacade.DataFacade;
@@ -127,6 +128,17 @@ public class DomainFacade {
 	
 	public User getUser(){
 		return aUser;
+	}
+	
+	public HashMap<Integer, DataTransferObject> toHashMap(List<DataTransferObject> dtos){
+		
+		HashMap<Integer, DataTransferObject> hashDto = new HashMap<>();
+		
+		for(DataTransferObject dto: dtos){
+			hashDto.put(dto.getId(), dto);
+		}
+		
+		return hashDto;
 	}
 
 }
