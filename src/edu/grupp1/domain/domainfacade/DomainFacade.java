@@ -111,12 +111,12 @@ public class DomainFacade {
 		return taxrate;
 	}
 
-	public void updateFuel(DataTransferObject dto) {
-		data.update(dto);
+	public void updateFuel(Fuel fuel) {
+		data.update(fuel.transform());
 	}
 
-	public void updateRoute(DataTransferObject dto) {
-		data.update(dto);
+	public void updateRoute(Route route) {
+		data.update(route.transform());
 	}
 
 	public double getTotalTax() {
