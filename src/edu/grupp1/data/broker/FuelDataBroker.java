@@ -121,8 +121,9 @@ public class FuelDataBroker extends Broker {
 			updateFuel.setString(2, ((FuelData) data).getFuelType());
 			updateFuel.setDouble(3, ((FuelData) data).getEmission());
 			updateFuel.setString(4, ((FuelData) data).getUser());
-			updateFuel.setInt(5, ((FuelData) data).getId());
-			updateFuel.setDouble(6, ((FuelData) data).getEmissionRate());
+			updateFuel.setDouble(5, ((FuelData) data).getEmissionRate());
+			updateFuel.setInt(6, ((FuelData) data).getId());
+	
 			updateFuel.executeUpdate();
 
 		} catch (SQLException e) {
