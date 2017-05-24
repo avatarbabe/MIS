@@ -73,6 +73,7 @@ public class DomainFacade {
 			fuels.add(new Fuel(dto));
 		}
 
+		
 		return fuels;
 	}
 
@@ -113,6 +114,7 @@ public class DomainFacade {
 
 	public void updateFuel(Fuel fuel) {
 		data.update(fuel.transform());
+		
 	}
 
 	public void updateRoute(Route route) {

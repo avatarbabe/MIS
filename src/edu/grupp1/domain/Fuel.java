@@ -50,10 +50,11 @@ public class Fuel {
 		fuelType = ((FuelData) dto).getFuelType();
 		user = ((FuelData) dto).getUser();
 		id = dto.getId();
-		
+		emissionRate = ((FuelData) dto).getEmissionRate();
+				
 		calculator = new Calculator();
 		emission = calculator.calculateFuel(volume, emissionRate);
-		System.out.println(emission);
+
 	}
 
 	public double getVolume() {

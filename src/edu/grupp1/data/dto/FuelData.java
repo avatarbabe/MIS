@@ -23,12 +23,13 @@ public class FuelData extends DataTransferObject {
 
 	}
 
-	public FuelData(double volume, String fuelType, double emission, String user, int id) {
+	public FuelData(double volume, String fuelType, double emission, String user, int id, double emissionRate) {
 		this.volume = volume;
 		this.fuelType = fuelType;
 		this.emission = emission;
 		this.user = user;
 		this.id = id;
+		this.emissionRate = emissionRate;
 
 	}
 
@@ -36,6 +37,7 @@ public class FuelData extends DataTransferObject {
 		volume = fuel.getVolume();
 		fuelType = fuel.getFuelType();
 		emission = fuel.getEmission();
+		emissionRate = fuel.getEmissionRate();
 		user = fuel.getUser();
 		id = fuel.getId();
 		dateFrom = fuel.getDateFrom();

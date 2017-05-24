@@ -47,7 +47,7 @@ public class FuelDataBroker extends Broker {
 			while (rst.next()) {
 
 				DataTransferObject dto = new FuelData(rst.getDouble("volume"), rst.getString("fueltype"),
-						rst.getDouble("emission"), rst.getString("username"), rst.getInt("fuel_id"));
+						rst.getDouble("emission"), rst.getString("username"), rst.getInt("fuel_id"), rst.getDouble("emissionrate"));
 
 				fuel.add(dto);
 				cache.put(dto.getId(), dto);
@@ -76,10 +76,9 @@ public class FuelDataBroker extends Broker {
 			while (rst.next()) {
 				
 				DataTransferObject dto = new FuelData(rst.getDouble("volume"), rst.getString("fueltype"),
-						rst.getDouble("emission"), rst.getString("username"), rst.getInt("fuel_id"));
+						rst.getDouble("emission"), rst.getString("username"), rst.getInt("fuel_id"), rst.getDouble("emissionrate"));
 
 				fuel.add(dto);
-				cache.put(dto.getId(), dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -97,13 +96,14 @@ public class FuelDataBroker extends Broker {
 		try {
 			Connection conn = super.getDBConnection();
 			PreparedStatement insertFuel = conn
-					.prepareStatement("INSERT INTO fuel(volume, fueltype, emission, username, date) VALUES(?,?,?,?,?)");
+					.prepareStatement("INSERT INTO fuel(volume, fueltype, emission, username, date, emissionrate) VALUES(?,?,?,?,?,?)");
 
 			insertFuel.setDouble(1, ((FuelData) data).getVolume());
 			insertFuel.setString(2, ((FuelData) data).getFuelType());
 			insertFuel.setDouble(3, ((FuelData) data).getEmission());
 			insertFuel.setString(4, ((FuelData) data).getUser());
 			insertFuel.setDate(5, sqlDate);
+			insertFuel.setDouble(6, ((FuelData) data).getEmissionRate());
 			insertFuel.executeUpdate();
 
 		} catch (SQLException e) {
@@ -116,12 +116,13 @@ public class FuelDataBroker extends Broker {
 		Connection conn = super.getDBConnection();
 		try {
 			PreparedStatement updateFuel = conn.prepareStatement(
-					"UPDATE fuel SET volume = ?, fueltype = ?, emission = ?, username = ? WHERE fuel_id = ?");
+					"UPDATE fuel SET volume = ?, fueltype = ?, emission = ?, username = ?, emissionrate = ? WHERE fuel_id = ?");
 			updateFuel.setDouble(1, ((FuelData) data).getVolume());
 			updateFuel.setString(2, ((FuelData) data).getFuelType());
 			updateFuel.setDouble(3, ((FuelData) data).getEmission());
 			updateFuel.setString(4, ((FuelData) data).getUser());
 			updateFuel.setInt(5, ((FuelData) data).getId());
+			updateFuel.setDouble(6, ((FuelData) data).getEmissionRate());
 			updateFuel.executeUpdate();
 
 		} catch (SQLException e) {
