@@ -47,7 +47,8 @@ public abstract class Broker {
 	public List<DataTransferObject> find(DataTransferObject data) {
 
 		List<DataTransferObject> dtos = new ArrayList<>();
-
+		
+		//Simple cache för taxes 
 		if (cache.containsKey(data.getId())) {
 			dtos.add(cache.get(data.getId()));
 			System.out.println("Cache!");
