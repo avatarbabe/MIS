@@ -31,6 +31,8 @@ public class EditFuel extends JPanel {
 	public EditFuel(Misma misma, DomainFacade domain, int level, DataTransferObject fuelRow){
 	
 		String [] message = {"Diesel", "Bensin", "Etanol(E85)"};
+		String user = ((FuelData) fuelRow).getUser();
+		int id = ((FuelData) fuelRow).getId();
 		
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
@@ -83,8 +85,8 @@ public class EditFuel extends JPanel {
 		changeEmissions.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
-		    	//Double volume = Double.parseDouble(editVolume.getText());
-		        domain.updateFuel(0.6, msg, rate, "hej", 1);
+		    	Double volume = Double.parseDouble(editVolume.getText());
+		        domain.updateFuel(volume, msg, rate, user, id);
 		        add(jlabel);
 		        validate();
 		    }
