@@ -15,16 +15,18 @@ import edu.grupp1.data.dto.UserData;
 import edu.grupp1.domain.User;
 
 public class UserDataBroker extends Broker {
-	
+
 	private ArrayList<User> users;
-	
+
 	private HashMap<String, DataTransferObject> cache = new HashMap<>();
-	
+
 	public List<DataTransferObject> find(DataTransferObject data) {
 
 		List<DataTransferObject> dtos = new ArrayList<>();
 
-		if (cache.containsKey(((UserData) data).getUsername()) && ((UserData) data).getPassword().equals((((UserData) cache.get(((UserData) data).getUsername())).getPassword()))) {
+		if (cache.containsKey(((UserData) data).getUsername()) && ((UserData) data).getPassword()
+				.equals((((UserData) cache.get(((UserData) data).getUsername())).getPassword()))) {
+			
 			dtos.add(cache.get(((UserData) data).getUsername()));
 			System.out.println("Cache!");
 			return dtos;
@@ -59,9 +61,10 @@ public class UserDataBroker extends Broker {
 			rst = selectUser.executeQuery();
 
 			while (rst.next()) {
-				
-				DataTransferObject dto = new UserData(rst.getString("username"), rst.getString("password"), rst.getInt("level"), rst.getInt("user_id"));
-				
+
+				DataTransferObject dto = new UserData(rst.getString("username"), rst.getString("password"),
+						rst.getInt("level"), rst.getInt("user_id"));
+
 				users.add(dto);
 
 			}
@@ -83,7 +86,6 @@ public class UserDataBroker extends Broker {
 			insertUser.setString(2, ((UserData) data).getPassword());
 			insertUser.setInt(3, ((UserData) data).getLevel());
 			insertUser.executeUpdate();
-			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -99,6 +101,6 @@ public class UserDataBroker extends Broker {
 	@Override
 	public void update(DataTransferObject data) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
