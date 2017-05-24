@@ -64,6 +64,10 @@ public abstract class Broker {
 
 		}
 	}
+	
+	public void putInCache(DataTransferObject dto){
+		cache.put(dto.getId(), dto);
+	}
 
 	public abstract List<DataTransferObject> findInStorage(DataTransferObject data);
 
@@ -72,5 +76,6 @@ public abstract class Broker {
 	public abstract List<DataTransferObject> findAll();
 
 	public abstract void update(DataTransferObject data);
+	
 
 }

@@ -57,6 +57,8 @@ public class TaxesDataBroker extends Broker {
 			updateTaxes.setDouble(1, ((TaxesData) data).getTaxRate());
 			updateTaxes.setInt(2, 1);
 			updateTaxes.executeUpdate();
+			
+			super.putInCache(data);
 
 		} catch (SQLException e) {
 
