@@ -158,15 +158,26 @@ public class DomainFacade {
 		return aUser;
 	}
 
-	public HashMap<Integer, DataTransferObject> toHashMap(List<DataTransferObject> dtos) {
+	public HashMap<Integer, Fuel> fuelToHashMap(List<Fuel> fuels) {
 
-		HashMap<Integer, DataTransferObject> hashDto = new HashMap<>();
+		HashMap<Integer, Fuel> hashFuel = new HashMap<>();
 
-		for (DataTransferObject dto : dtos) {
-			hashDto.put(dto.getId(), dto);
+		for (Fuel fuel: fuels) {
+			hashFuel.put(fuel.getId(), fuel);
 		}
 
-		return hashDto;
+		return hashFuel;
+	}
+	
+	public HashMap<Integer, Route> routeToHashMap(List<Route> routes) {
+
+		HashMap<Integer, Route> hashRoutes = new HashMap<>();
+
+		for (Route route: routes) {
+			hashRoutes.put(route.getId(), route);
+		}
+
+		return hashRoutes;
 	}
 
 }
