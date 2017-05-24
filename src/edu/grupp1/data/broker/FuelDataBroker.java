@@ -24,7 +24,7 @@ public class FuelDataBroker extends Broker {
 	private HashMap<Integer, DataTransferObject> cache = new HashMap<>();
 
 	@Override
-	public List<DataTransferObject> find(DataTransferObject data) {
+	public List<DataTransferObject> findInStorage(DataTransferObject data) {
 		Connection conn = super.getDBConnection();
 
 		List<DataTransferObject> fuel = new ArrayList<>();

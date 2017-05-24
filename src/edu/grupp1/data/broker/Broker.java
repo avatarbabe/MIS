@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import edu.grupp1.data.datatransferobject.DataTransferObject;
@@ -15,6 +17,8 @@ public abstract class Broker {
 	private String url = "jdbc:mysql://mysql.iei.liu.se:5432/pgiei05";
 	private String username = "pgiei05";
 	private String password = "ZA0Nc((qfp4w";
+
+	private HashMap<Integer, DataTransferObject> cache = new HashMap<>();
 
 	public Broker() {
 
@@ -40,7 +44,28 @@ public abstract class Broker {
 
 	}
 
-	public abstract List<DataTransferObject> find(DataTransferObject data);
+	public List<DataTransferObject> find(DataTransferObject data) {
+
+		List<DataTransferObject> dtos = new ArrayList<>();
+
+		if (cache.containsKey(data.getId())) {
+			dtos.add(cache.get(data.getId()));
+			System.out.println("Cache!");
+			return dtos;
+		} else {
+			dtos = this.findInStorage(data);
+
+			for (DataTransferObject dto1 : dtos) {
+				cache.put(dto1.getId(), dto1);
+
+			}
+			System.out.println("No cache");
+			return dtos;
+
+		}
+	}
+
+	public abstract List<DataTransferObject> findInStorage(DataTransferObject data);
 
 	public abstract void insert(DataTransferObject data);
 

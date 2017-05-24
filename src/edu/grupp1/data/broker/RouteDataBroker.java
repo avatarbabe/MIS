@@ -20,7 +20,7 @@ import edu.grupp1.data.dto.UserData;
 public class RouteDataBroker extends Broker {
 
 	@Override
-	public List<DataTransferObject> find(DataTransferObject data) {
+	public List<DataTransferObject> findInStorage(DataTransferObject data) {
 		
 		Connection conn = super.getDBConnection();
 		

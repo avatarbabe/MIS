@@ -13,10 +13,11 @@ public class UserData extends DataTransferObject{
 		this.password = password;
 	}
 
-	public UserData(String username, String password, int level) {
+	public UserData(String username, String password, int level, int id) {
 		this.username = username;
 		this.password = password;
 		this.level = level;
+		super.setId(id);
 	}
 
 	public UserData(User user) {

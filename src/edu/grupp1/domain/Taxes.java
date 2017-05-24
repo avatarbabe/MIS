@@ -9,6 +9,7 @@ import edu.grupp1.data.dto.TaxesData;
 
 public class Taxes {
 
+	private int id;
 	private double taxrate;
 	private String dateFrom;
 	private String dateTo;
@@ -18,7 +19,11 @@ public class Taxes {
 	}
 
 	public Taxes() {
-		// TODO Auto-generated constructor stub
+
+	}
+	
+	public void setId(int id){
+		this.id = id;
 	}
 
 	public double getTaxRate() {

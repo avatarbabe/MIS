@@ -14,7 +14,7 @@ import edu.grupp1.data.dto.UserData;
 public class TaxesDataBroker extends Broker {
 
 	@Override
-	public List<DataTransferObject> find(DataTransferObject data) {
+	public List<DataTransferObject> findInStorage(DataTransferObject data) {
 		
 		List<DataTransferObject> taxes = new ArrayList<>();
 

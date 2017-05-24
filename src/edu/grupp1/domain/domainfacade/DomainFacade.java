@@ -89,6 +89,7 @@ public class DomainFacade {
 	
 	public double getTaxes(){
 		tax = new Taxes();
+		tax.setId(1);
 		List<DataTransferObject> taxes = data.find(tax.transform());
 		double taxrate = ((TaxesData) taxes.get(0)).getTaxRate();
 		return taxrate;

@@ -18,10 +18,31 @@ public class UserDataBroker extends Broker {
 	
 	private ArrayList<User> users;
 	
-	private HashMap<Integer, DataTransferObject> cache = new HashMap<>();
+	private HashMap<String, DataTransferObject> cache = new HashMap<>();
+	
+	public List<DataTransferObject> find(DataTransferObject data) {
+
+		List<DataTransferObject> dtos = new ArrayList<>();
+
+		if (cache.containsKey(((UserData) data).getUsername()) && ((UserData) data).getPassword().equals((((UserData) cache.get(((UserData) data).getUsername())).getPassword()))) {
+			dtos.add(cache.get(((UserData) data).getUsername()));
+			System.out.println("Cache!");
+			return dtos;
+		} else {
+			dtos = this.findInStorage(data);
+
+			for (DataTransferObject dto1 : dtos) {
+				cache.put(((UserData) dto1).getUsername(), dto1);
+
+			}
+			System.out.println("No cache");
+			return dtos;
+
+		}
+	}
 
 	@Override
-	public List<DataTransferObject> find(DataTransferObject data) {
+	public List<DataTransferObject> findInStorage(DataTransferObject data) {
 
 		List<DataTransferObject> users = new ArrayList<>();
 
@@ -39,7 +60,7 @@ public class UserDataBroker extends Broker {
 
 			while (rst.next()) {
 				
-				DataTransferObject dto = new UserData(rst.getString("username"), rst.getString("password"), rst.getInt("level"));
+				DataTransferObject dto = new UserData(rst.getString("username"), rst.getString("password"), rst.getInt("level"), rst.getInt("user_id"));
 				
 				users.add(dto);
 
