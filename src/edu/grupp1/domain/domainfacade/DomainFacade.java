@@ -118,6 +118,9 @@ public class DomainFacade {
 	}
 
 	public void updateRoute(Route route) {
+		
+		System.out.println(route.getFuelConsumption());
+		System.out.println(route.getEmission());
 		data.update(route.transform());
 	}
 

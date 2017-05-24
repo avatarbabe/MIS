@@ -58,6 +58,7 @@ public class Route {
 		user = ((RouteData) dto).getUser();
 		id = dto.getId();
 		vehicle = ((RouteData) dto).getVehicle();
+		fuelConsumption = ((RouteData) dto).getFuelConsumption();
 		
 		calculator = new Calculator();
 		emission = calculator.calculateRoute(distance, fuelConsumption);

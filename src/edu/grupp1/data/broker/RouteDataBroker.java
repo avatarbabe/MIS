@@ -37,7 +37,7 @@ public class RouteDataBroker extends Broker {
 
 			while (rst.next()) {
 				routes.add(new RouteData(rst.getString("start"), rst.getString("end"), rst.getDouble("distance"),
-						rst.getDouble("emission"), rst.getString("username"), rst.getInt("route_id"), rst.getString("vehicle")));
+						rst.getDouble("emission"), rst.getString("username"), rst.getInt("route_id"), rst.getString("vehicle"), rst.getDouble("fuelconsumption")));
 			}
 
 		} catch (SQLException e) {
@@ -58,7 +58,7 @@ public class RouteDataBroker extends Broker {
 		try {
 			Connection conn = super.getDBConnection();
 			PreparedStatement insertRoutes = conn.prepareStatement(
-					"INSERT INTO routes(start, end, distance, emission, username, date, vehicle) VALUES(?,?,?,?,?,?,?)");
+					"INSERT INTO routes(start, end, distance, emission, username, date, vehicle, fuelconsumption) VALUES(?,?,?,?,?,?,?,?)");
 
 			insertRoutes.setString(1, ((RouteData) data).getStart());
 			insertRoutes.setString(2, ((RouteData) data).getEnd());
@@ -67,6 +67,8 @@ public class RouteDataBroker extends Broker {
 			insertRoutes.setString(5, ((RouteData) data).getUser());
 			insertRoutes.setDate(6, sqlDate);
 			insertRoutes.setString(7, ((RouteData) data).getVehicle());
+			insertRoutes.setDouble(8, ((RouteData) data).getFuelConsumption());
+			
 
 			insertRoutes.executeUpdate();
 
@@ -89,7 +91,7 @@ public class RouteDataBroker extends Broker {
 
 			while (rst.next()) {
 				routes.add(new RouteData(rst.getString("start"), rst.getString("end"), rst.getDouble("distance"),
-						rst.getDouble("emission"), rst.getString("username"), rst.getInt("route_id"), rst.getString("vehicle")));
+						rst.getDouble("emission"), rst.getString("username"), rst.getInt("route_id"), rst.getString("vehicle"), rst.getDouble("fuelconsumption")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -102,14 +104,15 @@ public class RouteDataBroker extends Broker {
 		Connection conn = super.getDBConnection();
 		try {
 			PreparedStatement updateRoutes = conn.prepareStatement(
-					"UPDATE routes SET start = ?, end = ?, distance = ?, emission = ?, username =?, vehicle = ? WHERE route_id = ?");
+					"UPDATE routes SET start = ?, end = ?, distance = ?, emission = ?, username =?, vehicle = ?, fuelconsumption =? WHERE route_id = ?");
 			updateRoutes.setString(1, ((RouteData) data).getStart());
 			updateRoutes.setString(2, ((RouteData) data).getEnd());
 			updateRoutes.setDouble(3, ((RouteData) data).getDistance());
 			updateRoutes.setDouble(4, ((RouteData) data).getEmission());
 			updateRoutes.setString(5, ((RouteData) data).getUser());
 			updateRoutes.setString(6, ((RouteData) data).getVehicle());
-			updateRoutes.setInt(7, ((RouteData) data).getId());
+			updateRoutes.setDouble(7, ((RouteData) data).getFuelConsumption());
+			updateRoutes.setInt(8, ((RouteData) data).getId());
 
 			updateRoutes.executeUpdate();
 
