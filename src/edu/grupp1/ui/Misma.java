@@ -6,6 +6,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 import edu.grupp1.data.datafacade.DataFacade;
+import edu.grupp1.data.datatransferobject.DataTransferObject;
 import edu.grupp1.domain.domainfacade.DomainFacade;
 
 public class Misma extends JFrame implements IObserver{
@@ -83,9 +84,9 @@ public class Misma extends JFrame implements IObserver{
 		add(newUser);
 		pack();
 	}
-	public void loadEditFuel(Object object, int level){
+	public void loadEditFuel(DataTransferObject dto, int level){
 		getContentPane().removeAll();
-		JPanel editFuel = new EditFuel(this, domain, level, object);
+		JPanel editFuel = new EditFuel(this, domain, level, dto);
 		add(editFuel);
 		pack();
 	}

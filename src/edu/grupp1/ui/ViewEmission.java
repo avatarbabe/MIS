@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -29,7 +31,8 @@ public class ViewEmission extends JPanel {
 	private JButton goBack = new JButton(new ImageIcon(getClass().getClassLoader().getResource("arrow1.png")));
 	private JButton edit = new JButton("Edit fuel");
 	private JButton edit1 = new JButton("Edit routes");
-
+	private DataTransferObject idFuel;
+	private DataTransferObject idRoute;
 
 	public ViewEmission(Misma misma, DomainFacade domain, int level){
 			setPreferredSize(new Dimension(400, 400));
@@ -50,17 +53,29 @@ public class ViewEmission extends JPanel {
 			List<DataTransferObject> fuel = domain.getAllFuel();
 			List<DataTransferObject> routes = domain.getAllRoutes();
 			
-			//gör om till hashmap ^
+			HashMap<Integer, DataTransferObject> f = domain.toHashMap(fuel);
+			HashMap<Integer, DataTransferObject> r = domain.toHashMap(routes);
 			
-			for (DataTransferObject dto: fuel){
-				String type = ((FuelData) dto).getFuelType();
-				double volume = ((FuelData) dto).getVolume();
-				double emissions2 = ((FuelData) dto).getEmission();
-				int id = ((FuelData) dto).getId();
-				String user = ((FuelData) dto).getUser();
+			
+			Iterator it = f.entrySet().iterator();
+			
+			while (it.hasNext()){
+				HashMap.Entry pair = (HashMap.Entry)it.next();
+				int key = (int) pair.getKey();
+				DataTransferObject dto = (DataTransferObject) pair.getValue();
 				
-				listModel.addElement(id + " Type: " + type + " Volume: " + volume + " Emissions: " +emissions2 + " User: " +user);
+				listModel.addElement(dto.getId() + " " + ((FuelData) dto).getVolume());
 			}
+			
+//			for (DataTransferObject dto: fuel){
+//				String type = ((FuelData) dto).getFuelType();
+//				double volume = ((FuelData) dto).getVolume();
+//				double emissions2 = ((FuelData) dto).getEmission();
+//				int id = ((FuelData) dto).getId();
+//				String user = ((FuelData) dto).getUser();
+//				
+//				listModel.addElement(f.g);
+//			}
 			
 			for (DataTransferObject dto: routes){
 				
@@ -72,6 +87,7 @@ public class ViewEmission extends JPanel {
 				String user = ((RouteData) dto).getUser();
 				String vehicle = ((RouteData) dto).getVehicle();
 				
+
 				listModel1.addElement(id + " From: " + start + " To: " + end + " Distance: " + distance+ " Emissions: " + emissions1 + " Vehicle: " + vehicle + " User: " + user);
 			}
 
@@ -79,14 +95,20 @@ public class ViewEmission extends JPanel {
 			JList route = new JList(listModel1);
 			JScrollPane sp = new JScrollPane(emissions);
 			JScrollPane sp1 = new JScrollPane(route);
-			
+						
 			
 			edit.setAlignmentX(CENTER_ALIGNMENT);
 			edit.addActionListener(new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					
-					misma.loadEditFuel(emissions.getSelectedValue(), level);
+					String row = (String) emissions.getSelectedValue();
+					String[] split = row.split("\\s+");
+					
+					int key = Integer.parseInt(split[0]);
+					
+					
+					misma.loadEditFuel(f.get(key), level);
 					//misma.loadEditFuel(level);
 				}
 			});

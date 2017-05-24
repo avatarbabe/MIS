@@ -16,7 +16,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import edu.grupp1.data.datatransferobject.DataTransferObject;
 import edu.grupp1.domain.domainfacade.DomainFacade;
+import edu.grupp1.data.dto.FuelData;
 
 public class EditFuel extends JPanel {
 	
@@ -26,12 +28,9 @@ public class EditFuel extends JPanel {
 	private String msg;
 	private double rate;
 	
-	public EditFuel(Misma misma, DomainFacade domain, int level, Object fuelRow){
-		String row = fuelRow.toString();
-		String[] split = row.split("\\s+");
+	public EditFuel(Misma misma, DomainFacade domain, int level, DataTransferObject fuelRow){
+	
 		String [] message = {"Diesel", "Bensin", "Etanol(E85)"};
-		int id = Integer.parseInt(split[0]);
-		String user = split[8];
 		
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
@@ -46,10 +45,10 @@ public class EditFuel extends JPanel {
 		
 		JLabel label = new JLabel("Edit:" );
 		JComboBox editType = new JComboBox(message);
-		JTextField editVolume = new JTextField(split[4]);
+		JTextField editVolume = new JTextField(Double.toString(((FuelData) fuelRow).getVolume()));
 		JButton changeEmissions = new JButton("Change");
 		
-		editType.setSelectedItem(split[2]);
+		editType.setSelectedItem(((FuelData) fuelRow).getFuelType());
 		editType.addActionListener(new ActionListener(){
 
 			@Override
@@ -84,8 +83,8 @@ public class EditFuel extends JPanel {
 		changeEmissions.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
-		    	Double volume = Double.parseDouble(editVolume.getText());
-		        domain.updateFuel(volume, msg, rate, user, id);
+		    	//Double volume = Double.parseDouble(editVolume.getText());
+		        domain.updateFuel(0.6, msg, rate, "hej", 1);
 		        add(jlabel);
 		        validate();
 		    }
