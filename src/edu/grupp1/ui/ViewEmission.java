@@ -24,6 +24,8 @@ import javax.swing.JTextField;
 import edu.grupp1.data.datatransferobject.DataTransferObject;
 import edu.grupp1.data.dto.FuelData;
 import edu.grupp1.data.dto.RouteData;
+import edu.grupp1.domain.Fuel;
+import edu.grupp1.domain.Route;
 import edu.grupp1.domain.domainfacade.DomainFacade;
 
 public class ViewEmission extends JPanel {
@@ -50,11 +52,11 @@ public class ViewEmission extends JPanel {
 			DefaultListModel listModel1 = new DefaultListModel();
 			
 			
-			List<DataTransferObject> fuel = domain.getAllFuel();
-			List<DataTransferObject> routes = domain.getAllRoutes();
+			List<Fuel> fuel = domain.getAllFuel();
+			List<Route> routes = domain.getAllRoutes();
 			
-			HashMap<Integer, DataTransferObject> f = domain.toHashMap(fuel);
-			HashMap<Integer, DataTransferObject> r = domain.toHashMap(routes);
+			HashMap<Integer, Fuel> f = domain.fuelToHashMap(fuel);
+			HashMap<Integer, Route> r = domain.routeToHashMap(routes);
 			
 			
 			Iterator it = f.entrySet().iterator();
@@ -62,34 +64,24 @@ public class ViewEmission extends JPanel {
 			while (it.hasNext()){
 				HashMap.Entry pair = (HashMap.Entry)it.next();
 				int key = (int) pair.getKey();
-				DataTransferObject dto = (DataTransferObject) pair.getValue();
+				Fuel fuel1 = (Fuel) pair.getValue();
+				//DataTransferObject dto = (DataTransferObject) pair.getValue();
 				
-				listModel.addElement(dto.getId() + " " + ((FuelData) dto).getVolume());
+				listModel.addElement(fuel1.getId() + " Volym: " + fuel1.getVolume() + " Type: "+ 
+				fuel1.getFuelType() +" Emissions: " + fuel1.getEmission()+ " User: " + fuel1.getUser());
 			}
 			
-//			for (DataTransferObject dto: fuel){
-//				String type = ((FuelData) dto).getFuelType();
-//				double volume = ((FuelData) dto).getVolume();
-//				double emissions2 = ((FuelData) dto).getEmission();
-//				int id = ((FuelData) dto).getId();
-//				String user = ((FuelData) dto).getUser();
-//				
-//				listModel.addElement(f.g);
-//			}
+			it = r.entrySet().iterator();
 			
-			for (DataTransferObject dto: routes){
-				
-				String start = ((RouteData) dto).getStart();
-				String end = ((RouteData) dto).getEnd();
-				double distance = ((RouteData) dto).getDistance();
-				double emissions1 = ((RouteData) dto).getEmission();
-				int id = ((RouteData) dto).getId();
-				String user = ((RouteData) dto).getUser();
-				String vehicle = ((RouteData) dto).getVehicle();
-				
-
-				listModel1.addElement(id + " From: " + start + " To: " + end + " Distance: " + distance+ " Emissions: " + emissions1 + " Vehicle: " + vehicle + " User: " + user);
+			while (it.hasNext()){
+				HashMap.Entry pair = (HashMap.Entry)it.next();
+				int key = (int) pair.getKey();
+				//DataTransferObject dto = (DataTransferObject) pair.getValue();
+				Route route1 = (Route) pair.getValue();
+				listModel1.addElement(route1.getId() + " From: " + route1.getStart() + " To: "+route1.getEnd()+" Distance: "+ route1.getDistance() 
+						+ " Vehicle: "+ route1.getVehicle() +" Emissions: " + route1.getEmission()+ " User: " + route1.getUser());
 			}
+			
 
 			JList emissions = new JList(listModel);
 			JList route = new JList(listModel1);
@@ -107,7 +99,6 @@ public class ViewEmission extends JPanel {
 					
 					int key = Integer.parseInt(split[0]);
 					
-					
 					misma.loadEditFuel(f.get(key), level);
 					//misma.loadEditFuel(level);
 				}
@@ -118,7 +109,10 @@ public class ViewEmission extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					
-					misma.loadEditRoutes(route.getSelectedValue(), level);
+					String row = (String) route.getSelectedValue();
+					String[] split = row.split("\\s+");
+					int key = Integer.parseInt(split[0]);
+					misma.loadEditRoutes(r.get(key), level);
 					//misma.loadEditFuel(level);
 				}
 			});

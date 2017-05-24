@@ -1,6 +1,7 @@
 package edu.grupp1.ui;
 
 import java.awt.Dimension;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -16,7 +17,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import edu.grupp1.data.datatransferobject.DataTransferObject;
+import edu.grupp1.domain.Route;
 import edu.grupp1.domain.domainfacade.DomainFacade;
+import edu.grupp1.data.dto.RouteData;
 
 public class EditRoutes extends JPanel{
 	
@@ -26,12 +30,11 @@ public class EditRoutes extends JPanel{
 	private String msg;
 	private double t;
 	
-	public EditRoutes(Misma misma, DomainFacade domain, int level, Object routeRow){
+	public EditRoutes(Misma misma, DomainFacade domain, int level, Route routeRow){
 		String row = routeRow.toString();
-		String[] split = row.split("\\s+");
 		String [] message = {"x2000", "900", "30s"};
-		int id = Integer.parseInt(split[0]);
-		String user = split[12];
+		int id = routeRow.getId();
+		String user = routeRow.getUser();
 		
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
@@ -46,13 +49,13 @@ public class EditRoutes extends JPanel{
 		
 		JLabel label = new JLabel("Edit:" );
 		JComboBox editTruck = new JComboBox(message);
-		JTextField editFrom = new JTextField(split[2]);
-		JTextField editTo = new JTextField(split[4]);
-		JTextField editDistance = new JTextField(split[6]);
+		JTextField editFrom = new JTextField(routeRow.getStart());
+		JTextField editTo = new JTextField(routeRow.getEnd());
+		JTextField editDistance = new JTextField(Double.toString(routeRow.getDistance()));
 		JButton changeEmissions = new JButton("Change");
 		
 		
-		editTruck.setSelectedItem(split[10]);
+		editTruck.setSelectedItem(routeRow.getVehicle());
 		editTruck.addActionListener(new ActionListener(){
 
 			@Override
@@ -105,7 +108,16 @@ public class EditRoutes extends JPanel{
 		    	String editTo1 = editTo.getText();
 		    	Double editDistance1 = Double.parseDouble(editDistance.getText());
 		    	
-		        domain.updateRoute(editFrom1, editTo1, editDistance1, t, user, id, msg);
+		    	routeRow.setId(id);
+		    	routeRow.setStart(editFrom1);
+		    	routeRow.setEnd(editTo1);
+		    	routeRow.setDistance(editDistance1);
+		    	routeRow.setUser(user);
+		    	routeRow.setFuelConsumption(t);
+
+		    	
+		    	
+		        domain.updateRoute(routeRow);
 		        add(jlabel);
 		        validate();
 		    }
