@@ -96,6 +96,14 @@ public class FuelData extends DataTransferObject {
 		this.dateTo = dateTo;
 	}
 	
+	public double getEmissionRate() {
+		return emissionRate;
+	}
+
+	public void setEmissionRate(double emissionRate) {
+		this.emissionRate = emissionRate;
+	}
+
 	
 
 }
