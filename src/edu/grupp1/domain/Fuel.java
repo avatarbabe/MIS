@@ -53,6 +53,7 @@ public class Fuel {
 		
 		calculator = new Calculator();
 		emission = calculator.calculateFuel(volume, emissionRate);
+		System.out.println(emission);
 	}
 
 	public double getVolume() {
