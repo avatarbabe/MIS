@@ -23,7 +23,8 @@ public class UserDataBroker extends Broker {
 	public List<DataTransferObject> find(DataTransferObject data) {
 
 		List<DataTransferObject> dtos = new ArrayList<>();
-
+		
+		//Simple cache för inlogg
 		if (cache.containsKey(((UserData) data).getUsername()) && ((UserData) data).getPassword()
 				.equals((((UserData) cache.get(((UserData) data).getUsername())).getPassword()))) {
 			
