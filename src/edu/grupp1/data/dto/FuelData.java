@@ -3,6 +3,8 @@ package edu.grupp1.data.dto;
 import edu.grupp1.data.datatransferobject.DataTransferObject;
 import edu.grupp1.domain.Fuel;
 
+//Ärver från superklassen DataTransferObject
+
 public class FuelData extends DataTransferObject {
 	private int id;
 	private double volume;
@@ -95,7 +97,7 @@ public class FuelData extends DataTransferObject {
 	public void setDateTo(String dateTo) {
 		this.dateTo = dateTo;
 	}
-	
+
 	public double getEmissionRate() {
 		return emissionRate;
 	}
@@ -103,7 +105,5 @@ public class FuelData extends DataTransferObject {
 	public void setEmissionRate(double emissionRate) {
 		this.emissionRate = emissionRate;
 	}
-
-	
 
 }

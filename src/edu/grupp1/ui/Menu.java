@@ -30,7 +30,8 @@ public class Menu extends JPanel{
 		setPreferredSize(new Dimension(400, 400));
 		setFocusable(true);
 		add(Box.createRigidArea(new Dimension(200, 100)));
-		
+
+		//Olika states beroende på vem som loggar in 
 		switch(level){
 			case 2: addMenu3(misma, level);
 			case 1: addMenu2(misma, level);
