@@ -1,4 +1,4 @@
-package edu.grupp1.ui;
+package edu.grupp1.ui.swing;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -10,6 +10,7 @@ import edu.grupp1.data.datatransferobject.DataTransferObject;
 import edu.grupp1.domain.Fuel;
 import edu.grupp1.domain.Route;
 import edu.grupp1.domain.domainfacade.DomainFacade;
+import edu.grupp1.ui.observer.IObserver;
 
 public class Misma extends JFrame implements IObserver{
 	

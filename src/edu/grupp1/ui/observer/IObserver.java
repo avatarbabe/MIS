@@ -1,4 +1,4 @@
-package edu.grupp1.ui;
+package edu.grupp1.ui.observer;
 
 public interface IObserver {
 

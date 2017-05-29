@@ -1,4 +1,4 @@
-package edu.grupp1.ui;
+package edu.grupp1.ui.swing;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -21,6 +21,8 @@ import edu.grupp1.data.datafacade.DataFacade;
 import edu.grupp1.data.dto.UserData;
 import edu.grupp1.domain.User;
 import edu.grupp1.domain.domainfacade.DomainFacade;
+import edu.grupp1.ui.observer.IObserver;
+import edu.grupp1.ui.observer.ISubject;
 
 public class Login extends JPanel implements ISubject{
 	

@@ -14,7 +14,7 @@ import edu.grupp1.domain.Fuel;
 import edu.grupp1.domain.Route;
 import edu.grupp1.domain.Taxes;
 import edu.grupp1.domain.User;
-import edu.grupp1.ui.Menu;
+import edu.grupp1.ui.swing.Menu;
 
 public class DomainFacade {
 

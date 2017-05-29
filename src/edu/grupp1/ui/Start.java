@@ -1,8 +1,8 @@
-package test;
+package edu.grupp1.ui;
 
 import edu.grupp1.data.datafacade.DataFacade;
 import edu.grupp1.domain.domainfacade.DomainFacade;
-import edu.grupp1.ui.Misma;
+import edu.grupp1.ui.swing.Misma;
 
 public class Start {
 	

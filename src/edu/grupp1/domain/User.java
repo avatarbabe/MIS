@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import edu.grupp1.data.datatransferobject.DataTransferObject;
 import edu.grupp1.data.dto.RouteData;
 import edu.grupp1.data.dto.UserData;
-import edu.grupp1.ui.IObserver;
-import edu.grupp1.ui.ISubject;
-import edu.grupp1.ui.Misma;
+import edu.grupp1.ui.observer.IObserver;
+import edu.grupp1.ui.observer.ISubject;
+import edu.grupp1.ui.swing.Misma;
 
 public class User {
 	private String username;

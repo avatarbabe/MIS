@@ -1,4 +1,4 @@
-package edu.grupp1.ui;
+package edu.grupp1.ui.swing;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

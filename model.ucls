@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.0" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="edu.grupp1.data.broker.Broker" project="MIS" 
+    file="/MIS/src/edu/grupp1/data/broker/Broker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="149" y="267"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="edu.grupp1.data.broker.FuelDataBroker" project="MIS" 
+    file="/MIS/src/edu/grupp1/data/broker/FuelDataBroker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="710" y="599"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="edu.grupp1.data.broker.TaxesDataBroker" project="MIS" 
+    file="/MIS/src/edu/grupp1/data/broker/TaxesDataBroker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-65" y="914"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="edu.grupp1.data.broker.RouteDataBroker" project="MIS" 
+    file="/MIS/src/edu/grupp1/data/broker/RouteDataBroker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-267" y="701"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="edu.grupp1.data.broker.UserDataBroker" project="MIS" 
+    file="/MIS/src/edu/grupp1/data/broker/UserDataBroker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="390" y="932"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="edu.grupp1.data.datafacade.DataFacade" project="MIS" 
+    file="/MIS/src/edu/grupp1/data/datafacade/DataFacade.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="269" y="2273"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="edu.grupp1.data.datatransferobject.DataTransferObject" project="MIS" 
+    file="/MIS/src/edu/grupp1/data/datatransferobject/DataTransferObject.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1318" y="535"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="edu.grupp1.data.dto.FuelData" project="MIS" 
+    file="/MIS/src/edu/grupp1/data/dto/FuelData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="826" y="1327"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="edu.grupp1.data.dto.RouteData" project="MIS" 
+    file="/MIS/src/edu/grupp1/data/dto/RouteData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1272" y="1358"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="edu.grupp1.data.dto.TaxesData" project="MIS" 
+    file="/MIS/src/edu/grupp1/data/dto/TaxesData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1623" y="1176"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="edu.grupp1.data.dto.UserData" project="MIS" 
+    file="/MIS/src/edu/grupp1/data/dto/UserData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1853" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="edu.grupp1.domain.Fuel" project="MIS" file="/MIS/src/edu/grupp1/domain/Fuel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-343" y="1490"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="edu.grupp1.domain.Route" project="MIS" 
+    file="/MIS/src/edu/grupp1/domain/Route.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-684" y="1548"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="edu.grupp1.domain.Taxes" project="MIS" 
+    file="/MIS/src/edu/grupp1/domain/Taxes.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-3" y="1311"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="edu.grupp1.domain.User" project="MIS" file="/MIS/src/edu/grupp1/domain/User.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="395" y="1319"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="edu.grupp1.domain.domainfacade.DomainFacade" project="MIS" 
+    file="/MIS/src/edu/grupp1/domain/domainfacade/DomainFacade.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="239" y="1799"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="edu.grupp1.ui.swing.EditFuel" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/swing/EditFuel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1540" y="2030"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="edu.grupp1.ui.swing.EditRoutes" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/swing/EditRoutes.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1557" y="2424"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="edu.grupp1.ui.swing.EditTax" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/swing/EditTax.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1522" y="2611"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="edu.grupp1.ui.swing.FutureProjections" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/swing/FutureProjections.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1555" y="1844"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="21" language="java" name="edu.grupp1.ui.observer.IObserver" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/observer/IObserver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1071" y="2255"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="22" language="java" name="edu.grupp1.ui.observer.ISubject" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/observer/ISubject.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1242" y="2406"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="23" language="java" name="edu.grupp1.ui.swing.Login" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/swing/Login.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1075" y="2731"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="edu.grupp1.ui.swing.Menu" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/swing/Menu.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1851" y="2102"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="edu.grupp1.ui.swing.Misma" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/swing/Misma.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1239" y="1914"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="edu.grupp1.ui.swing.NewUser" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/swing/NewUser.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1884" y="1853"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="edu.grupp1.ui.swing.RegisterFuel" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/swing/RegisterFuel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1539" y="2227"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="edu.grupp1.ui.swing.RegisterRoutes" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/swing/RegisterRoutes.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="172" width="295" x="539" y="1875"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="edu.grupp1.ui.swing.ViewEmission" project="MIS" 
+    file="/MIS/src/edu/grupp1/ui/swing/ViewEmission.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1752" y="536"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="30">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="31" name="aUser"/>      
+      <multiplicity id="32" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="33">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="34" name="cache"/>      
+      <multiplicity id="35" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="37" name="idRoute"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="40">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="41">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="42" name="cache"/>      
+      <multiplicity id="43" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="44">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="45" name="domain"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="47">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="48" name="misma"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="51">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="52" name="tax"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="55" name="idFuel"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="58" name="domain"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="61" name="observer"/>      
+      <multiplicity id="62" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="63">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <realization id="64">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="65">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="66" name="data"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="68">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="69" name="users"/>      
+      <multiplicity id="70" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="71">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="72" name="data"/>      
+      <multiplicity id="73" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="74">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="75">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="77">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="78" name="data"/>      
+      <multiplicity id="79" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="80">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="81">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="82" name="cache"/>      
+      <multiplicity id="83" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="84">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="22"/>  
+  </realization>  
+  <association id="85">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="86" name="domain"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
