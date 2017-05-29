@@ -12,6 +12,7 @@ public class TaxesData extends DataTransferObject {
 
 	public TaxesData(double taxRate) {
 		this.taxrate = taxRate;
+		id = 1;
 	}
 
 	public TaxesData(Taxes tax) {

@@ -79,4 +79,9 @@ public abstract class Broker {
 	public abstract void update(DataTransferObject data);
 	
 
+	public void putInCache(DataTransferObject data) {
+		cache.put(data.getId(), data);
+		
+	}
+
 }

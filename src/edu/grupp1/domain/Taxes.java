@@ -16,6 +16,7 @@ public class Taxes {
 
 	public Taxes(Double taxrate) {
 		this.taxrate = taxrate;
+		id = 1;
 	}
 
 	public Taxes() {
