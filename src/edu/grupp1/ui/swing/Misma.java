@@ -14,7 +14,7 @@ import edu.grupp1.ui.observer.IObserver;
 
 public class Misma extends JFrame implements IObserver{
 	
-	//registrera i domï¿½nlagret som lyssnare subjekt.register(this)
+	//registrera i domänlagret som lyssnare subjekt.register(this)
 	
 	private DataFacade data;
 	private DomainFacade domain;

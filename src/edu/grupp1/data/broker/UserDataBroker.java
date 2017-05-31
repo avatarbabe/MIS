@@ -25,6 +25,7 @@ public class UserDataBroker extends Broker {
 		List<DataTransferObject> dtos = new ArrayList<>();
 		
 		//Simple cache för inlogg
+		//Kollar om username och password stämmer överens med något i hashmappen
 		if (cache.containsKey(((UserData) data).getUsername()) && ((UserData) data).getPassword()
 				.equals((((UserData) cache.get(((UserData) data).getUsername())).getPassword()))) {
 			
@@ -103,5 +104,11 @@ public class UserDataBroker extends Broker {
 	public void update(DataTransferObject data) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void delete(DataTransferObject data) {
+		// TODO Auto-generated method stub
+		
 	}
 }

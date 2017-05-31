@@ -24,6 +24,7 @@ import edu.grupp1.domain.domainfacade.DomainFacade;
 import edu.grupp1.ui.observer.IObserver;
 import edu.grupp1.ui.observer.ISubject;
 
+//Observer subject
 public class Login extends JPanel implements ISubject{
 	
 	private DataFacade data;
@@ -116,15 +117,4 @@ public class Login extends JPanel implements ISubject{
 		misma.update();
 	}
 	
-//	public void setLevel(String username, Misma misma){
-//		if (username.equals("truckdriver")){
-//			level = 0;
-//		} else if (username.equals("ceo")){
-//			level = 1;
-//		} else if (username.equals("official")){
-//			level = 2;
-//		}
-//		
-//		misma.loadMenu(domain.findLevel());
-//	}
 }

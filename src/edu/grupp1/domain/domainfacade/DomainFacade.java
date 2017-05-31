@@ -52,7 +52,7 @@ public class DomainFacade {
 		data.save(route.transform());
 
 	}
-
+	//Skapar ny fuel och gör om till DTO som skickas vidare till datafacaden
 	public void saveFuel(double volume, String fuelType, double emissionRate) {
 
 		Fuel fuel = new Fuel(volume, fuelType, emissionRate, aUser.getUsername());

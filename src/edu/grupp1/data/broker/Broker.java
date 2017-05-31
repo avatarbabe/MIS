@@ -48,7 +48,9 @@ public abstract class Broker {
 
 		List<DataTransferObject> dtos = new ArrayList<>();
 		
-		//Simple cache för taxes 
+		//Simple cache
+		//Kollar hashmappen efter DTO:ns ID, om det finns returneras den från hashmappen
+		//Annars hämtas datan från databasen
 		if (cache.containsKey(data.getId())) {
 			dtos.add(cache.get(data.getId()));
 			System.out.println("Cache!");
@@ -77,6 +79,8 @@ public abstract class Broker {
 	public abstract List<DataTransferObject> findAll();
 
 	public abstract void update(DataTransferObject data);
+	
+	public abstract void delete(DataTransferObject data);
 	
 
 }

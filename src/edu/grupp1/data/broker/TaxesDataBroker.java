@@ -82,4 +82,10 @@ public class TaxesDataBroker extends Broker {
 
 	}
 
+	@Override
+	public void delete(DataTransferObject data) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
